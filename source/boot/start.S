@@ -23,11 +23,17 @@ _start:
 	# 显示字符 int 10，ah = 0xe, al = 字符ascii
 	mov $0xe, %ah
 	mov $'M', %al
+	int $0x10
 	mov $'I', %al
+	int $0x10
 	mov $'N', %al
+	int $0x10
 	mov $'I', %al
+	int $0x10
 	mov $'-', %al
+	int $0x10
 	mov $'O', %al
+	int $0x10
 	mov $'S', %al
 	int $0x10
 	jmp .
