@@ -10,7 +10,7 @@ ELF Header:
   Version:                           0x1
   Entry point address:               0x7c00
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          5004 (bytes into file)
+  Start of section headers:          5040 (bytes into file)
   Flags:                             0x0
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -22,18 +22,18 @@ ELF Header:
 Section Headers:
   [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
   [ 0]                   NULL            00000000 000000 000000 00      0   0  0
-  [ 1] .text             PROGBITS        00007c00 000c00 00003d 00  AX  0   0  1
+  [ 1] .text             PROGBITS        00007c00 000c00 00004e 00  AX  0   0  1
   [ 2] boot_end          PROGBITS        00007dfe 000dfe 000002 00  AX  0   0  1
   [ 3] .comment          PROGBITS        00000000 000e00 000011 01  MS  0   0  1
   [ 4] .debug_aranges    PROGBITS        00000000 000e18 000040 00      0   0  8
   [ 5] .debug_info       PROGBITS        00000000 000e58 0000d9 00      0   0  1
   [ 6] .debug_abbrev     PROGBITS        00000000 000f31 000040 00      0   0  1
-  [ 7] .debug_line       PROGBITS        00000000 000f71 0000f2 00      0   0  1
-  [ 8] .debug_frame      PROGBITS        00000000 001064 000034 00      0   0  4
-  [ 9] .debug_str        PROGBITS        00000000 001098 0000fe 01  MS  0   0  1
-  [10] .symtab           SYMTAB          00000000 001198 000120 10     11  13  4
-  [11] .strtab           STRTAB          00000000 0012b8 000054 00      0   0  1
-  [12] .shstrtab         STRTAB          00000000 00130c 000080 00      0   0  1
+  [ 7] .debug_line       PROGBITS        00000000 000f71 0000f9 00      0   0  1
+  [ 8] .debug_frame      PROGBITS        00000000 00106c 000034 00      0   0  4
+  [ 9] .debug_str        PROGBITS        00000000 0010a0 0000fe 01  MS  0   0  1
+  [10] .symtab           SYMTAB          00000000 0011a0 000130 10     11  14  4
+  [11] .strtab           STRTAB          00000000 0012d0 000060 00      0   0  1
+  [12] .shstrtab         STRTAB          00000000 001330 000080 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
   L (link order), O (extra OS processing required), G (group), T (TLS),
@@ -44,7 +44,7 @@ There are no section groups in this file.
 
 Program Headers:
   Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
-  LOAD           0x000000 0x00007000 0x00007000 0x00c3d 0x00c3d R E 0x1000
+  LOAD           0x000000 0x00007000 0x00007000 0x00c4e 0x00c4e R E 0x1000
   LOAD           0x000dfe 0x00007dfe 0x00007dfe 0x00002 0x00002 R E 0x1000
 
  Section to Segment mapping:
@@ -58,7 +58,7 @@ There are no relocations in this file.
 
 The decoding of unwind sections for machine type Intel 80386 is not currently supported.
 
-Symbol table '.symtab' contains 18 entries:
+Symbol table '.symtab' contains 19 entries:
    Num:    Value  Size Type    Bind   Vis      Ndx Name
      0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
      1: 00007c00     0 SECTION LOCAL  DEFAULT    1 
@@ -71,12 +71,13 @@ Symbol table '.symtab' contains 18 entries:
      8: 00000000     0 SECTION LOCAL  DEFAULT    8 
      9: 00000000     0 SECTION LOCAL  DEFAULT    9 
     10: 00000000     0 FILE    LOCAL  DEFAULT  ABS CMakeFiles/boot.dir/start
-    11: 00007dfe     0 NOTYPE  LOCAL  DEFAULT    2 boot_sig
-    12: 00000000     0 FILE    LOCAL  DEFAULT  ABS boot.c
-    13: 00007c33    10 FUNC    GLOBAL DEFAULT    1 boot_entry
-    14: 00007c00     0 NOTYPE  GLOBAL DEFAULT    1 _start
-    15: 00008c3d     0 NOTYPE  GLOBAL DEFAULT    1 __bss_start
-    16: 00008c3d     0 NOTYPE  GLOBAL DEFAULT    1 _edata
-    17: 00008c40     0 NOTYPE  GLOBAL DEFAULT    1 _end
+    11: 00007c31     0 NOTYPE  LOCAL  DEFAULT    1 read_loader
+    12: 00007dfe     0 NOTYPE  LOCAL  DEFAULT    2 boot_sig
+    13: 00000000     0 FILE    LOCAL  DEFAULT  ABS boot.c
+    14: 00007c44    10 FUNC    GLOBAL DEFAULT    1 boot_entry
+    15: 00007c00     0 NOTYPE  GLOBAL DEFAULT    1 _start
+    16: 00008c4e     0 NOTYPE  GLOBAL DEFAULT    1 __bss_start
+    17: 00008c4e     0 NOTYPE  GLOBAL DEFAULT    1 _edata
+    18: 00008c50     0 NOTYPE  GLOBAL DEFAULT    1 _end
 
 No version information found in this file.
