@@ -127,8 +127,9 @@ read_loader:
 	jc read_loader   # 判断CF标志，如果为1就跳转
     7c40:	72 ef                	jb     7c31 <read_loader>
 
-	jmp boot_entry
+	jmp boot_entry   # 跳转到boot.c中的boot_entry()
     7c42:	e9 02 00             	jmp    7c47 <boot_entry>
+					 # 读取C程序的内容
 
 	jmp .
     7c45:	eb fe                	jmp    7c45 <read_loader+0x14>

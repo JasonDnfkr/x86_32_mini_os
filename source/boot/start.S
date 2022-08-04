@@ -47,7 +47,8 @@ read_loader:
 	int $ 0x13
 	jc read_loader   # 判断CF标志，如果为1就跳转
 
-	jmp boot_entry
+	jmp boot_entry   # 跳转到boot.c中的boot_entry()
+					 # 读取C程序的内容
 
 	jmp .
 	

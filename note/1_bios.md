@@ -70,3 +70,6 @@ boot和loader分属两个工程，共生成两个bin文件。
 从boot跳到loader，只知道loader的起始地址为0x8000，所以采用函数指针转换。`((void (*)(void))LOADER_START_ADDR)()` 即认为在0x8000地址处存放了这种类型的函数的代码，通过调用函数函数进入到loader中运行。
 
 注：无论是boot还是loader，其工程均已经配置好让`start.S`中的代码位于生成的bin文件开头。所以无论是boot还是loader，其最开头的指令总是程序的入口指令。
+
+
+
