@@ -791,7 +791,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "2"
+			"value" : "3"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -1296,6 +1296,42 @@
 			],
 			"type" : "STATIC",
 			"value" : "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/boot"
+		},
+		{
+			"name" : "loader_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader"
+		},
+		{
+			"name" : "loader_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "loader_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader"
 		},
 		{
 			"name" : "os_BINARY_DIR",

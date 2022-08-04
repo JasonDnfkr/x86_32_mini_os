@@ -1,4 +1,4 @@
-# Install script for directory: E:/Data/Work/Job/Cpp/diy-x86os/start/start
+# Install script for directory: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,20 +37,3 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-objdump.exe")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/boot/cmake_install.cmake")
-  include("E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader/cmake_install.cmake")
-
-endif()
-
-if(CMAKE_INSTALL_COMPONENT)
-  set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
-else()
-  set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
-endif()
-
-string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
-       "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/${CMAKE_INSTALL_MANIFEST}"
-     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
