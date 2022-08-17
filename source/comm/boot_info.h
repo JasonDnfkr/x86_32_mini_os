@@ -14,4 +14,8 @@ typedef struct _boot_info_t {
     int ram_region_count;   // 指示ram_region_cfg多少个数组是有效的
 } boot_into_t;
 
+
+#define SECTOR_SIZE             512
+#define SYS_KERNEL_LOAD_ADDR    (1024 * 1024)   // 内核应该被放在的地址位置, 1024 * 1024 = 1 MiB
+
 #endif
