@@ -15,7 +15,7 @@ typedef struct _boot_info_t {
 } boot_into_t;
 
 
-#define SECTOR_SIZE             512
+#define SECTOR_SIZE             512             // 磁盘扇区大小
 #define SYS_KERNEL_LOAD_ADDR    (1024 * 1024)   // 内核应该被放在的地址位置, 1024 * 1024 = 1 MiB
 
 #endif

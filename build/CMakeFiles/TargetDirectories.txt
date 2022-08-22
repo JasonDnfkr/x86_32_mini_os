@@ -6,3 +6,6 @@ E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/boot/CMakeFiles/rebuild_
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader/CMakeFiles/loader.dir
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader/CMakeFiles/edit_cache.dir
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader/CMakeFiles/rebuild_cache.dir
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/CMakeFiles/kernel.dir
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/CMakeFiles/edit_cache.dir
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/CMakeFiles/rebuild_cache.dir

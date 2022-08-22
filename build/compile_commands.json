@@ -23,5 +23,15 @@
   "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader",
   "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/loader.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/loader.dir/loader_32.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/loader_32.c",
   "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/loader_32.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_ASM.rsp -m32 -g -g -o CMakeFiles/kernel.dir/init/start.S.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start.S",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start.S"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/init/init.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c"
 }
 ]
