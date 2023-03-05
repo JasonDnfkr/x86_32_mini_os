@@ -127,6 +127,9 @@
 		},
 		{
 			"path" : "source/boot/CMakeLists.txt"
+		},
+		{
+			"path" : "source/loader/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

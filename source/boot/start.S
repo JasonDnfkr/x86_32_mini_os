@@ -9,6 +9,7 @@
   	.code16
  	.text
 	.global _start
+	.extern boot_entry
 
 _start:
 	mov $0, %ax
@@ -45,6 +46,8 @@ read_loader:
 	mov $0x80,	 %dx # DH 磁头，DL 驱动器: 80H 硬盘
 	int $ 0x13
 	jc read_loader   # 判断CF标志，如果为1就跳转
+
+	jmp boot_entry
 
 	jmp .
 	
