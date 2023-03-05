@@ -1,0 +1,5 @@
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/edit_cache.dir
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/rebuild_cache.dir
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/boot/CMakeFiles/boot.dir
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/boot/CMakeFiles/edit_cache.dir
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/boot/CMakeFiles/rebuild_cache.dir
