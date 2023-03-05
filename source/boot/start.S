@@ -36,6 +36,16 @@ _start:
 	int $0x10
 	mov $'S', %al
 	int $0x10
+
+read_loader:
+	mov $0x8000, %bx # 缓冲区地址
+	mov $0x02,	 %ah 
+	mov $0x02,	 %cx # CH 柱面， CL 扇区
+	mov $64,	 %al # 64 = 32kb
+	mov $0x80,	 %dx # DH 磁头，DL 驱动器: 80H 硬盘
+	int $ 0x13
+	jc read_loader   # 判断CF标志，如果为1就跳转
+
 	jmp .
 	
 	# 引导结束段
