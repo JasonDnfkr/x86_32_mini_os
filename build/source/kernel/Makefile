@@ -90,14 +90,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles E:/Data/Work/Job/Cpp/diy-x86os/start/start/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(CMAKE_COMMAND) -E cmake_progress_start E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel//CMakeFiles/progress.marks
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/kernel/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/kernel/clean
 .PHONY : clean
 
 # The main clean target
@@ -106,57 +106,64 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/kernel/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/kernel/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named boot
+# Convenience name for target.
+source/kernel/CMakeFiles/kernel.dir/rule:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/kernel/CMakeFiles/kernel.dir/rule
+.PHONY : source/kernel/CMakeFiles/kernel.dir/rule
 
-# Build rule for target.
-boot: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 boot
-.PHONY : boot
-
-# fast build rule for target.
-boot/fast:
-	$(MAKE) $(MAKESILENT) -f source/boot/CMakeFiles/boot.dir/build.make source/boot/CMakeFiles/boot.dir/build
-.PHONY : boot/fast
-
-#=============================================================================
-# Target rules for targets named loader
-
-# Build rule for target.
-loader: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 loader
-.PHONY : loader
-
-# fast build rule for target.
-loader/fast:
-	$(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/build
-.PHONY : loader/fast
-
-#=============================================================================
-# Target rules for targets named kernel
-
-# Build rule for target.
-kernel: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kernel
+# Convenience name for target.
+kernel: source/kernel/CMakeFiles/kernel.dir/rule
 .PHONY : kernel
 
 # fast build rule for target.
 kernel/fast:
-	$(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/build
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/build
 .PHONY : kernel/fast
+
+init/init.obj: init/init.c.obj
+.PHONY : init/init.obj
+
+# target to build an object file
+init/init.c.obj:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/init.c.obj
+.PHONY : init/init.c.obj
+
+init/init.i: init/init.c.i
+.PHONY : init/init.i
+
+# target to preprocess a source file
+init/init.c.i:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/init.c.i
+.PHONY : init/init.c.i
+
+init/init.s: init/init.c.s
+.PHONY : init/init.s
+
+# target to generate assembly for a file
+init/init.c.s:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/init.c.s
+.PHONY : init/init.c.s
+
+init/start.obj: init/start.S.obj
+.PHONY : init/start.obj
+
+# target to build an object file
+init/start.S.obj:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/start.S.obj
+.PHONY : init/start.S.obj
 
 # Help Target
 help:
@@ -166,9 +173,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... boot"
 	@echo "... kernel"
-	@echo "... loader"
+	@echo "... init/init.obj"
+	@echo "... init/init.i"
+	@echo "... init/init.s"
+	@echo "... init/start.obj"
 .PHONY : help
 
 
@@ -180,6 +189,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

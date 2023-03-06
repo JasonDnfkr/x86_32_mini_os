@@ -13,6 +13,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.25.0-rc3/CMakeRCCompiler.cmake"
   "CMakeFiles/3.25.0-rc3/CMakeSystem.cmake"
   "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/boot/CMakeLists.txt"
+  "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/CMakeLists.txt"
   "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/CMakeLists.txt"
   "E:/Environment/cmake-3.25.0-rc3-windows-x86_64/share/cmake-3.25/Modules/CMakeASMInformation.cmake"
   "E:/Environment/cmake-3.25.0-rc3-windows-x86_64/share/cmake-3.25/Modules/CMakeCInformation.cmake"
@@ -46,10 +47,12 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "source/boot/CMakeFiles/CMakeDirectoryInformation.cmake"
   "source/loader/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "source/kernel/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "source/boot/CMakeFiles/boot.dir/DependInfo.cmake"
   "source/loader/CMakeFiles/loader.dir/DependInfo.cmake"
+  "source/kernel/CMakeFiles/kernel.dir/DependInfo.cmake"
   )
