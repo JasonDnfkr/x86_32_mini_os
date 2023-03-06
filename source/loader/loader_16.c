@@ -77,13 +77,22 @@ static void enter_protect_mode(void) {
     uint8_t v = inb(0x92);
     outb(0x92, v | 0x02);
 
+    // 加载 gdt 表
     lgdt((uint32_t)gdt_table, sizeof(gdt_table));
+
+    // 写 cr0 寄存器
+    uint32_t cr0 = read_cr0();
+    write_cr0(cr0 | (1 << 0));
+
+    // 远跳转至保护模式入口
+    far_jump(8, (uint32_t)protect_mode_entry);
 }
 
 void loader_entry(void) {
     show_msg("....loading....\n\r");
     detect_memory();
     enter_protect_mode();
+
     while (1) { }
 }
 

@@ -30,8 +30,8 @@ static inline void sti(void) {
 static inline void lgdt(uint32_t start, uint32_t size) {
     struct {
         uint16_t limit;
-        uint32_t start15_0;
-        uint32_t start31_16;
+        uint16_t start15_0;
+        uint16_t start31_16;
     } gdt;
 
     gdt.start31_16 = start >> 16;
@@ -41,5 +41,24 @@ static inline void lgdt(uint32_t start, uint32_t size) {
     __asm__ __volatile__("lgdt %[g]"::[g]"m"(gdt));
 }
 
+
+static inline uint32_t read_cr0(void) {
+    uint32_t cr0;
+
+    __asm__ __volatile__("mov %%cr0, %[v]":[v]"=r"(cr0));
+    
+    return cr0;
+}
+
+
+static inline void write_cr0(uint32_t v) {
+    __asm__ __volatile__("mov %[v], %%cr0"::[v]"r"(v));
+}
+
+
+static inline void far_jump(uint32_t selector, uint32_t offset) {
+    uint32_t addr[] = { offset, selector };
+    __asm__ __volatile__("ljmpl *(%[a])"::[a]"r"(addr));
+}
 
 #endif
