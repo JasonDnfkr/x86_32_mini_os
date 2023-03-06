@@ -96,7 +96,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-m elf_i386  -Ttext=0x10000",
+				"fragment" : "-m elf_i386  -Ttext=0x100000",
 				"role" : "flags"
 			},
 			{

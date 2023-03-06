@@ -12,7 +12,7 @@ typedef struct _boot_info_t {
     } ram_region_cfg[BOOT_RAM_REGION_MAX];
 
     int ram_region_count;   // 指示ram_region_cfg多少个数组是有效的
-} boot_into_t;
+} boot_info_t;
 
 
 #define SECTOR_SIZE             512             // 磁盘扇区大小

@@ -4,7 +4,7 @@
 // 使用 LBA48 模式
 static void read_disk(uint32_t sector, int sector_count, uint8_t* buf) {
     outb(0x1f6, 0xE0);  // 驱动器号  选择硬盘：主盘或从盘
-    outb(0x1f2, (uint8_t)sector_count >> 8);
+    outb(0x1f2, (uint8_t)(sector_count >> 8));
     outb(0x1f3, (uint8_t)(sector >> 24));
     outb(0x1f4, 0);
     outb(0x1f5, 0);
@@ -31,10 +31,12 @@ static void read_disk(uint32_t sector, int sector_count, uint8_t* buf) {
 
 
 void load_kernel(void) {
-    read_disk(100, 500, (uint8_t*)SYS_KERNEL_LOAD_ADDR); // 内核放在第100个扇区（前面是loader）
-                                                         // 内核大小是250KiB
-
-    ((void (*)(void))SYS_KERNEL_LOAD_ADDR)();
+    read_disk(100, 500, (uint8_t*)SYS_KERNEL_LOAD_ADDR); // 函数功能：从第100个扇区开始，
+                                                         // 往后读500个扇区的内容（也就是250KiB）
+                                                         // 因为内核放在第100个扇区（前面是loader）
+                                                         // 也可以说明内核代码不会超过250KiB
+    // ((void (*)(void))SYS_KERNEL_LOAD_ADDR)();
+    ((void (*)(boot_info_t*))SYS_KERNEL_LOAD_ADDR)(&boot_info);
 
 
 
