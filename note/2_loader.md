@@ -78,3 +78,53 @@ LBA48模式将硬盘上所有的扇区看成线性排列，没有磁盘、柱面
 
 ![image-20230306214004850](2_loader_pic/image-20230306214004850.png)
 
+这一步做的事是：
+
+1.在bat文件里，
+
+```bash
+dd if=kernel.elf of=%DISK1_NAME% bs=512 conv=notrunc seek=100
+```
+
+将kernel.elf 写进磁盘的第100个扇区；
+
+
+
+2.在CMakeList里，将kernel工程下的输出目标设定为 > kernel.elf
+
+```cmake
+add_custom_command(TARGET ${PROJECT_NAME}
+                   POST_BUILD
+                   COMMAND ${OBJCOPY_TOOL} -O binary ${PROJECT_NAME}.elf ${CMAKE_SOURCE_DIR}/../../image/${PROJECT_NAME}.elf
+                   
+                   ...
+                   
+                   )
+```
+
+
+
+3.看函数: `read_disk(100, 500, (uint8_t*)SYS_KERNEL_LOAD_ADDR)`
+
+从第100个扇区开始，往后读500个扇区的内容（也就是250KiB）。因为内核放在第100个扇区（前面是loader），所以是100，也可以说明内核代码不会超过250KiB。
+
+
+
+#### 5. 向内核传递启动信息
+
+将内核的入口地址处视为存放着一个接收启动信息参数的函数，使用函数调用
+![image-20230306230946794](2_loader_pic/image-20230306230946794.png)
+
+需要了解一些函数调用时参数传递的知识
+
+
+
+![image-20230306231432324](2_loader_pic/image-20230306231432324.png)
+
+![image-20230307005322810](2_loader_pic/image-20230307005322810.png)
+
+
+
+即 在 init/start.S里开头写的就是`void start(boot_info_t*)` 
+
+init/start.S里需要写的汇编内容就是按照函数调用规范，取boot_info_t*的参数值。

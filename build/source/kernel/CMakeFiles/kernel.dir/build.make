@@ -27,9 +27,6 @@
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -115,7 +112,7 @@ source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/build.make
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/linkLibs.rsp
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/objects1
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable kernel.exe"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && x86_64-elf-ld @CMakeFiles/kernel.dir/objects1 -m elf_i386  -Ttext=0x10000 -o E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/kernel.elf
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && x86_64-elf-ld @CMakeFiles/kernel.dir/objects1 -m elf_i386  -Ttext=0x100000 -o E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/kernel.elf
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && x86_64-elf-objcopy -O binary kernel.elf E:/Data/Work/Job/Cpp/diy-x86os/start/start/../../image/kernel.elf
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && x86_64-elf-objdump -x -d -S -m i386 E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/kernel.elf > kernel_dis.txt
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && x86_64-elf-readelf -a E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/kernel.elf > kernel_elf.txt
