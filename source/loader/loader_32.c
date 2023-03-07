@@ -1,4 +1,5 @@
 #include "loader.h"
+#include "comm/elf.h"
 
 // 写寄存器读取磁盘
 // 使用 LBA48 模式
@@ -30,13 +31,60 @@ static void read_disk(uint32_t sector, int sector_count, uint8_t* buf) {
 }
 
 
+// 解析elf文件
+static uint32_t reload_elf_file(uint8_t* file_buffer) {
+    Elf32_Ehdr* elf_header = (Elf32_Ehdr*)file_buffer;
+    // 检查ELF文件头
+    if (elf_header->e_ident[0] != 0x7f || elf_header->e_ident[1] != 'E' 
+        || elf_header->e_ident[2] != 'L' || elf_header->e_ident[3] != 'F') {
+            return 0;
+    }
+
+    for (int i = 0; i < elf_header->e_phnum; i++) {
+        Elf32_Phdr* p_header = (Elf32_Phdr*)(file_buffer + elf_header->e_phoff) + i;
+
+        if (p_header->p_type != PT_LOAD) {
+            continue;
+        }
+
+        uint8_t* src = file_buffer + p_header->p_offset;
+        uint8_t* dest = (uint8_t*)p_header->p_paddr;
+        for (int j = 0; j < p_header->p_filesz; j++) {
+            *dest++ = *src++;
+        }
+
+        dest = (uint8_t*)p_header->p_paddr + p_header->p_filesz;
+
+        for (int j = 0; j < p_header->p_memsz - p_header->p_filesz; j++) {
+            *dest++ = 0;
+        }
+
+        // 返回入口地址
+        return elf_header->e_entry;
+    }
+}
+
+
+// loader_32 死机
+static void die(int code) {
+    while (1) {  }
+}
+
+
 void load_kernel(void) {
     read_disk(100, 500, (uint8_t*)SYS_KERNEL_LOAD_ADDR); // 函数功能：从第100个扇区开始，
                                                          // 往后读500个扇区的内容（也就是250KiB）
                                                          // 因为内核放在第100个扇区（前面是loader）
                                                          // 也可以说明内核代码不会超过250KiB
+
+    uint32_t kernel_entry_address = reload_elf_file((uint8_t*)SYS_KERNEL_LOAD_ADDR);
+
+    if (kernel_entry_address == 0) {
+        die(-1);
+    }
+
     // ((void (*)(void))SYS_KERNEL_LOAD_ADDR)();
-    ((void (*)(boot_info_t*))SYS_KERNEL_LOAD_ADDR)(&boot_info);
+    ((void (*)(boot_info_t*))0x10000)(&boot_info);
 
 
 
