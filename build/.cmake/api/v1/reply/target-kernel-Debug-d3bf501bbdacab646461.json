@@ -96,7 +96,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-m elf_i386  -Ttext=0x100000",
+				"fragment" : "-m elf_i386  -T E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/kernel.lds",
 				"role" : "flags"
 			},
 			{

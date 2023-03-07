@@ -128,3 +128,27 @@ add_custom_command(TARGET ${PROJECT_NAME}
 即 在 init/start.S里开头写的就是`void start(boot_info_t*)` 
 
 init/start.S里需要写的汇编内容就是按照函数调用规范，取boot_info_t*的参数值。
+
+
+
+#### 6. 代码数据段与链接脚本
+
+编译器将整个工程的代码和数据按照四个段存放。
+
+![image-20230307104243583](2_loader_pic/image-20230307104243583.png)
+
+.text 代码段
+
+.rodata 只读数据，存放常量和字符串本身
+
+> 一般存放 `const type`，如`const int`、`const char*`
+
+.data 存放初始化有非0值的数据，全局的或静态的
+
+> 存放已初始化（有非0初值）的（无论有无`static`的）全局变量 和 已初始化（有非0初值）的`static`局部变量
+
+.bss 存放未初始化的数据（即为0），全局的或静态的
+
+stack 局部变量
+
+**相同类型的段会自动进行合并**
