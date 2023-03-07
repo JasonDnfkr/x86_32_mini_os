@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/kernel.dir/init/init.c.obj"
   "CMakeFiles/kernel.dir/init/init.c.obj.d"
-  "CMakeFiles/kernel.dir/init/start.S.obj"
+  "CMakeFiles/kernel.dir/init/start_kernel.S.obj"
   "kernel.exe"
   "kernel.exe.manifest"
   "kernel.pdb"

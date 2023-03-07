@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
-  "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start.S" "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/CMakeFiles/kernel.dir/init/start.S.obj"
+  "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start_kernel.S" "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.obj"
   )
 set(CMAKE_ASM_COMPILER_ID "GNU")
 

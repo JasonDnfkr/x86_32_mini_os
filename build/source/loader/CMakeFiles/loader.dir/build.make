@@ -27,6 +27,9 @@
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -69,19 +72,19 @@ include source/loader/CMakeFiles/loader.dir/progress.make
 # Include the compile flags for this target's objects.
 include source/loader/CMakeFiles/loader.dir/flags.make
 
-source/loader/CMakeFiles/loader.dir/start.S.obj: source/loader/CMakeFiles/loader.dir/flags.make
-source/loader/CMakeFiles/loader.dir/start.S.obj: source/loader/CMakeFiles/loader.dir/includes_ASM.rsp
-source/loader/CMakeFiles/loader.dir/start.S.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building ASM object source/loader/CMakeFiles/loader.dir/start.S.obj"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/loader.dir/start.S.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start.S
+source/loader/CMakeFiles/loader.dir/start_loader.S.obj: source/loader/CMakeFiles/loader.dir/flags.make
+source/loader/CMakeFiles/loader.dir/start_loader.S.obj: source/loader/CMakeFiles/loader.dir/includes_ASM.rsp
+source/loader/CMakeFiles/loader.dir/start_loader.S.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start_loader.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building ASM object source/loader/CMakeFiles/loader.dir/start_loader.S.obj"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/loader.dir/start_loader.S.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start_loader.S
 
-source/loader/CMakeFiles/loader.dir/start.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/loader.dir/start.S.i"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start.S > CMakeFiles/loader.dir/start.S.i
+source/loader/CMakeFiles/loader.dir/start_loader.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/loader.dir/start_loader.S.i"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start_loader.S > CMakeFiles/loader.dir/start_loader.S.i
 
-source/loader/CMakeFiles/loader.dir/start.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/loader.dir/start.S.s"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start.S -o CMakeFiles/loader.dir/start.S.s
+source/loader/CMakeFiles/loader.dir/start_loader.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/loader.dir/start_loader.S.s"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start_loader.S -o CMakeFiles/loader.dir/start_loader.S.s
 
 source/loader/CMakeFiles/loader.dir/loader_16.c.obj: source/loader/CMakeFiles/loader.dir/flags.make
 source/loader/CMakeFiles/loader.dir/loader_16.c.obj: source/loader/CMakeFiles/loader.dir/includes_C.rsp
@@ -115,14 +118,14 @@ source/loader/CMakeFiles/loader.dir/loader_32.c.s: cmake_force
 
 # Object files for target loader
 loader_OBJECTS = \
-"CMakeFiles/loader.dir/start.S.obj" \
+"CMakeFiles/loader.dir/start_loader.S.obj" \
 "CMakeFiles/loader.dir/loader_16.c.obj" \
 "CMakeFiles/loader.dir/loader_32.c.obj"
 
 # External object files for target loader
 loader_EXTERNAL_OBJECTS =
 
-source/loader/loader.exe: source/loader/CMakeFiles/loader.dir/start.S.obj
+source/loader/loader.exe: source/loader/CMakeFiles/loader.dir/start_loader.S.obj
 source/loader/loader.exe: source/loader/CMakeFiles/loader.dir/loader_16.c.obj
 source/loader/loader.exe: source/loader/CMakeFiles/loader.dir/loader_32.c.obj
 source/loader/loader.exe: source/loader/CMakeFiles/loader.dir/build.make

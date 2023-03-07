@@ -27,6 +27,9 @@
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -69,19 +72,19 @@ include source/kernel/CMakeFiles/kernel.dir/progress.make
 # Include the compile flags for this target's objects.
 include source/kernel/CMakeFiles/kernel.dir/flags.make
 
-source/kernel/CMakeFiles/kernel.dir/init/start.S.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
-source/kernel/CMakeFiles/kernel.dir/init/start.S.obj: source/kernel/CMakeFiles/kernel.dir/includes_ASM.rsp
-source/kernel/CMakeFiles/kernel.dir/init/start.S.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building ASM object source/kernel/CMakeFiles/kernel.dir/init/start.S.obj"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/kernel.dir/init/start.S.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start.S
+source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
+source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.obj: source/kernel/CMakeFiles/kernel.dir/includes_ASM.rsp
+source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start_kernel.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building ASM object source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.obj"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/kernel.dir/init/start_kernel.S.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start_kernel.S
 
-source/kernel/CMakeFiles/kernel.dir/init/start.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/kernel.dir/init/start.S.i"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start.S > CMakeFiles/kernel.dir/init/start.S.i
+source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/kernel.dir/init/start_kernel.S.i"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start_kernel.S > CMakeFiles/kernel.dir/init/start_kernel.S.i
 
-source/kernel/CMakeFiles/kernel.dir/init/start.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/kernel.dir/init/start.S.s"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start.S -o CMakeFiles/kernel.dir/init/start.S.s
+source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/kernel.dir/init/start_kernel.S.s"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start_kernel.S -o CMakeFiles/kernel.dir/init/start_kernel.S.s
 
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/includes_C.rsp
@@ -100,13 +103,13 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.s: cmake_force
 
 # Object files for target kernel
 kernel_OBJECTS = \
-"CMakeFiles/kernel.dir/init/start.S.obj" \
+"CMakeFiles/kernel.dir/init/start_kernel.S.obj" \
 "CMakeFiles/kernel.dir/init/init.c.obj"
 
 # External object files for target kernel
 kernel_EXTERNAL_OBJECTS =
 
-source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/init/start.S.obj
+source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/init/init.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/build.make
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/linkLibs.rsp
