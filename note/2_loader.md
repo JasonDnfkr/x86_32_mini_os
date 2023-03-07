@@ -152,3 +152,90 @@ init/start.S里需要写的汇编内容就是按照函数调用规范，取boot_
 stack 局部变量
 
 **相同类型的段会自动进行合并**
+
+```
+SECTIONS {
+    . = 0x100000;
+    .text : {
+        *(.text) 
+    }
+
+    .rodata : {
+        *(.rodata)
+    }
+
+    .data : {
+        *(.data)
+    }
+
+    .bss : {
+        *(.bss)
+    }
+}
+```
+
+
+
+#### 7. 加载内核映像文件
+
+**主要涉及到 ELF 文件的读取**。如果直接用链接器文本，以上面的脚本段方式来写程序的内存布局，则可能存在的问题是：
+
+以上面的程序为例，如果把 .data 段的起始位置设置的很大，如：
+
+```
+SECTIONS {
+    . = 0x100000;
+    .text : {
+        *(.text) 
+    }
+
+    .rodata : {
+        *(.rodata)
+    }
+
+	. = 0x80000000
+    .data : {
+        *(.data)
+    }
+
+    .bss : {
+        *(.bss)
+    }
+}
+```
+
+这样的生成方式会让最终生成的文件内存连续分布，即 .rodata 段和 .data 段中间的内容即使是全为0，但也会占内存。最终文件大小应该会在2G+以上。
+
+所以要使用ELF文件来实现分段加载程序的功能。
+
+ELF文件以代码加载的视角来看，分布如下：
+
+<img src="2_loader_pic/image-20230307123628249.png" alt="image-20230307123628249" style="zoom:50%;" />
+
+1. ELF header包含了该文件的全局性配置数据：
+
+<img src="2_loader_pic/image-20230307123658534.png" alt="image-20230307123658534" style="zoom: 67%;" />
+
+
+
+2. Program header table 的位置由字段 `Elf32_Off e_phoff` 指定， 该位置存储了以下结构体表项，表项数量由 `Elf32_Half e_phnum` 指定
+
+   <img src="2_loader_pic/image-20230307123900478.png" alt="image-20230307123900478" style="zoom:67%;" />
+
+该结构体描述了需要加载到内存中的相关配置信息，可以根据其中的配置，进行解析加载。根据以下分析，具体的加载过程如下：
+
+- 初步检查elf header的合法性
+- 通过elf header->e_phoff定位到programe header table，遍历elf header->e_phnum次，加载各个段
+
+- - 从文件位置p_offset处读取filesz大小的数据，写入到内存中paddr的位置处
+  - 如果p_filesz < p_memsz，则将部分内存清零（bss区初始化）
+
+- 取elf header->e_entry，跳转到该地址运行。
+
+从上述流程可以看出，在C代码中定义的未初始化的全局变量（分配在BSS区，初始值为0），并没有在ELF中分配相应的空间，需要自己在内存中手动清0.
+
+![image-20230307123146155](2_loader_pic/image-20230307123146155.png)
+
+
+
+**然后的设计是，把kernel.elf的内容加载到内存的0x100000（1MiB）处，然后解析elf，把kernel.elf的实际代码和数据存放在0x10000（64KiB）处**
