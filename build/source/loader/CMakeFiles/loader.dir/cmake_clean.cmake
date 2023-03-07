@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/loader.dir/loader_16.c.obj.d"
   "CMakeFiles/loader.dir/loader_32.c.obj"
   "CMakeFiles/loader.dir/loader_32.c.obj.d"
-  "CMakeFiles/loader.dir/start.S.obj"
+  "CMakeFiles/loader.dir/start_loader.S.obj"
   "libloader.dll.a"
   "loader.exe"
   "loader.exe.manifest"

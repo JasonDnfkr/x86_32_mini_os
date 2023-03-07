@@ -131,14 +131,14 @@
 				{
 					"directoryIndex" : 3,
 					"id" : "kernel::@483af936ae9a949d521e",
-					"jsonFile" : "target-kernel-Debug-f24a0d81fb26229829bf.json",
+					"jsonFile" : "target-kernel-Debug-f074fbb779ca9ef662e9.json",
 					"name" : "kernel",
 					"projectIndex" : 3
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "loader::@346703cd72729101d3c6",
-					"jsonFile" : "target-loader-Debug-c9e93f280ee83ce40cdd.json",
+					"jsonFile" : "target-loader-Debug-53ca154d28240d58cd6c.json",
 					"name" : "loader",
 					"projectIndex" : 2
 				}

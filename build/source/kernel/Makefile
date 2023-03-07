@@ -31,6 +31,9 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -154,13 +157,13 @@ init/init.c.s:
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/init.c.s
 .PHONY : init/init.c.s
 
-init/start.obj: init/start.S.obj
-.PHONY : init/start.obj
+init/start_kernel.obj: init/start_kernel.S.obj
+.PHONY : init/start_kernel.obj
 
 # target to build an object file
-init/start.S.obj:
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/start.S.obj
-.PHONY : init/start.S.obj
+init/start_kernel.S.obj:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.obj
+.PHONY : init/start_kernel.S.obj
 
 # Help Target
 help:
@@ -174,7 +177,7 @@ help:
 	@echo "... init/init.obj"
 	@echo "... init/init.i"
 	@echo "... init/init.s"
-	@echo "... init/start.obj"
+	@echo "... init/start_kernel.obj"
 .PHONY : help
 
 

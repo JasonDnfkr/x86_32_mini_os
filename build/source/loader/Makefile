@@ -31,6 +31,9 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -178,13 +181,13 @@ loader_32.c.s:
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/loader_32.c.s
 .PHONY : loader_32.c.s
 
-start.obj: start.S.obj
-.PHONY : start.obj
+start_loader.obj: start_loader.S.obj
+.PHONY : start_loader.obj
 
 # target to build an object file
-start.S.obj:
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/start.S.obj
-.PHONY : start.S.obj
+start_loader.S.obj:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/start_loader.S.obj
+.PHONY : start_loader.S.obj
 
 # Help Target
 help:
@@ -201,7 +204,7 @@ help:
 	@echo "... loader_32.obj"
 	@echo "... loader_32.i"
 	@echo "... loader_32.s"
-	@echo "... start.obj"
+	@echo "... start_loader.obj"
 .PHONY : help
 
 
