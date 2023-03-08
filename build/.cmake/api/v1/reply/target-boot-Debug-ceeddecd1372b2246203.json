@@ -57,6 +57,10 @@
 				{
 					"backtrace" : 3,
 					"path" : "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include"
 				}
 			],
 			"language" : "ASM",
@@ -77,6 +81,10 @@
 				{
 					"backtrace" : 3,
 					"path" : "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include"
 				}
 			],
 			"language" : "C",
