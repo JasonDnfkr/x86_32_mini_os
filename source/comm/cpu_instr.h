@@ -31,7 +31,7 @@ static inline void cli(void) {
 
 // sti
 static inline void sti(void) {
-    __asm__ __volatile("cli");
+    __asm__ __volatile("sti");
 }
 
 // lgdt 
