@@ -15,10 +15,11 @@ typedef struct _segment_desc_t {
 #pragma pack()
 
 
-// segment descriptor: G位
+// segment descriptor: G位，指示该内存大于 16 位 (64 KiB)
 #define SEG_G           (1 << 15)
 
-// segment descriptor: DPL位，控制某些代码段是16位还是32位。一般都需要设置此项
+// segment descriptor: DPL位，设置该段是32位代码
+// 控制某些代码段是16位还是32位。一般都需要设置此项
 #define SEG_D           (1 << 14)
 
 // segment descriptor: P位，指示当前的段描述符是否存在
@@ -33,7 +34,7 @@ typedef struct _segment_desc_t {
 // segment descriptor: S位，系统段
 #define SEG_S_SYSTEM    (0 << 4)
 
-// segment descriptor: S位，普通数据段
+// segment descriptor: S位，普通段
 #define SEG_S_NORMAL    (1 << 4)
 
 // segment descriptor: Type位，代码段
@@ -42,7 +43,9 @@ typedef struct _segment_desc_t {
 // segment descriptor: Type位，数据段
 #define SEG_TYPE_DATA   (0 << 3)
 
-// segment descriptor: Type位，可读写
+// segment descriptor: Type位
+// 对于数据段，置1指示该段可读写
+// 对于代码段，置1指示该段代码可读取可执行，置0指示该段代码只能执行
 #define SEG_TYPE_RW     (1 << 1)
 
 

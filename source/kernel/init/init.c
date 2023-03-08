@@ -17,5 +17,9 @@ void kernel_init(boot_info_t* boot_info) {
     __asm__ __volatile__("nop");
 
     cpu_init();
-    
+}
+
+
+void init_main(void) {
+    while (1) {  }
 }
