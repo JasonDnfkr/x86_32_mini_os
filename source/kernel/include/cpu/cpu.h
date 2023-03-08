@@ -36,6 +36,15 @@ typedef struct _segment_desc_t {
 // segment descriptor: S位，普通数据段
 #define SEG_S_NORMAL    (1 << 4)
 
+// segment descriptor: Type位，代码段
+#define SEG_TYPE_CODE   (1 << 3)
+
+// segment descriptor: Type位，数据段
+#define SEG_TYPE_DATA   (0 << 3)
+
+// segment descriptor: Type位，可读写
+#define SEG_TYPE_RW     (1 << 1)
+
 
 // 初始化 CPU 相关的数据结构
 void cpu_init(void);
