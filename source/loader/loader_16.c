@@ -63,9 +63,9 @@ static void detect_memory(void) {
 
 
 uint16_t gdt_table[][4] = {
-    { 0, 0, 0, 0 },
-    { 0xffff, 0x0000, 0x9a00, 0x00cf },
-    { 0xffff, 0x0000, 0x9200, 0x00cf },
+    { 0, 0, 0, 0 },                     // GDT 第一个表项：全为0
+    { 0xffff, 0x0000, 0x9a00, 0x00cf }, // GDT 第二个表项：代码段
+    { 0xffff, 0x0000, 0x9200, 0x00cf }, // GDT 第三个表项：数据段
 };
 
 
