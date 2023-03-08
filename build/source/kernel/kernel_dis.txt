@@ -108,11 +108,11 @@ gdt_reload:
    10026:	e9 32 01 00 00       	jmp    1015d <init_main>
 
 0001002b <lgdt>:
-static inline void sti(void) {
     __asm__ __volatile("cli");
 }
 
-// lgdt
+// lgdt 
+// 将 GDT 表加载进 内存中，即写GDTR寄存器，保存GDT表的地址
 static inline void lgdt(uint32_t start, uint32_t size) {
    1002b:	55                   	push   %ebp
    1002c:	89 e5                	mov    %esp,%ebp

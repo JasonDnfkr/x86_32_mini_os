@@ -34,7 +34,8 @@ static inline void sti(void) {
     __asm__ __volatile("cli");
 }
 
-// lgdt
+// lgdt 
+// 将 GDT 表加载进 内存中，即写GDTR寄存器，保存GDT表的地址
 static inline void lgdt(uint32_t start, uint32_t size) {
     struct {
         uint16_t limit;
