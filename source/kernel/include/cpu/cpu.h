@@ -31,10 +31,10 @@ typedef struct _segment_desc_t {
 // segment descriptor: DPL位，低特权级位
 #define SEG_DPL3        (3 << 5)
 
-// segment descriptor: S位，系统段
+// segment descriptor: S位，系统段 （中断，TSS）
 #define SEG_S_SYSTEM    (0 << 4)
 
-// segment descriptor: S位，普通段
+// segment descriptor: S位，普通段 （代码，数据）
 #define SEG_S_NORMAL    (1 << 4)
 
 // segment descriptor: Type位，代码段

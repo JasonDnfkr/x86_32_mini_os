@@ -173,11 +173,11 @@ static inline void cli(void) {
     8078:	66 c3                	retl   
 
 0000807a <lgdt>:
-static inline void sti(void) {
     __asm__ __volatile("cli");
 }
 
-// lgdt
+// lgdt 
+// 将 GDT 表加载进 内存中，即写GDTR寄存器，保存GDT表的地址
 static inline void lgdt(uint32_t start, uint32_t size) {
     807a:	66 55                	push   %ebp
     807c:	66 89 e5             	mov    %esp,%ebp
@@ -418,8 +418,8 @@ static void detect_memory(void) {
     8279:	66 c3                	retl   
 
 0000827b <enter_protect_mode>:
-    { 0xffff, 0x0000, 0x9a00, 0x00cf },
-    { 0xffff, 0x0000, 0x9200, 0x00cf },
+    { 0xffff, 0x0000, 0x9a00, 0x00cf }, // GDT 第二个表项：代码段
+    { 0xffff, 0x0000, 0x9200, 0x00cf }, // GDT 第三个表项：数据段
 };
 
 
