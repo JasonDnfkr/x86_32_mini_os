@@ -29,14 +29,14 @@ void segment_desc_set(int selector, uint32_t base, uint32_t limit, uint16_t attr
 
 void init_gdt(void) {
     for (int i = 0; i < GDT_TABLE_SIZE; i++) {
-        segment_desc_set(i << 3, 0, 0, 0);
+        segment_desc_set(i * sizeof(segment_desc_t), 0, 0, 0);
     }
     
     // 数据段
-    segment_desc_set(KERNEL_SELECTOR_DS, 0, 0xffffffff, 0x0abcd);
+    segment_desc_set(KERNEL_SELECTOR_DS, 0, 0xffffffff, SEG_P_PRESENT | SEG_DPL0 | SEG_S_NORMAL | SEG_TYPE_DATA | SEG_TYPE_RW | SEG_D);
 
     // 代码段
-    segment_desc_set(KERNEL_SELECTOR_CS, 0, 0xffffffff, 0x0abcd);
+    segment_desc_set(KERNEL_SELECTOR_CS, 0, 0xffffffff, SEG_P_PRESENT | SEG_DPL0 | SEG_S_NORMAL | SEG_TYPE_CODE | SEG_TYPE_RW | SEG_D);
 
     lgdt((uint32_t)gdt_table, sizeof(gdt_table));
 }
