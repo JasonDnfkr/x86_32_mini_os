@@ -25,3 +25,31 @@
 使用`lgdt`指令，可以将GDT表相关的信息加载到GDTR寄存器中。后续对寄存器的访问，都会通过其指向的GDT表。
 
 **重新加载的原因是，由于保护模式下访问内存必须通过GDT表，（CPU是通过GDTR寄存器储存的GDT地址来访问GDT表的），而之前的GDT表，存放的地址，是在loader_16.c中设置的，那个时候还没有内核，因此地址肯定是一个在0x10000（64KiB）前的地方。这段地址是废弃的，不应该继续使用。（工程中，设计是把GDT表存放在了内核的起始地址处）**
+
+
+
+#### 4. 中断
+
+![image-20230309192257660](3_interrupt_pic/image-20230309192257660.png)
+
+需要配置中断表(interrupt descriptor table)，存放在IDTR寄存器中
+
+![image-20230309193409735](3_interrupt_pic/image-20230309193409735.png)
+
+在内存中放置idt表，idt表的下标就相当于是中断向量表的序号。
+
+idt表的表项有selector，可以选择gdt表的表项，从gdt表项中取出基地址，再加上idt表中表项的offset字段即可找到中断处理程序入口。
+
+中断处理程序入口是一个汇编函数，是因为返回指令必须是`iret`
+
+##### 现场保护
+
+<img src="3_interrupt_pic/image-20230309221829139.png" alt="image-20230309221829139" style="zoom:67%;" />
+
+中断发生时，CPU会自动保存上图这些寄存器：EFLAGS，CS，EIP，Error Code？
+
+<img src="3_interrupt_pic/image-20230309222327924.png" alt="image-20230309222327924" style="zoom:67%;" />
+
+`pusha`指令可以保存EAX, EBX, ECX, EDX, ESI, EDI, EBP, ESP
+
+CS，DS，SS，ES，FS，GS 不会自动保存

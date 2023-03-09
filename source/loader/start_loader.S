@@ -11,9 +11,9 @@ _start:
 
 	.code32
 	.text
-	.global protect_mode_entry
+	.global protected_mode_entry
 	.extern load_kernel
-protect_mode_entry:
+protected_mode_entry:
 	mov $16, %ax
 	mov %ax, %ds
 	mov %ax, %ss

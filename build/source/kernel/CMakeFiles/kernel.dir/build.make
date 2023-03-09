@@ -98,11 +98,26 @@ source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kernel.dir/cpu/cpu.c.s"
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/cpu.c -o CMakeFiles/kernel.dir/cpu/cpu.c.s
 
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: source/kernel/CMakeFiles/kernel.dir/includes_C.rsp
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/irq.c
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: source/kernel/CMakeFiles/kernel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj -MF CMakeFiles/kernel.dir/cpu/irq.c.obj.d -o CMakeFiles/kernel.dir/cpu/irq.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/irq.c
+
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/kernel.dir/cpu/irq.c.i"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/irq.c > CMakeFiles/kernel.dir/cpu/irq.c.i
+
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kernel.dir/cpu/irq.c.s"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/irq.c -o CMakeFiles/kernel.dir/cpu/irq.c.s
+
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/includes_C.rsp
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object source/kernel/CMakeFiles/kernel.dir/init/init.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object source/kernel/CMakeFiles/kernel.dir/init/init.c.obj"
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT source/kernel/CMakeFiles/kernel.dir/init/init.c.obj -MF CMakeFiles/kernel.dir/init/init.c.obj.d -o CMakeFiles/kernel.dir/init/init.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c
 
 source/kernel/CMakeFiles/kernel.dir/init/init.c.i: cmake_force
@@ -117,6 +132,7 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.s: cmake_force
 kernel_OBJECTS = \
 "CMakeFiles/kernel.dir/init/start_kernel.S.obj" \
 "CMakeFiles/kernel.dir/cpu/cpu.c.obj" \
+"CMakeFiles/kernel.dir/cpu/irq.c.obj" \
 "CMakeFiles/kernel.dir/init/init.c.obj"
 
 # External object files for target kernel
@@ -124,11 +140,12 @@ kernel_EXTERNAL_OBJECTS =
 
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj
+source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/init/init.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/build.make
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/linkLibs.rsp
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/objects1
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable kernel.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable kernel.exe"
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && x86_64-elf-ld @CMakeFiles/kernel.dir/objects1 -m elf_i386  -T E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/kernel.lds -o E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/kernel.elf
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && x86_64-elf-objcopy -S kernel.elf E:/Data/Work/Job/Cpp/diy-x86os/start/start/../../image/kernel.elf
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && x86_64-elf-objdump -x -d -S -m i386 E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel/kernel.elf > kernel_dis.txt

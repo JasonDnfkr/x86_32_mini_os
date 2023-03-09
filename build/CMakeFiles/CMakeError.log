@@ -1,18 +1,18 @@
 Detecting C compiler ABI info failed to compile with the following output:
-Change Dir: E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-2pw9o1
+Change Dir: E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-ztptts
 
-Run Build Command(s):E:/Environment/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_c62b6/fast && E:/Environment/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_c62b6.dir/build.make CMakeFiles/cmTC_c62b6.dir/build
-make[1]: Entering directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-2pw9o1'
-Building C object CMakeFiles/cmTC_c62b6.dir/CMakeCCompilerABI.c.obj
-E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables    -v -o CMakeFiles/cmTC_c62b6.dir/CMakeCCompilerABI.c.obj -c E:/Environment/cmake-3.25.0-rc3-windows-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c
+Run Build Command(s):E:/Environment/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_f5db4/fast && E:/Environment/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_f5db4.dir/build.make CMakeFiles/cmTC_f5db4.dir/build
+make[1]: Entering directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-ztptts'
+Building C object CMakeFiles/cmTC_f5db4.dir/CMakeCCompilerABI.c.obj
+E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables    -v -o CMakeFiles/cmTC_f5db4.dir/CMakeCCompilerABI.c.obj -c E:/Environment/cmake-3.25.0-rc3-windows-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c
 Using built-in specs.
 COLLECT_GCC=E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
 Target: x86_64-elf
 Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
 Thread model: single
 gcc version 7.1.0 (GCC) 
-COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_c62b6.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
- e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix e:\environment\x86_64-elf-tools-windows\bin\../lib/gcc/x86_64-elf/7.1.0/ E:/Environment/cmake-3.25.0-rc3-windows-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -m32 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_c62b6.dir/CMakeCCompilerABI.c.obj -g -O0 -version -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -o C:\Users\dnfkr\AppData\Local\Temp\ccwiKAgF.s
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_f5db4.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+ e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix e:\environment\x86_64-elf-tools-windows\bin\../lib/gcc/x86_64-elf/7.1.0/ E:/Environment/cmake-3.25.0-rc3-windows-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -m32 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_f5db4.dir/CMakeCCompilerABI.c.obj -g -O0 -version -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -o C:\Users\dnfkr\AppData\Local\Temp\cc86MzV7.s
 GNU C11 (GCC) version 7.1.0 (x86_64-elf)
 	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
 
@@ -33,15 +33,15 @@ GNU C11 (GCC) version 7.1.0 (x86_64-elf)
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: b00064cd55ffce4efe95d0fcd6948296
-COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_c62b6.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
- e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe --32 -o CMakeFiles/cmTC_c62b6.dir/CMakeCCompilerABI.c.obj C:\Users\dnfkr\AppData\Local\Temp\ccwiKAgF.s
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_f5db4.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+ e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe --32 -o CMakeFiles/cmTC_f5db4.dir/CMakeCCompilerABI.c.obj C:\Users\dnfkr\AppData\Local\Temp\cc86MzV7.s
 COMPILER_PATH=e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
 LIBRARY_PATH=e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
-COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_c62b6.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
-Linking C executable cmTC_c62b6.exe
-E:/Environment/cmake-3.25.0-rc3-windows-x86_64/bin/cmake.exe -E rm -f CMakeFiles/cmTC_c62b6.dir/objects.a
-E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_c62b6.dir/objects.a @CMakeFiles/cmTC_c62b6.dir/objects1
-E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables   -v -Wl,--whole-archive CMakeFiles/cmTC_c62b6.dir/objects.a -Wl,--no-whole-archive -o cmTC_c62b6.exe -Wl,--out-implib,libcmTC_c62b6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_f5db4.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_f5db4.exe
+E:/Environment/cmake-3.25.0-rc3-windows-x86_64/bin/cmake.exe -E rm -f CMakeFiles/cmTC_f5db4.dir/objects.a
+E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_f5db4.dir/objects.a @CMakeFiles/cmTC_f5db4.dir/objects1
+E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables   -v -Wl,--whole-archive CMakeFiles/cmTC_f5db4.dir/objects.a -Wl,--no-whole-archive -o cmTC_f5db4.exe -Wl,--out-implib,libcmTC_f5db4.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 Using built-in specs.
 COLLECT_GCC=E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
 Target: x86_64-elf
@@ -50,9 +50,9 @@ Thread model: single
 gcc version 7.1.0 (GCC) 
 COMPILER_PATH=e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
 LIBRARY_PATH=e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
-COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'cmTC_c62b6.exe' '-mtune=generic' '-march=x86-64'
-x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_c62b6.dir/objects.a: linker input file unused because linking not done
-make[1]: Leaving directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-2pw9o1'
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'cmTC_f5db4.exe' '-mtune=generic' '-march=x86-64'
+x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_f5db4.dir/objects.a: linker input file unused because linking not done
+make[1]: Leaving directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-ztptts'
 
 
 Cannot copy output executable
@@ -60,6 +60,6 @@ Cannot copy output executable
 to destination specified by COPY_FILE:
   'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/3.25.0-rc3/CMakeDetermineCompilerABI_C.bin'
 Recorded try_compile output location doesn't exist:
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-2pw9o1/cmTC_c62b6.exe
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-ztptts/cmTC_f5db4.exe
 
 

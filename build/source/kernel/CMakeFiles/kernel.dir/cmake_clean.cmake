@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/kernel.dir/cpu/cpu.c.obj"
   "CMakeFiles/kernel.dir/cpu/cpu.c.obj.d"
+  "CMakeFiles/kernel.dir/cpu/irq.c.obj"
+  "CMakeFiles/kernel.dir/cpu/irq.c.obj.d"
   "CMakeFiles/kernel.dir/init/init.c.obj"
   "CMakeFiles/kernel.dir/init/init.c.obj.d"
   "CMakeFiles/kernel.dir/init/start_kernel.S.obj"

@@ -29,13 +29,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 00000336  00000000  00000000  00001fcd  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000361  00000000  00000000  00002303  2**0
+  8 .debug_line   00000364  00000000  00000000  00002303  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000260  00000000  00000000  00002664  2**2
+  9 .debug_frame  00000260  00000000  00000000  00002668  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000443  00000000  00000000  000028c4  2**0
+ 10 .debug_str    00000445  00000000  00000000  000028c8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000030  00000000  00000000  00002d07  2**0
+ 11 .debug_ranges 00000030  00000000  00000000  00002d0d  2**0
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00008000 l    d  .text	00000000 .text
@@ -60,7 +60,7 @@ SYMBOL TABLE:
 000080dc l     F .text	0000002b far_jump
 00008107 l     F .text	0000003b show_msg
 00008142 l     F .text	00000139 detect_memory
-0000827b l     F .text	00000092 enter_protect_mode
+0000827b l     F .text	00000092 enter_protected_mode
 00000000 l    df *ABS*	00000000 loader_32.c
 00008330 l     F .text	0000001d inb
 0000834d l     F .text	0000001f inw
@@ -70,11 +70,11 @@ SYMBOL TABLE:
 000085d4 l     F .text	00000005 die
 0000830d g     F .text	00000023 loader_entry
 00009664 g     O .data	00000018 gdt_table
+00008003 g       .text	00000000 protected_mode_entry
 000085d9 g     F .text	0000004e load_kernel
 00009680 g     O .bss	00000054 boot_info
 00008000 g       .text	00000000 _start
 0000967c g       .bss	00000000 __bss_start
-00008003 g       .text	00000000 protect_mode_entry
 0000967c g       .data	00000000 _edata
 000096d4 g       .bss	00000000 _end
 
@@ -91,12 +91,12 @@ _start:
 	jmp loader_entry
     8000:	e9 0a 03             	jmp    830d <loader_entry>
 
-00008003 <protect_mode_entry>:
+00008003 <protected_mode_entry>:
 	.code32
 	.text
-	.global protect_mode_entry
+	.global protected_mode_entry
 	.extern load_kernel
-protect_mode_entry:
+protected_mode_entry:
 	mov $16, %ax
     8003:	66 b8 10 00 8e d8    	mov    $0xd88e0010,%eax
 	mov %ax, %ds
@@ -173,7 +173,7 @@ static inline void cli(void) {
     8078:	66 c3                	retl   
 
 0000807a <lgdt>:
-    __asm__ __volatile("cli");
+    __asm__ __volatile("sti");
 }
 
 // lgdt 
@@ -207,6 +207,9 @@ static inline void lgdt(uint32_t start, uint32_t size) {
     80ae:	66 c3                	retl   
 
 000080b0 <read_cr0>:
+
+    __asm__ __volatile__("lidt %[g]"::[g]"m"(idt));
+}
 
 
 static inline uint32_t read_cr0(void) {
@@ -417,13 +420,13 @@ static void detect_memory(void) {
     8277:	66 5d                	pop    %ebp
     8279:	66 c3                	retl   
 
-0000827b <enter_protect_mode>:
+0000827b <enter_protected_mode>:
     { 0xffff, 0x0000, 0x9a00, 0x00cf }, // GDT 第二个表项：代码段
     { 0xffff, 0x0000, 0x9200, 0x00cf }, // GDT 第三个表项：数据段
 };
 
 
-static void enter_protect_mode(void) {
+static void enter_protected_mode(void) {
     827b:	66 55                	push   %ebp
     827d:	66 89 e5             	mov    %esp,%ebp
     8280:	66 83 ec 10          	sub    $0x10,%esp
@@ -466,7 +469,7 @@ static void enter_protect_mode(void) {
     82ef:	66 83 c4 04          	add    $0x4,%esp
 
     // 远跳转至保护模式入口
-    far_jump(8, (uint32_t)protect_mode_entry);
+    far_jump(8, (uint32_t)protected_mode_entry);
     82f3:	66 b8 03 80 00 00    	mov    $0x8003,%eax
     82f9:	66 50                	push   %eax
     82fb:	66 6a 08             	pushl  $0x8
@@ -488,8 +491,8 @@ void loader_entry(void) {
     831e:	66 83 c4 04          	add    $0x4,%esp
     detect_memory();
     8322:	66 e8 1a fe ff ff    	calll  8142 <detect_memory>
-    enter_protect_mode();
-    8328:	66 e8 4d ff ff ff    	calll  827b <enter_protect_mode>
+    enter_protected_mode();
+    8328:	66 e8 4d ff ff ff    	calll  827b <enter_protected_mode>
 
     while (1) { }
     832e:	eb fe                	jmp    832e <loader_entry+0x21>

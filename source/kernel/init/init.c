@@ -1,6 +1,7 @@
 #include "init.h"
 #include "comm/boot_info.h"
 #include "cpu/cpu.h"
+#include "cpu/irq.h"
 
 // void kernel_init() {
 //     // while (1) { }
@@ -17,9 +18,11 @@ void kernel_init(boot_info_t* boot_info) {
     __asm__ __volatile__("nop");
 
     cpu_init();
+    irq_init();
 }
 
 
 void init_main(void) {
+    int a = 3 / 0;
     while (1) {  }
 }

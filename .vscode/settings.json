@@ -12,6 +12,7 @@
         "loader.h": "c",
         "elf.h": "c",
         "boot_info.h": "c",
-        "boot.h": "c"
+        "boot.h": "c",
+        "cpu_instr.h": "c"
     },
 }
