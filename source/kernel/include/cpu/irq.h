@@ -3,6 +3,8 @@
 
 #include <comm/types.h>
 
+#define IRQ0_DIVIDE_ERROR       0
+
 typedef struct _exception_frame_t {
     uint32_t gs;
     uint32_t fs;
@@ -24,6 +26,24 @@ typedef struct _exception_frame_t {
 } exception_frame_t;
 
 
+typedef void (*irq_handler_t)(exception_frame_t* frame);
+
+
 void irq_init(void);
+
+void exception_handler_divide_error(void);
+
+int irq_install(int irq_num, irq_handler_t handler);
+
+
+// // 默认缺省中断
+// void do_handler_unknown(exception_frame_t* frame);
+
+// // divide by zero
+// void do_handler_divide_error(exception_frame_t* frame);
+
+
+
+
 
 #endif
