@@ -19,17 +19,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   3 .debug_line   000003f5  00000000  00000000  00001315  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   0000073e  00000000  00000000  0000170a  2**0
+  4 .debug_info   00000756  00000000  00000000  0000170a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 00000335  00000000  00000000  00001e48  2**0
+  5 .debug_abbrev 00000335  00000000  00000000  00001e60  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_aranges 00000080  00000000  00000000  00002180  2**3
+  6 .debug_aranges 00000080  00000000  00000000  00002198  2**3
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    0000039c  00000000  00000000  00002200  2**0
+  7 .debug_str    000003a7  00000000  00000000  00002218  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .comment      00000011  00000000  00000000  0000259c  2**0
+  8 .comment      00000011  00000000  00000000  000025bf  2**0
                   CONTENTS, READONLY
-  9 .debug_frame  000001cc  00000000  00000000  000025b0  2**2
+  9 .debug_frame  000001cc  00000000  00000000  000025d0  2**2
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00010000 l    d  .text	00000000 .text
