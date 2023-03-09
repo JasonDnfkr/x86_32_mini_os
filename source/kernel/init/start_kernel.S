@@ -49,7 +49,9 @@ exception_handler_unknown:
     push %fs
     push %gs
 
+    push %esp # 这里就是 struct exception_frame 的地址
     call do_handler_unknown
+    add $(1 * 4), %esp
 
     pop %gs
     pop %fs
