@@ -69,7 +69,7 @@ uint16_t gdt_table[][4] = {
 };
 
 
-static void enter_protect_mode(void) {
+static void enter_protected_mode(void) {
     // 关中断
     cli();
 
@@ -85,13 +85,13 @@ static void enter_protect_mode(void) {
     write_cr0(cr0 | (1 << 0));
 
     // 远跳转至保护模式入口
-    far_jump(8, (uint32_t)protect_mode_entry);
+    far_jump(8, (uint32_t)protected_mode_entry);
 }
 
 void loader_entry(void) {
     show_msg("....loading....\n\r");
     detect_memory();
-    enter_protect_mode();
+    enter_protected_mode();
 
     while (1) { }
 }

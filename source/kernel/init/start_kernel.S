@@ -36,3 +36,24 @@ gdt_reload:
     # 定义一个内核初始化过程中使用的栈
     # 而不是去使用 loader 定义的栈（使用 loader 的栈也行）
     .comm stack, KERNEL_STACK_SIZE 
+
+
+    .text
+    .global exception_handler_unknown
+    .extern do_handler_unknown
+# 中断处理函数
+exception_handler_unknown:
+    pusha # 该指令会保存一系列指定的寄存器
+    push %ds
+    push %es
+    push %fs
+    push %gs
+
+    call do_handler_unknown
+
+    pop %gs
+    pop %fs
+    pop %es
+    pop %ds
+    popa
+    iret

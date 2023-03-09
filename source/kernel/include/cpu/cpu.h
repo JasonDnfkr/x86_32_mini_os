@@ -4,6 +4,8 @@
 #include "comm/types.h"
 
 #pragma pack(1)
+
+// GDT 表项
 typedef struct _segment_desc_t {
     uint16_t limit15_0;
     uint16_t base15_0;
@@ -11,6 +13,15 @@ typedef struct _segment_desc_t {
     uint16_t attr;
     uint8_t  base31_24;
 } segment_desc_t;
+
+
+// Interrupt Gate
+typedef struct _gate_desc_t {
+    uint16_t offset15_0;
+    uint16_t selector;
+    uint16_t attr;
+    uint16_t offset31_16;
+} gate_desc_t;
 
 #pragma pack()
 
@@ -48,6 +59,18 @@ typedef struct _segment_desc_t {
 // 对于代码段，置1指示该段代码可读取可执行，置0指示该段代码只能执行
 #define SEG_TYPE_RW     (1 << 1)
 
+// interrupt gate: P
+#define GATE_P_PRESENT  (1 << 15)
+
+// interrupt gate: DPL0
+#define GATE_DPL0       (0 << 13)
+
+// interrupt gate: DPL3
+#define GATE_DPL3       (3 << 13)
+
+// interrupt gate: 
+#define GATE_TYPE_INT   (0xE << 8)
+
 
 // 初始化 CPU 相关的数据结构
 void cpu_init(void);
@@ -57,5 +80,7 @@ void cpu_init(void);
 void segment_desc_set(int selector, uint32_t base, uint32_t limit, uint16_t attr);
 
 
+// 设置 Interrupt Gate 表项
+void gate_desc_set(gate_desc_t* desc, uint16_t selector, uint32_t offset, uint16_t attr);
 
 #endif
