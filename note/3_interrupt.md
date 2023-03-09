@@ -46,10 +46,22 @@ idt表的表项有selector，可以选择gdt表的表项，从gdt表项中取出
 
 <img src="3_interrupt_pic/image-20230309221829139.png" alt="image-20230309221829139" style="zoom:67%;" />
 
-中断发生时，CPU会自动保存上图这些寄存器：EFLAGS，CS，EIP，Error Code？
+中断发生时，CPU会自动保存上图这些寄存器：EFLAGS，CS，EIP，Error Code
 
 <img src="3_interrupt_pic/image-20230309222327924.png" alt="image-20230309222327924" style="zoom:67%;" />
 
 `pusha`指令可以保存EAX, EBX, ECX, EDX, ESI, EDI, EBP, ESP
 
 CS，DS，SS，ES，FS，GS 不会自动保存
+
+异常发生时，有些寄存器会记录一些信息：
+
+EFLAGS 标志位
+
+EIP指示了异常发生的指令地址
+
+<img src="3_interrupt_pic/image-20230309225146573.png" alt="image-20230309225146573" style="zoom: 50%;" />
+
+![image-20230309225522395](3_interrupt_pic/image-20230309225522395.png)
+
+用结构体（一种易读易操作的方式）把这些寄存器全部保存起来
