@@ -38,11 +38,18 @@ gdt_reload:
     .comm stack, KERNEL_STACK_SIZE 
 
 
+.macro exception_handler name num with_err_code
     .text
-    .global exception_handler_unknown
-    .extern do_handler_unknown
+    .global exception_handler_\name
+    .extern do_handler_\name
 # 中断处理函数
-exception_handler_unknown:
+exception_handler_\name:
+    .if \with_err_code == 0
+        push $0
+    .endif
+
+    push $\num
+
     pusha # 该指令会保存一系列指定的寄存器
     push %ds
     push %es
@@ -50,7 +57,7 @@ exception_handler_unknown:
     push %gs
 
     push %esp # 这里就是 struct exception_frame 的地址
-    call do_handler_unknown
+    call do_handler_\name
     add $(1 * 4), %esp
 
     pop %gs
@@ -58,4 +65,11 @@ exception_handler_unknown:
     pop %es
     pop %ds
     popa
+
+    add $(2 * 4), %esp
+
     iret
+.endm
+
+exception_handler unknown, -1, 0
+exception_handler divide_error, 0, 0
