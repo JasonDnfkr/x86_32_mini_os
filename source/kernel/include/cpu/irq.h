@@ -26,6 +26,25 @@
 #define IRQ20_VE_VITUALIZATION_EXCEPTION        20
 #define IRQ21_CP_CONTROL_PROTECTION_EXCEPITON   21
 
+// 第1个8259
+#define PIC0_ICW1       0x20        // 第1个寄存器
+#define PIC0_ICW2       0x21        // 第2个寄存器
+#define PIC0_ICW3       0x21        // 第3个寄存器
+#define PIC0_ICW4       0x21        // 第4个寄存器
+#define PIC0_IMR        0X21        // 中断屏蔽寄存器
+
+// 第2个8259
+#define PIC1_ICW1       0xa0        // 第1个寄存器
+#define PIC1_ICW2       0xa0        // 第2个寄存器
+#define PIC1_ICW3       0xa1        // 第3个寄存器
+#define PIC1_ICW4       0xa1        // 第4个寄存器
+#define PIC1_IMR        0Xa1        // 中断屏蔽寄存器
+
+#define PIC_ICW1_ALWAYS_1           (1 << 4)
+#define PIC_ICW1_ICW4               (1 << 0)
+#define PIC_ICW4_8086               (1 << 0)
+
+#define IRQ_PIC_START               0x20
 
 
 typedef struct _exception_frame_t {
