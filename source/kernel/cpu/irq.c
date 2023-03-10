@@ -205,3 +205,46 @@ int irq_install(int irq_num, irq_handler_t handler) {
 
     gate_desc_set(idt_table + irq_num, KERNEL_SELECTOR_CS, (uint32_t)handler, GATE_P_PRESENT | GATE_DPL0 | GATE_TYPE_INT);
 }
+
+// 开启 8259 特定的中断
+void irq_enable(int irq_num) {
+    if (irq_num < IRQ_PIC_START) {
+        return;
+    }
+
+    irq_num -= IRQ_PIC_START; // 将值转换为 8259 对应的从0开始的内部值
+    if (irq_num < 8) {
+        uint8_t mask = inb(PIC0_IMR) & ~(1 << irq_num); // 清0
+        outb(PIC0_IMR, mask);   // 回写
+    } else {
+        uint8_t mask = inb(PIC1_IMR) & ~(1 << irq_num); // 清0
+        outb(PIC1_IMR, mask);   // 回写
+    }
+}
+
+// 关闭 8259 特定的中断
+void irq_disable(int irq_num) {
+    if (irq_num < IRQ_PIC_START) {
+        return;
+    }
+
+    irq_num -= IRQ_PIC_START; // 将值转换为 8259 对应的从0开始的内部值
+    if (irq_num < 8) {
+        uint8_t mask = inb(PIC0_IMR) | (1 << irq_num); // 清0
+        outb(PIC0_IMR, mask);   // 回写
+    } else {
+        uint8_t mask = inb(PIC1_IMR) | (1 << irq_num); // 清0
+        outb(PIC1_IMR, mask);   // 回写
+    }
+}
+
+
+// 关闭全局中断
+inline void irq_disable_global(void) {
+    cli();
+}
+
+// 开启全局中断
+inline void irq_enable_global(void) {
+    sti();
+}
