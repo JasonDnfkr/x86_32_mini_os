@@ -87,4 +87,10 @@ static inline void far_jump(uint32_t selector, uint32_t offset) {
     __asm__ __volatile__("ljmpl *(%[a])"::[a]"r"(addr));
 }
 
+
+// hlt halt
+static inline void hlt(void) {
+    __asm__ __volatile__("hlt");
+}
+
 #endif
