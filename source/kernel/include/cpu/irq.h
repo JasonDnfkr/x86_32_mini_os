@@ -45,8 +45,4 @@ int irq_install(int irq_num, irq_handler_t handler);
 // // divide by zero
 // void do_handler_divide_error(exception_frame_t* frame);
 
-
-
-
-
 #endif
