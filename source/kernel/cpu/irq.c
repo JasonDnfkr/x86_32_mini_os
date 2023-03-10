@@ -141,6 +141,25 @@ void do_handler_control_protection_exception(exception_frame_t* frame) {
 }
 
 
+// 初始化 8259 中断芯片
+static void init_pic(void) {
+    // 对第一个 8259 芯片初始化
+    outb(PIC0_ICW1, PIC_ICW1_ALWAYS_1 | PIC_ICW1_ICW4);
+    outb(PIC0_ICW2, IRQ_PIC_START);
+    outb(PIC0_ICW3, 1 << 2);
+    outb(PIC0_ICW4, PIC_ICW4_8086);
+
+    // 对第二个 8259 芯片初始化
+    outb(PIC1_ICW1, PIC_ICW1_ALWAYS_1 | PIC_ICW1_ICW4);
+    outb(PIC1_ICW2, IRQ_PIC_START + 8);
+    outb(PIC1_ICW3, 2);
+    outb(PIC1_ICW4, PIC_ICW4_8086);
+
+    // 此时还没有给外部设备设置好寄存器，（还没初始化好外部设备）
+    // 所以此时应该屏蔽所有的中断
+    outb(PIC0_IMR, 0xff & ~(1 << 2));
+    outb(PIC1_IMR, 0xff);
+}
 
 
 // 初始化中断
@@ -173,6 +192,8 @@ void irq_init(void) {
     irq_install(IRQ21_CP_CONTROL_PROTECTION_EXCEPITON, (irq_handler_t)exception_handler_control_protection_exception);
 
     lidt((uint32_t)idt_table, sizeof(idt_table));
+
+    init_pic();
 }
 
 
