@@ -99,6 +99,11 @@ void exception_handler_virtualization_exception(void);
 void exception_handler_control_protection_exception(void);
 
 
+void irq_enable(int irq_num);
+void irq_disable(int irq_num);
+void irq_enable_global(int irq_num);
+void irq_disable_global(int irq_num);
+
 
 int irq_install(int irq_num, irq_handler_t handler);
 
