@@ -26,6 +26,10 @@
 #define IRQ20_VE_VITUALIZATION_EXCEPTION        20
 #define IRQ21_CP_CONTROL_PROTECTION_EXCEPITON   21
 
+
+// 定时器中断
+#define IRQ0_TIMER                              0x20
+
 // 第1个8259
 #define PIC0_ICW1       0x20        // 第1个寄存器
 #define PIC0_ICW2       0x21        // 第2个寄存器
@@ -33,16 +37,23 @@
 #define PIC0_ICW4       0x21        // 第4个寄存器
 #define PIC0_IMR        0X21        // 中断屏蔽寄存器
 
+#define PIC0_OCW2       0x20
+
+
 // 第2个8259
 #define PIC1_ICW1       0xa0        // 第1个寄存器
-#define PIC1_ICW2       0xa0        // 第2个寄存器
+#define PIC1_ICW2       0xa1        // 第2个寄存器
 #define PIC1_ICW3       0xa1        // 第3个寄存器
 #define PIC1_ICW4       0xa1        // 第4个寄存器
-#define PIC1_IMR        0Xa1        // 中断屏蔽寄存器
+#define PIC1_IMR        0xa1        // 中断屏蔽寄存器
+
+#define PIC1_OCW2       0xa0
 
 #define PIC_ICW1_ALWAYS_1           (1 << 4)
 #define PIC_ICW1_ICW4               (1 << 0)
 #define PIC_ICW4_8086               (1 << 0)
+
+#define PIC_OCW2_EOI                (1 << 5)
 
 #define IRQ_PIC_START               0x20
 
@@ -101,8 +112,12 @@ void exception_handler_control_protection_exception(void);
 
 void irq_enable(int irq_num);
 void irq_disable(int irq_num);
-void irq_enable_global(int irq_num);
-void irq_disable_global(int irq_num);
+void irq_enable_global(void);
+void irq_disable_global(void);
+
+
+// 通知定时器继续响应下一次中断
+void pic_send_eoi(int irq_num);
 
 
 int irq_install(int irq_num, irq_handler_t handler);

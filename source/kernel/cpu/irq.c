@@ -240,11 +240,21 @@ void irq_disable(int irq_num) {
 
 
 // 关闭全局中断
-inline void irq_disable_global(void) {
+void irq_disable_global(void) {
     cli();
 }
 
 // 开启全局中断
-inline void irq_enable_global(void) {
+void irq_enable_global(void) {
     sti();
+}
+
+// 通知定时器继续响应下一次中断
+void pic_send_eoi(int irq_num) {
+    irq_num -= IRQ_PIC_START;
+    if (irq_num >= 8) {
+        outb(PIC1_OCW2, PIC_OCW2_EOI);
+    }
+
+    outb(PIC0_OCW2, PIC_OCW2_EOI);
 }
