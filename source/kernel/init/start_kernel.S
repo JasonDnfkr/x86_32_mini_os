@@ -95,3 +95,5 @@ exception_handler machine_check                  18, 0
 exception_handler simd_floating_point_exception, 19, 0
 exception_handler virtualization_exception,      20, 0
 exception_handler control_protection_exception,  21, 1
+
+exception_handler timer,  0x20, 0
