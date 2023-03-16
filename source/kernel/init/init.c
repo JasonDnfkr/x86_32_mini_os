@@ -8,6 +8,7 @@
 #include "tools/klib.h"
 #include "core/task.h"
 #include "comm/cpu_instr.h"
+#include "tools/list.h"
 // void kernel_init() {
 //     // while (1) { }
 //     __asm__ __volatile__("nop");
@@ -44,6 +45,12 @@ void init_task_entry(void) {
         log_printf("int task: %d", count++);
         task_switch_from_to(&init_task, &first_task);
     }
+}
+
+
+void link_test(void) {
+    list_t list;
+    list_init(&list);
 }
 
 
