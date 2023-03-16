@@ -5,6 +5,7 @@
 #include "dev/timer.h"
 #include "tools/log.h"
 #include "cpu/os_cfg.h"
+#include "tools/klib.h"
 
 // void kernel_init() {
 //     // while (1) { }
@@ -18,6 +19,8 @@
 
 void kernel_init(boot_info_t* boot_info) {
     // while (1) { }
+    ASSERT(boot_info->ram_region_count != 0);
+    // ASSERT(3 < 2);
     __asm__ __volatile__("nop");
 
     cpu_init();
