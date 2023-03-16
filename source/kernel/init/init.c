@@ -30,7 +30,7 @@ void kernel_init(boot_info_t* boot_info) {
 
 
 void init_main(void) {
-    // int a = 3 / 0;
+    int a = 3 / 0;
     // irq_enable_global();
     log_printf("Kernel is running ...");
     log_printf("Version: %s %s", OS_VERSION, "test");
