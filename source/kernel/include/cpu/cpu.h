@@ -72,6 +72,42 @@ typedef struct _gate_desc_t {
 #define GATE_TYPE_INT   (0xE << 8)
 
 
+// TSS
+typedef struct _tss_t {
+    uint32_t pre_link;
+    
+    uint32_t esp0;
+    uint32_t ss0;
+    uint32_t esp1;
+    uint32_t ss1;
+    uint32_t esp2;
+    uint32_t ss2;
+
+    uint32_t cr3;
+    uint32_t eip;
+    uint32_t eflags;
+    uint32_t eax;
+    uint32_t ecx;
+    uint32_t edx;
+    uint32_t ebx;
+    uint32_t esp;
+    uint32_t ebp;
+    uint32_t esi;
+    uint32_t edi;
+
+    uint32_t es;
+    uint32_t gs;
+    uint32_t ss;
+    uint32_t ds;
+    uint32_t fs;
+    uint32_t gs;
+
+    uint32_t ldt;
+    uint32_t iomap;
+} tss_t;
+
+
+
 // 初始化 CPU 相关的数据结构
 void cpu_init(void);
 
