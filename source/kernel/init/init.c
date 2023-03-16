@@ -63,6 +63,11 @@ void link_test(void) {
         list_insert_front(&list, node);
     }
 
+    for (int i = 0; i < 5; i++) {
+        list_remove_front(&list);
+        log_printf("[%d]", list_size(&list));
+    }
+
     list_init(&list);
 
     for (int i = 0; i < 5; i++) {
