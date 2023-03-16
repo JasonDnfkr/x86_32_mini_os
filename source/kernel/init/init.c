@@ -50,7 +50,27 @@ void init_task_entry(void) {
 
 void link_test(void) {
     list_t list;
+    list_node_t nodes[5];
+
+
     list_init(&list);
+    log_printf("list: first = %x, last = %x, count = %d\n", list_first(&list), list_last(&list), list_size(&list));
+
+    for (int i = 0; i < 5; i++) {
+        list_node_t* node = &nodes[i];
+
+        log_printf("%d, %x\n", i, (uint32_t)node);
+        list_insert_front(&list, node);
+    }
+
+    list_init(&list);
+
+    for (int i = 0; i < 5; i++) {
+        list_node_t* node = &nodes[i];
+
+        log_printf("%d, %x\n", i, (uint32_t)node);
+        list_insert_back(&list, node);
+    }
 }
 
 
@@ -70,6 +90,8 @@ void init_main(void) {
     //
 
     int count = 0;
+
+    link_test();
 
     while (1) {
         log_printf("int main: %d", count++);
