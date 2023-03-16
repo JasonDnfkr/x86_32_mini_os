@@ -83,7 +83,7 @@ static inline void write_cr0(uint32_t v) {
     __asm__ __volatile__("mov %[v], %%cr0"::[v]"r"(v));
 }
 
-
+// 跳转至选择子所保存的代码段
 static inline void far_jump(uint32_t selector, uint32_t offset) {
     uint32_t addr[] = { offset, selector };
     __asm__ __volatile__("ljmpl *(%[a])"::[a]"r"(addr));
@@ -93,6 +93,12 @@ static inline void far_jump(uint32_t selector, uint32_t offset) {
 // hlt halt
 static inline void hlt(void) {
     __asm__ __volatile__("hlt");
+}
+
+
+// write_tr
+static inline void write_tr(uint16_t tss_sel) {
+    __asm__ __volatile__("ltr %%ax"::"a"(tss_sel));
 }
 
 #endif

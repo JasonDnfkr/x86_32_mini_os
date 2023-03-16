@@ -97,3 +97,28 @@ exception_handler virtualization_exception,      20, 0
 exception_handler control_protection_exception,  21, 1
 
 exception_handler timer,  0x20, 0
+
+
+    .text
+    .global simple_switch
+simple_switch:  # simple_switch(&from->stack, to->stack)
+    mov 4(%esp), %eax   # 取出 from 的 stack 字段
+    mov 8(%esp), %edx   # 取出 to 的 stack 字段
+
+    push %ebp
+    push %ebx
+    push %esi
+    push %edi
+
+    mov %esp, (%eax)   # 将现在的 esp 写入 from 的 stack 字段
+
+    # 这里要从另外一个任务出栈, 切换栈
+    # 把另一个任务的栈地址给了esp
+    mov %edx, %esp
+
+    pop %edi
+    pop %esi
+    pop %ebx
+    pop %ebp
+
+    ret
