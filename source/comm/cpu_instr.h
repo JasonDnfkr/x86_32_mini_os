@@ -1,6 +1,8 @@
 #ifndef CPU_INSTR_H
 #define CPU_INSTR_H
 
+#include "types.h"
+
 // inb al, dx
 static inline uint8_t inb(uint16_t port) {
     uint8_t rv;
