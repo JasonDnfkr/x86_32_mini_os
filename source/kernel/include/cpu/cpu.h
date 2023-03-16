@@ -3,6 +3,10 @@
 
 #include "comm/types.h"
 
+#define EFLAGS_DEFAULT          (1 << 1)
+#define EFLAGS_IF               (1 << 9)
+
+
 #pragma pack(1)
 
 // GDT 表项
@@ -54,6 +58,9 @@ typedef struct _gate_desc_t {
 // segment descriptor: Type位，数据段
 #define SEG_TYPE_DATA   (0 << 3)
 
+// segment descriptor: Type位，TSS段
+#define SEG_TYPE_TSS    (9 << 0)
+
 // segment descriptor: Type位
 // 对于数据段，置1指示该段可读写
 // 对于代码段，置1指示该段代码可读取可执行，置0指示该段代码只能执行
@@ -96,7 +103,7 @@ typedef struct _tss_t {
     uint32_t edi;
 
     uint32_t es;
-    uint32_t gs;
+    uint32_t cs;
     uint32_t ss;
     uint32_t ds;
     uint32_t fs;
@@ -118,5 +125,11 @@ void segment_desc_set(int selector, uint32_t base, uint32_t limit, uint16_t attr
 
 // 设置 Interrupt Gate 表项
 void gate_desc_set(gate_desc_t* desc, uint16_t selector, uint32_t offset, uint16_t attr);
+
+// 从GDT表中找一个空闲项，找到后返回该地址
+int gdt_alloc_desc(void);
+
+// 跳转至tss
+void swtch_to_tss(int tss_sel);
 
 #endif
