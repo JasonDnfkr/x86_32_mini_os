@@ -3,6 +3,8 @@
 #include "cpu/cpu.h"
 #include "cpu/irq.h"
 #include "dev/timer.h"
+#include "tools/log.h"
+#include "cpu/os_cfg.h"
 
 // void kernel_init() {
 //     // while (1) { }
@@ -19,6 +21,9 @@ void kernel_init(boot_info_t* boot_info) {
     __asm__ __volatile__("nop");
 
     cpu_init();
+
+    log_init();
+
     irq_init();
     timer_init();
 }
@@ -26,6 +31,9 @@ void kernel_init(boot_info_t* boot_info) {
 
 void init_main(void) {
     // int a = 3 / 0;
-    irq_enable_global();
+    // irq_enable_global();
+    log_printf("Kernel is running ...");
+    log_printf("Version: %s", OS_VERSION);
+
     while (1) {  }
 }
