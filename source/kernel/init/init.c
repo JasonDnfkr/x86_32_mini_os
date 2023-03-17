@@ -43,7 +43,7 @@ void init_task_entry(void) {
     int count = 0;
     while (1) {
         log_printf("int task: %d", count++);
-        task_switch_from_to(&init_task, &first_task);
+        task_switch_from_to(&init_task, task_first_task());
     }
 }
 
@@ -76,6 +76,19 @@ void link_test(void) {
         log_printf("%d, %x\n", i, (uint32_t)node);
         list_insert_back(&list, node);
     }
+
+    struct type_t {
+        int i;
+        list_node_t node;
+    } v = { 0x123456 };
+
+    list_node_t* v_node = &v.node;
+    struct type_t* p = list_node_parent(v_node, struct type_t, node);
+
+    if (p->i != 0x123456) {
+        log_printf("error!");
+    }
+
 }
 
 
@@ -87,12 +100,10 @@ void init_main(void) {
     log_printf("%d %d %x %c", 12345, -123, 0x123456, 'a');
 
     //
-    task_init(&first_task, (uint32_t)0, 0);
-    task_init(&init_task, (uint32_t)init_task_entry, (uint32_t)&init_task_stack[1024]);
-
-    // 初始化第一个任务的TR寄存器，表示当前运行的任务是tss_sel参数中指向的任务
-    write_tr(first_task.tss_sel);
+    task_init(&init_task, "init task", (uint32_t)init_task_entry, (uint32_t)&init_task_stack[1024]);
     //
+
+    task_first_init();
 
     int count = 0;
 
@@ -100,6 +111,6 @@ void init_main(void) {
 
     while (1) {
         log_printf("int main: %d", count++);
-        task_switch_from_to(&first_task, &init_task);
+        task_switch_from_to(task_first_task(), &init_task);
     }
 }
