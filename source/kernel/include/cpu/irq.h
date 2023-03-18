@@ -1,7 +1,7 @@
 #ifndef IRQ_H
 #define IRQ_H
 
-#include <comm/types.h>
+#include "comm/types.h"
 
 #define IRQ0_DE_DIVIDE_ERROR         0
 #define IRQ1_DB_DEBUG_EXCEPTION      1
@@ -122,11 +122,12 @@ void pic_send_eoi(int irq_num);
 
 int irq_install(int irq_num, irq_handler_t handler);
 
+typedef uint32_t irq_state_t;
 
-// // 默认缺省中断
-// void do_handler_unknown(exception_frame_t* frame);
+// 进入临界区保护状态
+irq_state_t irq_enter_protection(void);
 
-// // divide by zero
-// void do_handler_divide_error(exception_frame_t* frame);
+// 退出临界区保护状态
+irq_state_t irq_leave_protection(irq_state_t state);
 
 #endif
