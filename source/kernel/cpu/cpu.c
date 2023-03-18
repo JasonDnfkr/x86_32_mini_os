@@ -1,6 +1,7 @@
 #include "cpu/cpu.h"
 #include "cpu/os_cfg.h"
 #include "comm/cpu_instr.h"
+#include "cpu/irq.h"
 
 static segment_desc_t gdt_table[GDT_TABLE_SIZE];
 
@@ -61,12 +62,19 @@ void swtch_to_tss(int tss_sel) {
 
 
 int gdt_alloc_desc(void) {
+    irq_state_t state = irq_enter_protection();
+
     for (int i = 1; i < GDT_TABLE_SIZE; i++) {
         segment_desc_t* desc = gdt_table + i;
         if (desc->attr == 0) {
+
+            irq_leave_protection(state);
+            
             return i * sizeof(segment_desc_t);
         }
     }
+
+    irq_leave_protection(state);
 
     return -1;
 }
