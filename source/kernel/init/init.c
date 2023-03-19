@@ -9,6 +9,7 @@
 #include "core/task.h"
 #include "comm/cpu_instr.h"
 #include "tools/list.h"
+#include "ipc/sem.h"
 // void kernel_init() {
 //     // while (1) { }
 //     __asm__ __volatile__("nop");
@@ -39,15 +40,17 @@ void kernel_init(boot_info_t* boot_info) {
 static task_t init_task;
 static uint32_t init_task_stack[1024];
 static task_t first_task;
+static sem_t sem;
 
 
 void init_task_entry(void) {
     int count = 0;
     while (1) {
+        sem_wait(&sem);
         log_printf("int task: %d", count++);
         // task_switch_from_to(&init_task, task_first_task());
         // sys_sched_yield();
-        sys_sleep(1000);
+        // sys_sleep(1000);
     }
 }
 
@@ -112,6 +115,7 @@ void init_main(void) {
     int count = 0;
 
     // link_test();
+    sem_init(&sem, 0);
 
     irq_enable_global();
 
@@ -119,6 +123,8 @@ void init_main(void) {
         log_printf("int main: %d", count++);
         // task_switch_from_to(task_first_task(), &init_task);
         // sys_sched_yield();
+        sem_notify(&sem);
+
         sys_sleep(1000);
     }
 }
