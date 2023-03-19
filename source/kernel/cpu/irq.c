@@ -10,7 +10,7 @@ static gate_desc_t idt_table[IDT_TABLE_NO];
 
 
 static void dump_core_regs(exception_frame_t* frame) {
-    log_printf("IRQ: %d, Error Code: %d", frame, frame->error_code);
+    log_printf("IRQ: %d, Error Code: %d", frame->num, frame->error_code);
     log_printf("cs: %d\nds: %d\nes: %d\nss: %d\nfs: %d\ngs: %d\n", frame->cs, frame->ds, frame->es, frame->ds, frame->fs, frame->gs);
     log_printf("eax: %x\nebx: %x\nedx: %x\nedi: %x\nesi: %x\nebp: %x\nesp: %x\n", frame->eax, frame->ebx, frame->edx, frame->edi, frame->esi, frame->ebp, frame->esp);
     log_printf("eip: %x\neflags: %x\n", frame->eip, frame->eflags);
