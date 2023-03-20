@@ -10,6 +10,7 @@
 #include "comm/cpu_instr.h"
 #include "tools/list.h"
 #include "ipc/sem.h"
+#include "core/memory.h"
 // void kernel_init() {
 //     // while (1) { }
 //     __asm__ __volatile__("nop");
@@ -27,6 +28,8 @@ void kernel_init(boot_info_t* boot_info) {
     __asm__ __volatile__("nop");
 
     cpu_init();
+
+    memory_init(boot_info);
 
     log_init();
 
@@ -46,7 +49,7 @@ static sem_t sem;
 void init_task_entry(void) {
     int count = 0;
     while (1) {
-        sem_wait(&sem);
+        // sem_wait(&sem);
         log_printf("int task: %d", count++);
         // task_switch_from_to(&init_task, task_first_task());
         // sys_sched_yield();
@@ -123,8 +126,8 @@ void init_main(void) {
         log_printf("int main: %d", count++);
         // task_switch_from_to(task_first_task(), &init_task);
         // sys_sched_yield();
-        sem_notify(&sem);
+        // sem_notify(&sem);
 
-        sys_sleep(1000);
+        // sys_sleep(1000);
     }
 }

@@ -70,6 +70,24 @@ static void die(int code) {
     while (1) {  }
 }
 
+#define PDE_P           (1 << 0)    // 表项存在
+#define PDE_W           (1 << 1)    // 可读
+#define PDE_PS          (1 << 7)    // Page size; must be 1
+#define CR4_PSE         (1 << 4)    
+#define CR0_PG          (1 << 31)
+
+void enable_page_mode(void) {
+    static uint32_t page_dir[1024] __attribute__((aligned(4096))) = {
+        [0] = PDE_P | PDE_W | PDE_PS | 0,
+
+    };
+
+    uint32_t cr4 = read_cr4();
+    write_cr4(cr4 | CR4_PSE);       // 打开大页设置
+    write_cr3((uint32_t)page_dir);  // 设置页目录表地址，加载于CR3中
+    write_cr0(read_cr0() | CR0_PG); // 控制分页机制的比特位在CR0中
+}
+
 
 void load_kernel(void) {
     read_disk(100, 500, (uint8_t*)SYS_KERNEL_LOAD_ADDR); // 函数功能：从第100个扇区开始，
@@ -82,6 +100,8 @@ void load_kernel(void) {
     if (kernel_entry_address == 0) {
         die(-1);
     }
+
+    enable_page_mode();
 
     // ((void (*)(void))SYS_KERNEL_LOAD_ADDR)();
     ((void (*)(boot_info_t*))0x10000)(&boot_info);

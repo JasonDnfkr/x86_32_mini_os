@@ -1,5 +1,8 @@
 SECTIONS {
+    PROVIDE(kernbase = .);
     . = 0x10000;
+
+    PROVIDE(text_start_addr = .);
     .text : {
         *(.text) 
     }
@@ -7,8 +10,10 @@ SECTIONS {
     .rodata : {
         *(.rodata)
     }
+    PROVIDE(text_end_addr = .);
 
-    /* . = 0x200000; */
+    . = ALIGN(4096);
+    PROVIDE(data_start_addr = .);
     .data : {
         *(.data)
     }
@@ -16,4 +21,6 @@ SECTIONS {
     .bss : {
         *(.bss)
     }
+
+    PROVIDE(mem_free_start = .);
 }

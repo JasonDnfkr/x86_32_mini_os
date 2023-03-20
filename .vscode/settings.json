@@ -15,6 +15,7 @@
         "boot.h": "c",
         "cpu_instr.h": "c",
         "os_cfg.h": "c",
-        "list.h": "c"
+        "list.h": "c",
+        "klib.h": "c"
     },
 }
