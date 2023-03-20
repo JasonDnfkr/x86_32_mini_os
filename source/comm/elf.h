@@ -9,6 +9,7 @@ typedef uint32_t Elf32_Off;
 typedef uint32_t Elf32_Word;
 
 #define EI_NIDENT       16
+#define ELF_MAGIC       0x7F
 
 #pragma pack(1)
 typedef struct {

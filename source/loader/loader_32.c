@@ -33,35 +33,36 @@ static void read_disk(uint32_t sector, int sector_count, uint8_t* buf) {
 
 // 解析elf文件
 static uint32_t reload_elf_file(uint8_t* file_buffer) {
-    Elf32_Ehdr* elf_header = (Elf32_Ehdr*)file_buffer;
+    Elf32_Ehdr* elf_hdr = (Elf32_Ehdr*)file_buffer;
     // 检查ELF文件头
-    if (elf_header->e_ident[0] != 0x7f || elf_header->e_ident[1] != 'E' 
-        || elf_header->e_ident[2] != 'L' || elf_header->e_ident[3] != 'F') {
+    if ((elf_hdr->e_ident[0] != ELF_MAGIC) || (elf_hdr->e_ident[1] != 'E') 
+        || (elf_hdr->e_ident[2] != 'L') || (elf_hdr->e_ident[3] != 'F')) {
             return 0;
     }
 
-    for (int i = 0; i < elf_header->e_phnum; i++) {
-        Elf32_Phdr* p_header = (Elf32_Phdr*)(file_buffer + elf_header->e_phoff) + i;
+    // 然后从中加载程序头，将内容拷贝到相应的位置
+    for (int i = 0; i < elf_hdr->e_phnum; i++) {
+        Elf32_Phdr* p_hdr = (Elf32_Phdr*)(file_buffer + elf_hdr->e_phoff) + i;
 
-        if (p_header->p_type != PT_LOAD) {
+        if (p_hdr->p_type != PT_LOAD) {
             continue;
         }
 
-        uint8_t* src = file_buffer + p_header->p_offset;
-        uint8_t* dest = (uint8_t*)p_header->p_paddr;
-        for (int j = 0; j < p_header->p_filesz; j++) {
+        uint8_t* src = file_buffer + p_hdr->p_offset;
+        uint8_t* dest = (uint8_t*)p_hdr->p_paddr;
+        for (int j = 0; j < p_hdr->p_filesz; j++) {
             *dest++ = *src++;
         }
 
-        dest = (uint8_t*)p_header->p_paddr + p_header->p_filesz;
+        dest = (uint8_t*)p_hdr->p_paddr + p_hdr->p_filesz;
 
-        for (int j = 0; j < p_header->p_memsz - p_header->p_filesz; j++) {
+        for (int j = 0; j < p_hdr->p_memsz - p_hdr->p_filesz; j++) {
             *dest++ = 0;
         }
-
-        // 返回入口地址
-        return elf_header->e_entry;
     }
+
+    // 返回入口地址
+    return elf_hdr->e_entry;
 }
 
 
@@ -111,7 +112,7 @@ void load_kernel(void) {
     enable_page_mode();
 
     // ((void (*)(void))SYS_KERNEL_LOAD_ADDR)();
-    ((void (*)(boot_info_t*))0x10000)(&boot_info);
+    ((void (*)(boot_info_t*))kernel_entry_address)(&boot_info);
 
 
 

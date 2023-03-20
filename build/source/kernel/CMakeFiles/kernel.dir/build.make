@@ -27,9 +27,6 @@
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -161,26 +158,11 @@ source/kernel/CMakeFiles/kernel.dir/dev/timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kernel.dir/dev/timer.c.s"
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/dev/timer.c -o CMakeFiles/kernel.dir/dev/timer.c.s
 
-source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
-source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.obj: source/kernel/CMakeFiles/kernel.dir/includes_C.rsp
-source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.c
-source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.obj: source/kernel/CMakeFiles/kernel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.obj"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.obj -MF CMakeFiles/kernel.dir/include/ipc/mutex.c.obj.d -o CMakeFiles/kernel.dir/include/ipc/mutex.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.c
-
-source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/kernel.dir/include/ipc/mutex.c.i"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.c > CMakeFiles/kernel.dir/include/ipc/mutex.c.i
-
-source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kernel.dir/include/ipc/mutex.c.s"
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.c -o CMakeFiles/kernel.dir/include/ipc/mutex.c.s
-
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/includes_C.rsp
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object source/kernel/CMakeFiles/kernel.dir/init/init.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object source/kernel/CMakeFiles/kernel.dir/init/init.c.obj"
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT source/kernel/CMakeFiles/kernel.dir/init/init.c.obj -MF CMakeFiles/kernel.dir/init/init.c.obj.d -o CMakeFiles/kernel.dir/init/init.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c
 
 source/kernel/CMakeFiles/kernel.dir/init/init.c.i: cmake_force
@@ -190,6 +172,21 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.i: cmake_force
 source/kernel/CMakeFiles/kernel.dir/init/init.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kernel.dir/init/init.c.s"
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c -o CMakeFiles/kernel.dir/init/init.c.s
+
+source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
+source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj: source/kernel/CMakeFiles/kernel.dir/includes_C.rsp
+source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/mutex.c
+source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj: source/kernel/CMakeFiles/kernel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj -MF CMakeFiles/kernel.dir/ipc/mutex.c.obj.d -o CMakeFiles/kernel.dir/ipc/mutex.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/mutex.c
+
+source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/kernel.dir/ipc/mutex.c.i"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/mutex.c > CMakeFiles/kernel.dir/ipc/mutex.c.i
+
+source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kernel.dir/ipc/mutex.c.s"
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel && E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/mutex.c -o CMakeFiles/kernel.dir/ipc/mutex.c.s
 
 source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
 source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj: source/kernel/CMakeFiles/kernel.dir/includes_C.rsp
@@ -274,8 +271,8 @@ kernel_OBJECTS = \
 "CMakeFiles/kernel.dir/cpu/cpu.c.obj" \
 "CMakeFiles/kernel.dir/cpu/irq.c.obj" \
 "CMakeFiles/kernel.dir/dev/timer.c.obj" \
-"CMakeFiles/kernel.dir/include/ipc/mutex.c.obj" \
 "CMakeFiles/kernel.dir/init/init.c.obj" \
+"CMakeFiles/kernel.dir/ipc/mutex.c.obj" \
 "CMakeFiles/kernel.dir/ipc/sem.c.obj" \
 "CMakeFiles/kernel.dir/tools/bitmap.c.obj" \
 "CMakeFiles/kernel.dir/tools/klib.c.obj" \
@@ -291,8 +288,8 @@ source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/core/task.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/dev/timer.c.obj
-source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/init/init.c.obj
+source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/tools/bitmap.c.obj
 source/kernel/kernel.exe: source/kernel/CMakeFiles/kernel.dir/tools/klib.c.obj

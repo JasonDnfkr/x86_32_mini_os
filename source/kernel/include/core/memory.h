@@ -11,6 +11,8 @@
 #define MEM_EBDA_START          (0x80000) // 显存位置，不应该被使用
 
 
+#define PDE_CNT                 1024
+
 // 内存分配器
 // mutex: 互斥锁
 // bitmap: 位图
@@ -27,12 +29,12 @@ typedef struct _addr_alloc_t {
 } addr_alloc_t;
 
 
-// typedef struct _memory_map_t {
-//     void* vstart;   // 虚拟地址的起始处
-//     void* vend;     // 虚拟地址的结束处
-//     void* pstart;   // 这一块区域的物理地址起始处
-//     uint32_t perm;  // 特权控制字段
-// } memory_map_t;
+typedef struct _memory_map_t {
+    void* vstart;   // 虚拟地址的起始处
+    void* vend;     // 虚拟地址的结束处
+    void* pstart;   // 这一块区域的物理地址起始处
+    uint32_t perm;  // 特权控制字段
+} memory_map_t;
 
 
 void memory_init(boot_info_t* boot_info);

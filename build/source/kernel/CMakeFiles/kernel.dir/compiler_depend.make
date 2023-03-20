@@ -36,7 +36,10 @@ source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj: E:/Data/Work/Job/Cpp/diy-x86o
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/os_cfg.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/cpu_instr.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/types.h \
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/irq.h
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/irq.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/list.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/task.h
 
 source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/irq.c \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/irq.h \
@@ -58,14 +61,6 @@ source/kernel/CMakeFiles/kernel.dir/dev/timer.c.obj: E:/Data/Work/Job/Cpp/diy-x8
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/cpu.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/list.h
 
-source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.c \
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.h \
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/list.h \
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/task.h \
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/types.h \
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/cpu.h \
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/irq.h
-
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/boot_info.h \
@@ -85,6 +80,14 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: E:/Data/Work/Job/Cpp/diy-x8
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/memory.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/bitmap.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.h
+
+source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/mutex.c \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/list.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/task.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/types.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/cpu.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/irq.h
 
 source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/sem.c \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/sem.h \
@@ -171,13 +174,13 @@ E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/cpu.c:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/dev/timer.c:
 
-E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.c:
-
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.h:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/sem.h:
+
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/mutex.c:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/sem.c:
 

@@ -4,9 +4,10 @@
 #include "cpu/mmu.h"
 #include "comm/cpu_instr.h"
 
-#define PDE_CNT         1024
 
-static addr_alloc_t paddr_alloc;        // 物理地址分配结构
+static addr_alloc_t paddr_alloc;        // 物理地址分配器
+
+static pde_t kernel_page_dir[PDE_CNT] __attribute__((aligned(MEM_PAGE_SIZE)));
 
 // 初始化内存分配器结构
 // 作用是给定起始地址，借助位图，分配一个内存块
@@ -100,6 +101,101 @@ static void test_alloc(void) {
     }
 }
 
+// 建立PDE到PTE的映射关系，如果 alloc 为1，则创建这个PTE
+// pde_t* page_dir: 需要建立的页表，PDE
+// uint32_t vaddr： 需要建立映射的虚拟地址
+// int alloc:       如果为1，则创建这个PTE
+pte_t* find_pte(pde_t* page_dir, uint32_t vaddr, int alloc) {
+    // 这个是二级页表的地址
+    pte_t * page_table;
+
+    pde_t *pde = page_dir + pde_index(vaddr);
+
+    // 如果这个一级页表对应的二级页表，
+    // 它已经存在了
+    if (pde->present) {
+        // 拿到二级页表的地址
+        page_table = (pte_t*)pde_paddr(pde);
+    }
+    else {  // 这个一级页表对应的二级页表是不存在的，
+            // 也就是说还没有建立映射关系
+        if (alloc == 0) {
+            return (pte_t*)0;
+        }
+
+        // alloc = 1, 分配一个物理页表
+        uint32_t pg_paddr = addr_alloc_page(&paddr_alloc, 1);
+        if (pg_paddr == 0) {
+            return (pte_t*)0;
+        }
+
+        // 在一级页表中，设置为用户可读写，
+        // 将被pte中设置所覆盖
+        pde->v = pg_paddr | PDE_P | PTE_W | PTE_U;
+
+        // 清空页表，防止出现异常
+        // 这里虚拟地址和物理地址一一映射，所以直接写入
+        page_table = (pte_t*)(pg_paddr);
+        kmemset(page_table, 0, MEM_PAGE_SIZE);
+    }
+
+    return page_table + pte_index(vaddr);
+}
+
+// 建立内存映射
+int memory_create_map(pde_t* page_dir, uint32_t vaddr, uint32_t paddr, int count, uint32_t perm) {
+    for (int i = 0; i < count; i++) {
+        // log_printf("create map: v-%x p-%x, perm: %x", vaddr, paddr, perm);
+
+        // 在页表中找 vaddr 对应的 PTE (二级页表)
+        pte_t* pte = find_pte(page_dir, vaddr, 1);
+        
+        // 没有找到
+        if (pte == (pte_t*)0) {
+            // log_printf("create pte failed. pte == 0");
+            return -1;
+        }
+        // 创建映射的时候，这条pte应当是不存在的。
+        // 如果存在，说明可能有问题
+        // log_printf("\tpte addr: %x", (uint32_t)pte);
+        ASSERT(pte->present == 0);
+
+        // 物理页(三级)的地址，和属性，加入进去
+        pte->v = paddr | perm | PTE_P;
+
+        vaddr += MEM_PAGE_SIZE;
+        paddr += MEM_PAGE_SIZE;
+    }
+}
+
+
+void create_kernel_table(void) {
+    extern uint8_t s_text[], e_text[], s_data[], e_data[];
+    extern uint8_t kernel_base[];
+    // 地址映射表, 用于建立内核级的地址映射
+    // 地址不变，但是添加了属性
+    static memory_map_t kernel_map[] = {
+        { kernel_base,   s_text,                         kernel_base,    PTE_W },     // 内核栈区
+        { s_text,        e_text,                         s_text,         0 },         // 内核代码区
+        { s_data,        (void *)(MEM_EBDA_START - 1),   s_data,         PTE_W },     // 内核数据区
+    };
+
+    // 清空后，然后依次根据映射关系创建映射表
+    for (int i = 0; i < sizeof(kernel_map) / sizeof(memory_map_t); i++) {
+        memory_map_t * map = kernel_map + i;
+
+        // 可能有多个页，建立多个页的配置
+        // 简化起见，不考虑4M的情况
+        int vstart = down2((uint32_t)map->vstart, MEM_PAGE_SIZE);
+        int vend = up2((uint32_t)map->vend, MEM_PAGE_SIZE);
+        int paddr = down2((uint32_t)map->pstart, MEM_PAGE_SIZE);
+        int page_count = (vend - vstart) / MEM_PAGE_SIZE;   // 计算有多少个页
+
+        // 建立映射关系
+        memory_create_map(kernel_page_dir, vstart, paddr, page_count, map->perm);
+    }
+}
+
 
 // 对整个操作系统的内存管理
 // 初始化
@@ -129,5 +225,6 @@ void memory_init(boot_info_t* boot_info) {
     // 到这里，mem_free应该比EBDA地址要小
     ASSERT(mem_free < (uint8_t *)MEM_EBDA_START);
 
-    // create_kernel_table();
+    create_kernel_table();
+    mmu_set_page_dir((uint32_t)kernel_page_dir);
 }

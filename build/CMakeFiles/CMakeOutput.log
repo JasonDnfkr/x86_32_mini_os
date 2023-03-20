@@ -13,18 +13,18 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 The C compiler identification is GNU, found in "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/3.25.0-rc3/CompilerIdC/CMakeCCompilerId.o"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-mr86aw
+Change Dir: E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-5kgkky
 
-Run Build Command(s):E:/Environment/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_841b1/fast && E:/Environment/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_841b1.dir/build.make CMakeFiles/cmTC_841b1.dir/build
-make[1]: Entering directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-mr86aw'
-Building C object CMakeFiles/cmTC_841b1.dir/testCCompiler.c.obj
-E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -o CMakeFiles/cmTC_841b1.dir/testCCompiler.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-mr86aw/testCCompiler.c
-Linking C executable cmTC_841b1.exe
-E:/Environment/cmake-3.25.0-rc3-windows-x86_64/bin/cmake.exe -E rm -f CMakeFiles/cmTC_841b1.dir/objects.a
-E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_841b1.dir/objects.a @CMakeFiles/cmTC_841b1.dir/objects1
-E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -Wl,--whole-archive CMakeFiles/cmTC_841b1.dir/objects.a -Wl,--no-whole-archive -o cmTC_841b1.exe -Wl,--out-implib,libcmTC_841b1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_841b1.dir/linkLibs.rsp
-x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_841b1.dir/objects.a: linker input file unused because linking not done
-make[1]: Leaving directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-mr86aw'
+Run Build Command(s):E:/Environment/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_c49cf/fast && E:/Environment/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_c49cf.dir/build.make CMakeFiles/cmTC_c49cf.dir/build
+make[1]: Entering directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-5kgkky'
+Building C object CMakeFiles/cmTC_c49cf.dir/testCCompiler.c.obj
+E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -o CMakeFiles/cmTC_c49cf.dir/testCCompiler.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-5kgkky/testCCompiler.c
+Linking C executable cmTC_c49cf.exe
+E:/Environment/cmake-3.25.0-rc3-windows-x86_64/bin/cmake.exe -E rm -f CMakeFiles/cmTC_c49cf.dir/objects.a
+E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_c49cf.dir/objects.a @CMakeFiles/cmTC_c49cf.dir/objects1
+E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -Wl,--whole-archive CMakeFiles/cmTC_c49cf.dir/objects.a -Wl,--no-whole-archive -o cmTC_c49cf.exe -Wl,--out-implib,libcmTC_c49cf.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_c49cf.dir/linkLibs.rsp
+x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_c49cf.dir/objects.a: linker input file unused because linking not done
+make[1]: Leaving directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-5kgkky'
 
 
 

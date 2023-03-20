@@ -31,9 +31,6 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -253,30 +250,6 @@ dev/timer.c.s:
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/dev/timer.c.s
 .PHONY : dev/timer.c.s
 
-include/ipc/mutex.obj: include/ipc/mutex.c.obj
-.PHONY : include/ipc/mutex.obj
-
-# target to build an object file
-include/ipc/mutex.c.obj:
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.obj
-.PHONY : include/ipc/mutex.c.obj
-
-include/ipc/mutex.i: include/ipc/mutex.c.i
-.PHONY : include/ipc/mutex.i
-
-# target to preprocess a source file
-include/ipc/mutex.c.i:
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.i
-.PHONY : include/ipc/mutex.c.i
-
-include/ipc/mutex.s: include/ipc/mutex.c.s
-.PHONY : include/ipc/mutex.s
-
-# target to generate assembly for a file
-include/ipc/mutex.c.s:
-	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/include/ipc/mutex.c.s
-.PHONY : include/ipc/mutex.c.s
-
 init/init.obj: init/init.c.obj
 .PHONY : init/init.obj
 
@@ -308,6 +281,30 @@ init/start_kernel.obj: init/start_kernel.S.obj
 init/start_kernel.S.obj:
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/start_kernel.S.obj
 .PHONY : init/start_kernel.S.obj
+
+ipc/mutex.obj: ipc/mutex.c.obj
+.PHONY : ipc/mutex.obj
+
+# target to build an object file
+ipc/mutex.c.obj:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj
+.PHONY : ipc/mutex.c.obj
+
+ipc/mutex.i: ipc/mutex.c.i
+.PHONY : ipc/mutex.i
+
+# target to preprocess a source file
+ipc/mutex.c.i:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.i
+.PHONY : ipc/mutex.c.i
+
+ipc/mutex.s: ipc/mutex.c.s
+.PHONY : ipc/mutex.s
+
+# target to generate assembly for a file
+ipc/mutex.c.s:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.s
+.PHONY : ipc/mutex.c.s
 
 ipc/sem.obj: ipc/sem.c.obj
 .PHONY : ipc/sem.obj
@@ -453,13 +450,13 @@ help:
 	@echo "... dev/timer.obj"
 	@echo "... dev/timer.i"
 	@echo "... dev/timer.s"
-	@echo "... include/ipc/mutex.obj"
-	@echo "... include/ipc/mutex.i"
-	@echo "... include/ipc/mutex.s"
 	@echo "... init/init.obj"
 	@echo "... init/init.i"
 	@echo "... init/init.s"
 	@echo "... init/start_kernel.obj"
+	@echo "... ipc/mutex.obj"
+	@echo "... ipc/mutex.i"
+	@echo "... ipc/mutex.s"
 	@echo "... ipc/sem.obj"
 	@echo "... ipc/sem.i"
 	@echo "... ipc/sem.s"
