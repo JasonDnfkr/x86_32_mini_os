@@ -4,12 +4,12 @@
 #include "comm/types.h"
 #include "comm/cpu_instr.h"
 
-#define PTE_P   (1 << 0)
-#define PDE_P   (1 << 0)
-#define PDE_W   (1 << 1)
-#define PTE_W   (1 << 1)
-#define PTE_U   (1 << 2)
-#define PDE_U   (1 << 2)
+#define PTE_P   (1 << 0)    // present
+#define PDE_P   (1 << 0)    // present
+#define PDE_W   (1 << 1)    // read / write
+#define PTE_W   (1 << 1)    // read / write
+#define PTE_U   (1 << 2)    // user
+#define PDE_U   (1 << 2)    // user
 
 #pragma pack(1)
 
@@ -26,7 +26,7 @@ typedef union _pde_t {
         uint32_t :               1;             // 6 Ignored;
         uint32_t ps :            1;             // 7 (PS)
         uint32_t :               4;             // 11:8 Ignored
-        uint32_t phy_pt_addr :  20;             // 高20位page table物理地址
+        uint32_t phy_pt_addr :  20;             // 
     };
 } pde_t;
 
@@ -61,7 +61,7 @@ static inline uint32_t pde_index (uint32_t vaddr) {
 }
 
 /**
- * @brief 获取pde中地址
+ * @brief 获取pde中的地址字段
  */
 static inline uint32_t pde_paddr (pde_t * pde) {
     return pde->phy_pt_addr << 12;

@@ -129,6 +129,9 @@ void gate_desc_set(gate_desc_t* desc, uint16_t selector, uint32_t offset, uint16
 // 从GDT表中找一个空闲项，找到后返回该地址
 int gdt_alloc_desc(void);
 
+// 清空GDT表项
+void gdt_free_sel(int sel);
+
 // 跳转至tss
 void swtch_to_tss(int tss_sel);
 

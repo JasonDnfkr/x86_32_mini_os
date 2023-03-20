@@ -49,7 +49,7 @@ int bitmap_is_set(bitmap_t* bitmap, int index) {
 
 // 寻找一个连续的位空间，该空间长度为count，值全部为bit
 // 返回值是第一个可用的位空间的索引
-int bitmap_alloc_nbits (bitmap_t * bitmap, int bit, int count) {
+int bitmap_alloc_nbits(bitmap_t * bitmap, int bit, int count) {
     int search_idx = 0;
     int ok_idx = -1;
 

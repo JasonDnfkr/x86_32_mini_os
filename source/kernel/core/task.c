@@ -5,6 +5,7 @@
 #include "tools/log.h"
 #include "comm/cpu_instr.h"
 #include "cpu/irq.h"
+#include "core/memory.h"
 
 
 // 全局的进程队列
@@ -30,6 +31,14 @@ static int tss_init(task_t* task, uint32_t entry, uint32_t esp) {
     task->tss.es     = task->tss.ds  = task->tss.fs = task->tss.gs = KERNEL_SELECTOR_DS;
     task->tss.cs     = KERNEL_SELECTOR_CS;
     task->tss.eflags = EFLAGS_IF | EFLAGS_DEFAULT;
+
+    // CR3 页表
+    uint32_t uvm_pgtbl = memory_create_uvm();
+    if (uvm_pgtbl == 0) {
+        gdt_free_sel(tss_sel);
+        return -1;
+    }
+    task->tss.cr3    = uvm_pgtbl;
 
     task->tss_sel    = tss_sel;
     return 0;

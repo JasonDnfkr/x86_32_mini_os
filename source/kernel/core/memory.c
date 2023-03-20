@@ -102,6 +102,7 @@ static void test_alloc(void) {
 }
 
 // 建立PDE到PTE的映射关系，如果 alloc 为1，则创建这个PTE
+// 并返回这个PTE表项
 // pde_t* page_dir: 需要建立的页表，PDE
 // uint32_t vaddr： 需要建立映射的虚拟地址
 // int alloc:       如果为1，则创建这个PTE
@@ -109,7 +110,7 @@ pte_t* find_pte(pde_t* page_dir, uint32_t vaddr, int alloc) {
     // 这个是二级页表的地址
     pte_t * page_table;
 
-    pde_t *pde = page_dir + pde_index(vaddr);
+    pde_t *pde = &page_dir[pde_index(vaddr)];
 
     // 如果这个一级页表对应的二级页表，
     // 它已经存在了
@@ -139,7 +140,7 @@ pte_t* find_pte(pde_t* page_dir, uint32_t vaddr, int alloc) {
         kmemset(page_table, 0, MEM_PAGE_SIZE);
     }
 
-    return page_table + pte_index(vaddr);
+    return &page_table[pte_index(vaddr)];
 }
 
 // 建立内存映射
@@ -147,7 +148,7 @@ int memory_create_map(pde_t* page_dir, uint32_t vaddr, uint32_t paddr, int count
     for (int i = 0; i < count; i++) {
         // log_printf("create map: v-%x p-%x, perm: %x", vaddr, paddr, perm);
 
-        // 在页表中找 vaddr 对应的 PTE (二级页表)
+        // 在页表中找 vaddr 对应的 PTE (二级页表表项)
         pte_t* pte = find_pte(page_dir, vaddr, 1);
         
         // 没有找到
@@ -162,6 +163,7 @@ int memory_create_map(pde_t* page_dir, uint32_t vaddr, uint32_t paddr, int count
 
         // 物理页(三级)的地址，和属性，加入进去
         pte->v = paddr | perm | PTE_P;
+        
 
         vaddr += MEM_PAGE_SIZE;
         paddr += MEM_PAGE_SIZE;
@@ -172,13 +174,18 @@ int memory_create_map(pde_t* page_dir, uint32_t vaddr, uint32_t paddr, int count
 void create_kernel_table(void) {
     extern uint8_t s_text[], e_text[], s_data[], e_data[];
     extern uint8_t kernel_base[];
+    
     // 地址映射表, 用于建立内核级的地址映射
     // 地址不变，但是添加了属性
     static memory_map_t kernel_map[] = {
         { kernel_base,   s_text,                         kernel_base,    PTE_W },     // 内核栈区
         { s_text,        e_text,                         s_text,         0 },         // 内核代码区
         { s_data,        (void *)(MEM_EBDA_START - 1),   s_data,         PTE_W },     // 内核数据区
+        // 扩展存储空间一一映射，方便直接操作
+        { (void *)MEM_EXT_START, (void *)MEM_EXT_END,    (void *)MEM_EXT_START, PTE_W },
     };
+
+    kmemset(kernel_page_dir, 0, sizeof(kernel_page_dir));
 
     // 清空后，然后依次根据映射关系创建映射表
     for (int i = 0; i < sizeof(kernel_map) / sizeof(memory_map_t); i++) {
@@ -196,6 +203,23 @@ void create_kernel_table(void) {
     }
 }
 
+// 创建用户页表
+uint32_t memory_create_uvm(void) {
+    pde_t* page_dir = (pde_t*)addr_alloc_page(&paddr_alloc, 1);
+    if (page_dir == 0) {
+        return 0;
+    }
+
+    kmemset(page_dir, 0, MEM_PAGE_SIZE);
+
+    uint32_t user_pde_start = pde_index(MEMORY_TASK_BASE);
+    for (int i = 0; i < user_pde_start; i++) {
+        page_dir[i].v = kernel_page_dir[i].v;
+    }
+
+    return (uint32_t)page_dir;
+}
+
 
 // 对整个操作系统的内存管理
 // 初始化
@@ -209,7 +233,7 @@ void memory_init(boot_info_t* boot_info) {
     show_mem_info(boot_info);
 
     // 在内核数据后面放物理页位图
-    uint8_t * mem_free = (uint8_t *)&mem_free_start;   // 2022年-10-1 经同学反馈，发现这里有点bug，改了下
+    uint8_t * mem_free = (uint8_t *)&mem_free_start;
 
     // 计算1MB以上空间的空闲内存容量，并对齐的页边界
     uint32_t mem_up1MB_free = total_mem_size(boot_info) - MEM_EXT_START;
@@ -218,7 +242,7 @@ void memory_init(boot_info_t* boot_info) {
     log_printf("Free memory: %x, size: %x", MEM_EXT_START, mem_up1MB_free);
 
     // 4GB大小需要总共4*1024*1024*1024/4096/8=128KB的位图, 使用低1MB的RAM空间中足够
-    // 该部分的内存仅跟在mem_free_start开始放置
+    // 该部分的内存紧跟在mem_free_start开始放置
     addr_alloc_init(&paddr_alloc, mem_free, MEM_EXT_START, mem_up1MB_free, MEM_PAGE_SIZE);
     mem_free += bitmap_byte_count(paddr_alloc.size / MEM_PAGE_SIZE);
 
