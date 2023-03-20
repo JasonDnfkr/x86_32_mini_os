@@ -2,10 +2,8 @@
 #include "cpu/os_cfg.h"
 #include "comm/cpu_instr.h"
 #include "cpu/irq.h"
-#include "ipc/mutex.h"
 
 static segment_desc_t gdt_table[GDT_TABLE_SIZE];
-static mutex_t mutex;
 
 // selector: 段选择子
 // base:     基地址
@@ -54,7 +52,6 @@ void init_gdt(void) {
 
 
 void cpu_init(void) {
-    mutex_init(&mutex);
     init_gdt();
 }
 
@@ -65,19 +62,19 @@ void swtch_to_tss(int tss_sel) {
 
 
 int gdt_alloc_desc(void) {
-    mutex_acquire(&mutex);
+    irq_state_t state = irq_enter_protection();
 
     for (int i = 1; i < GDT_TABLE_SIZE; i++) {
         segment_desc_t* desc = gdt_table + i;
         if (desc->attr == 0) {
 
-            mutex_release(&mutex);
+            irq_leave_protection(state);
             
             return i * sizeof(segment_desc_t);
         }
     }
 
-    mutex_release(&mutex);
+    irq_leave_protection(state);
 
     return -1;
 }

@@ -1,0 +1,92 @@
+[
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/boot",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/boot.dir/includes_ASM.rsp -m32 -g -g -o CMakeFiles/boot.dir/start.S.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/boot/start.S",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/boot/start.S"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/boot",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/boot.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/boot.dir/boot.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/boot/boot.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/boot/boot.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/loader.dir/includes_ASM.rsp -m32 -g -g -o CMakeFiles/loader.dir/start_loader.S.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start_loader.S",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/start_loader.S"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/loader.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/loader.dir/loader_16.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/loader_16.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/loader_16.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/loader",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/loader.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/loader.dir/loader_32.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/loader_32.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/loader/loader_32.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_ASM.rsp -m32 -g -g -o CMakeFiles/kernel.dir/init/start_kernel.S.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start_kernel.S",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start_kernel.S"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/core/memory.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/core/memory.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/core/memory.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/core/task.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/core/task.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/core/task.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/cpu/cpu.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/cpu.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/cpu.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/cpu/irq.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/irq.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/irq.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/dev/timer.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/dev/timer.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/dev/timer.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/include/ipc/mutex.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/init/init.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/ipc/sem.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/sem.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/ipc/sem.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/bitmap.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/tools/bitmap.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/tools/bitmap.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/klib.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/tools/klib.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/tools/klib.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/list.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/tools/list.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/tools/list.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/log.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/tools/log.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/tools/log.c"
+}
+]

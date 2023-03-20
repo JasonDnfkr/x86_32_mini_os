@@ -1,0 +1,65 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-sm8adg
+
+Run Build Command(s):E:/Environment/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_6a66c/fast && E:/Environment/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_6a66c.dir/build.make CMakeFiles/cmTC_6a66c.dir/build
+make[1]: Entering directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-sm8adg'
+Building C object CMakeFiles/cmTC_6a66c.dir/CMakeCCompilerABI.c.obj
+E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables    -v -o CMakeFiles/cmTC_6a66c.dir/CMakeCCompilerABI.c.obj -c E:/Environment/cmake-3.25.0-rc3-windows-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+Target: x86_64-elf
+Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+Thread model: single
+gcc version 7.1.0 (GCC) 
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_6a66c.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+ e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix e:\environment\x86_64-elf-tools-windows\bin\../lib/gcc/x86_64-elf/7.1.0/ E:/Environment/cmake-3.25.0-rc3-windows-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -m32 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_6a66c.dir/CMakeCCompilerABI.c.obj -g -O0 -version -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -o C:\Users\dnfkr\AppData\Local\Temp\ccnMkj1G.s
+GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "e:\environment\x86_64-elf-tools-windows\bin\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+ignoring nonexistent directory "e:\environment\x86_64-elf-tools-windows\bin\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+ignoring duplicate directory "e:/environment/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include"
+ignoring duplicate directory "e:/environment/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include-fixed"
+ignoring nonexistent directory "e:/environment/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+ignoring nonexistent directory "e:/environment/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ e:\environment\x86_64-elf-tools-windows\bin\../lib/gcc/x86_64-elf/7.1.0/include
+ e:\environment\x86_64-elf-tools-windows\bin\../lib/gcc/x86_64-elf/7.1.0/include-fixed
+End of search list.
+GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: b00064cd55ffce4efe95d0fcd6948296
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_6a66c.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+ e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe --32 -o CMakeFiles/cmTC_6a66c.dir/CMakeCCompilerABI.c.obj C:\Users\dnfkr\AppData\Local\Temp\ccnMkj1G.s
+COMPILER_PATH=e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+LIBRARY_PATH=e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_6a66c.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_6a66c.exe
+E:/Environment/cmake-3.25.0-rc3-windows-x86_64/bin/cmake.exe -E rm -f CMakeFiles/cmTC_6a66c.dir/objects.a
+E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_6a66c.dir/objects.a @CMakeFiles/cmTC_6a66c.dir/objects1
+E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables   -v -Wl,--whole-archive CMakeFiles/cmTC_6a66c.dir/objects.a -Wl,--no-whole-archive -o cmTC_6a66c.exe -Wl,--out-implib,libcmTC_6a66c.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Using built-in specs.
+COLLECT_GCC=E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+Target: x86_64-elf
+Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+Thread model: single
+gcc version 7.1.0 (GCC) 
+COMPILER_PATH=e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;e:/environment/x86_64-elf-tools-windows/bin/../libexec/gcc/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+LIBRARY_PATH=e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/;e:/environment/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'cmTC_6a66c.exe' '-mtune=generic' '-march=x86-64'
+x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_6a66c.dir/objects.a: linker input file unused because linking not done
+make[1]: Leaving directory 'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-sm8adg'
+
+
+Cannot copy output executable
+  ''
+to destination specified by COPY_FILE:
+  'E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/3.25.0-rc3/CMakeDetermineCompilerABI_C.bin'
+Recorded try_compile output location doesn't exist:
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/CMakeFiles/CMakeScratch/TryCompile-sm8adg/cmTC_6a66c.exe
+
+
