@@ -14,4 +14,5 @@ source/kernel/CMakeFiles/kernel.dir/core/task.c.obj: \
  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/memory.h \
  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/bitmap.h \
  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.h \
- E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/boot_info.h
+ E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/boot_info.h \
+ E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/mmu.h

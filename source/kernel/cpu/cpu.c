@@ -11,6 +11,8 @@ static mutex_t mutex;
 // base:     基地址
 // limit:    这段内存的大小
 // attr:     属性值
+// 根据所给的 selector (也就是下标所指向的地址)，
+// 激活这个GDT字段。
 void segment_desc_set(int selector, uint32_t base, uint32_t limit, uint16_t attr) {
     segment_desc_t* desc = gdt_table + selector / sizeof(segment_desc_t);
 
@@ -63,7 +65,7 @@ void swtch_to_tss(int tss_sel) {
     far_jump(tss_sel, 0);   // 起始地址，没有偏移
 }
 
-
+// 返回gdt表中一个空闲的下标所指的地址
 int gdt_alloc_desc(void) {
     mutex_acquire(&mutex);
 

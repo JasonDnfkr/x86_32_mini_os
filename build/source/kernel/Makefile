@@ -253,6 +253,38 @@ dev/timer.c.s:
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/dev/timer.c.s
 .PHONY : dev/timer.c.s
 
+init/first_task.obj: init/first_task.c.obj
+.PHONY : init/first_task.obj
+
+# target to build an object file
+init/first_task.c.obj:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/first_task.c.obj
+.PHONY : init/first_task.c.obj
+
+init/first_task.i: init/first_task.c.i
+.PHONY : init/first_task.i
+
+# target to preprocess a source file
+init/first_task.c.i:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/first_task.c.i
+.PHONY : init/first_task.c.i
+
+init/first_task.s: init/first_task.c.s
+.PHONY : init/first_task.s
+
+# target to generate assembly for a file
+init/first_task.c.s:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/first_task.c.s
+.PHONY : init/first_task.c.s
+
+init/first_task_entry.obj: init/first_task_entry.S.obj
+.PHONY : init/first_task_entry.obj
+
+# target to build an object file
+init/first_task_entry.S.obj:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/first_task_entry.S.obj
+.PHONY : init/first_task_entry.S.obj
+
 init/init.obj: init/init.c.obj
 .PHONY : init/init.obj
 
@@ -453,6 +485,10 @@ help:
 	@echo "... dev/timer.obj"
 	@echo "... dev/timer.i"
 	@echo "... dev/timer.s"
+	@echo "... init/first_task.obj"
+	@echo "... init/first_task.i"
+	@echo "... init/first_task.s"
+	@echo "... init/first_task_entry.obj"
 	@echo "... init/init.obj"
 	@echo "... init/init.i"
 	@echo "... init/init.s"

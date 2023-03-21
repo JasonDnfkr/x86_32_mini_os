@@ -103,6 +103,22 @@ void link_test(void) {
 }
 
 
+void move_to_first_task(void) {
+    void first_task_entry(void);
+    task_t* curr = task_current();
+
+    ASSERT(curr != 0);
+
+    tss_t* tss = &(curr->tss);
+
+    __asm__ __volatile__(
+        "jmp *%[ip]"::[ip]"r"(tss->eip)
+    );
+
+    // far_jump((uint32_t)tss, 0);
+}
+
+
 void init_main(void) {
     // int a = 3 / 0;
     // irq_enable_global();
@@ -115,6 +131,9 @@ void init_main(void) {
     //
 
     task_first_init();
+    move_to_first_task();
+
+    /*
 
     int count = 0;
 
@@ -129,4 +148,6 @@ void init_main(void) {
         // sem_notify(&sem);
         sys_sleep(1000);
     }
+
+    */
 }

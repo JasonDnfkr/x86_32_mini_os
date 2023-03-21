@@ -6,7 +6,7 @@
 #include "comm/cpu_instr.h"
 #include "cpu/irq.h"
 #include "core/memory.h"
-
+#include "cpu/mmu.h"
 
 // 全局的进程队列
 static task_manager_t task_manager;
@@ -100,14 +100,18 @@ void task_manager_init(void) {
 }
 
 // 初始化程序的第一个进程，是操作系统一直连贯的
-// 入口地址entry 和栈指针esp都无所谓的，因为现在已经在使用了
 // 等切换走的时候，会自动保存进去的
 void task_first_init(void) {
-    task_init(&task_manager.first_task, "first task", (uint32_t)0, 0);
+    void first_task_entry(void);
+    uint32_t first_start = (uint32_t)first_task_entry;
+
+    task_init(&task_manager.first_task, "first task", (uint32_t)first_start, 0);
 
     // 初始化第一个任务的TR寄存器，表示当前运行的任务是tss_sel参数中指向的任务
     write_tr(task_manager.first_task.tss_sel);
     task_manager.curr_task = &task_manager.first_task;
+
+    mmu_set_page_dir(task_manager.first_task.tss.cr3);
 }
 
 // 获取程序的第一个进程，是操作系统一直连贯的

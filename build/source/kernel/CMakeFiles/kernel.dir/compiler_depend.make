@@ -32,7 +32,8 @@ source/kernel/CMakeFiles/kernel.dir/core/task.c.obj: E:/Data/Work/Job/Cpp/diy-x8
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/memory.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/bitmap.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.h \
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/boot_info.h
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/boot_info.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/mmu.h
 
 source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/cpu.c \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/cpu.h \
@@ -62,6 +63,13 @@ source/kernel/CMakeFiles/kernel.dir/dev/timer.c.obj: E:/Data/Work/Job/Cpp/diy-x8
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/os_cfg.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/irq.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/task.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/cpu.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/list.h
+
+source/kernel/CMakeFiles/kernel.dir/init/first_task.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/first_task.c \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/log.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/task.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/types.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/cpu.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/list.h
 
@@ -179,6 +187,8 @@ E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/dev/timer.h:
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/cpu.c:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/dev/timer.c:
+
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/first_task.c:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/init.c:
 

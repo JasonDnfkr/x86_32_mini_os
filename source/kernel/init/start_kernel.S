@@ -17,7 +17,8 @@ _start:
     call kernel_init
 
     # jmp 语法格式：偏移量, 地址
-    # 因为 KERNEL_SELECTOR_CS 为 0，所以会直接跳转到 gdt_reload 地址处
+    # 因为 KERNEL_SELECTOR_CS 为 1 * 8，所以会直接跳转到 gdt表的 CS所在的项，
+    # 那里设置的地址范围是 0~4G，因此实际读取的地址就是 0 + gdt_reload 地址
     jmp $KERNEL_SELECTOR_CS, $gdt_reload
 
 # 将段寄存器全部设置为 DS 指向的内容
