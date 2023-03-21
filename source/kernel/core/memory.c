@@ -253,7 +253,11 @@ void memory_init(boot_info_t* boot_info) {
     mmu_set_page_dir((uint32_t)kernel_page_dir);
 }
 
-
+// 给指定的页表，建立内存映射
+// uin32_t page_dir: 页表
+// uin32_t vaddr:    虚拟内存
+// uin32_t size:     内存大小数值，不是页数
+// uin32_t perm:     权限
 int memory_alloc_for_page_dir(uint32_t page_dir, uint32_t vaddr, uint32_t size, uint32_t perm) {
     // 当前分配到哪个地址了？
     uint32_t curr_vaddr = vaddr;
@@ -284,6 +288,11 @@ int memory_alloc_for_page_dir(uint32_t page_dir, uint32_t vaddr, uint32_t size, 
 }
 
 
+// 给当前进程的页表，建立映射
+// uin32_t page_dir: 页表
+// uin32_t vaddr:    虚拟内存
+// uin32_t size:     内存大小数值，不是页数
+// uin32_t perm:     权限
 int memory_alloc_page_for(uint32_t addr, uint32_t size, uint32_t perm) {
     return memory_alloc_for_page_dir(task_current()->tss.cr3, addr, size, perm);
 }

@@ -4,7 +4,7 @@
 int first_task_main(void) {
     while (1) {
         log_printf("first task.");
-        sys_sleep(1000);
+        sys_sleep(10000);
     }
     return 0;
 }

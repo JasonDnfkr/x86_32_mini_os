@@ -46,6 +46,15 @@ typedef struct _gate_desc_t {
 // segment descriptor: DPL位，低特权级位
 #define SEG_DPL3        (3 << 5)
 
+// segment descriptor: CPL位，高特权级位
+#define SEG_CPL0        (0 << 0)
+
+// segment descriptor: CPL位，低特权级位
+#define SEG_CPL3        (3 << 0)
+
+#define SEG_RPL0                (0 << 0)
+#define SEG_RPL3                (3 << 0)
+
 // segment descriptor: S位，系统段 （中断，TSS）
 #define SEG_S_SYSTEM    (0 << 4)
 

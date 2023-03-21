@@ -51,6 +51,9 @@ typedef struct _task_manager_t {
 
     task_t first_task;  // 操作系统一直连贯的进程
     task_t idle_task;   // 空闲进程，保证所有进程都 sleeping 的时候能够被唤起
+
+    int app_code_sel;       // 用户程序代码段选择子
+    int app_data_sel;       // 用户程序数据段选择子
 } task_manager_t;
 
 // 初始化进程队列
