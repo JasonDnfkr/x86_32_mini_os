@@ -204,7 +204,8 @@ void create_kernel_table(void) {
     }
 }
 
-// 创建用户页表
+// 创建进程的初始页表
+// 主要的工作创建页目录表，然后从内核页表中复制一部分
 uint32_t memory_create_uvm(void) {
     pde_t* page_dir = (pde_t*)addr_alloc_page(&paddr_alloc, 1);
     if (page_dir == 0) {
@@ -213,6 +214,8 @@ uint32_t memory_create_uvm(void) {
 
     kmemset(page_dir, 0, MEM_PAGE_SIZE);
 
+    // 复制整个内核空间的页目录项，以便与其它进程共享内核空间
+    // 用户空间的内存映射暂不处理，等加载程序时创建
     uint32_t user_pde_start = pde_index(MEMORY_TASK_BASE);
     for (int i = 0; i < user_pde_start; i++) {
         page_dir[i].v = kernel_page_dir[i].v;
@@ -289,7 +292,7 @@ int memory_alloc_for_page_dir(uint32_t page_dir, uint32_t vaddr, uint32_t size, 
 }
 
 
-// 给当前进程的页表，建立映射. 通常返回0x80000000以上的地址
+// 给当前进程的页表，建立映射. 通常是0x80000000以上的地址
 // uin32_t vaddr:    虚拟内存
 // uin32_t size:     内存大小数值，不是页数
 // uin32_t perm:     权限
@@ -329,22 +332,14 @@ void memory_free_page(uint32_t vaddr) {
 }
 
 /*-- ------------------------------ --*/
-// 申请物理内存。单位：字节
-static uint32_t kalloc(int size) {
-    if (size <= 0) {
-        return -1;
-    }
-
-    return addr_alloc_page(&paddr_alloc, up2(size, MEM_PAGE_SIZE) / MEM_PAGE_SIZE);
+// 申请一页物理内存。
+static uint32_t kalloc() {
+    return addr_alloc_page(&paddr_alloc, 1);
 }
 
 
 // 释放物理内存。单位：字节
-static void kfree(uint32_t addr, int size) {
-    if (size <= 0) {
-        return;
-    }
-
-    addr_free_page(&paddr_alloc, addr, up2(size, MEM_PAGE_SIZE) / MEM_PAGE_SIZE);
+static void kfree(uint32_t addr) {
+    addr_free_page(&paddr_alloc, addr, 1);
 }
 /*-- ------------------------------ --*/

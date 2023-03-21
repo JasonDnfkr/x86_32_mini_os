@@ -11,6 +11,7 @@
 // 全局的进程队列
 static task_manager_t task_manager;
 
+// 空闲进程的栈, 不是广义上的内核栈
 static uint32_t idle_task_stack[IDLE_TASK_SIZE];
 
 
@@ -70,7 +71,12 @@ tss_init_failed:
     return -1;    
 }
 
-
+// 创建一个进程。
+// task_t* task:     已申请内存的进程结构体
+// const char* name: 进程名
+// int flag:         TASK_FLAG_USER 为用户进程，TASK_FLAG_SYSTEM 为内核进程
+// uint32_t entry:   进程入口地址
+// uint32_t esp:     进程栈底指针
 int task_init(task_t* task, const char* name, int flag, uint32_t entry, uint32_t esp) {
     ASSERT(task != (task_t*)0);
 
@@ -166,8 +172,12 @@ void task_first_init(void) {
 
     mmu_set_page_dir(task_manager.first_task.tss.cr3);
 
+    // 给该进程新开个一级页表，也就是类似于用户页表的东西
+    // 并在这个一级页表里申请 alloc_size 大小的内存
     memory_alloc_page_for(first_start, alloc_size, PTE_P | PTE_W | PTE_U);
 
+    // 把这段代码拷贝到上面生成的页表里
+    // 相当于就是把内存搬运到 virtual 0x80000000+ 了
     kmemcpy((void*)first_start, s_first_task, copy_size);
 }
 
