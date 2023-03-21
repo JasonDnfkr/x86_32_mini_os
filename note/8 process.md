@@ -53,3 +53,21 @@ x86关于权限控制的bit位好像比较复杂，CPL、DPL、RPL等，没怎�
 当触发中断时，把寄存器现场保存在ss0，esp0中。（平时运行时，使用的是ss，esp）
 
 出现异常时，错误码会写进CR2寄存器和段选择子中。
+
+
+
+#### 4 创建进程时设置进程权限
+
+主要是给tss_init函数中增加了一个标志位flag，当标志位为特权级0，则将tss中的CS、DS选择子设为KERNEL_CODE_SELECTOR, KERNEL_DATA_SELECTOR。否则是app_code_sel, app_data_sel
+
+
+
+#### 5 特权级切换
+
+![image-20230321205357368](8 process_pic/image-20230321205357368.png)
+
+主要指令是 `iret`，这个指令将图中右侧的栈里面的SS~EIP这几个内容弹出，并赋值给对应的寄存器。
+
+
+
+#### 6 为进程创建内核栈

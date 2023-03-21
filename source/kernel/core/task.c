@@ -25,6 +25,12 @@ static int tss_init(task_t* task, int flag, uint32_t entry, uint32_t esp) {
 
     kmemset(&task->tss, 0, sizeof(tss_t));
 
+    // 分配一个内核栈空间
+    uint32_t kernel_stack = memory_alloc_page();
+    if (kernel_stack == 0) {
+        goto tss_init_failed;
+    }
+
     int code_sel;
     int data_sel;
     if (flag & TASK_FLAGS_SYSTEM) {
@@ -38,7 +44,7 @@ static int tss_init(task_t* task, int flag, uint32_t entry, uint32_t esp) {
 
     task->tss.eip    = entry;
     task->tss.esp    = esp;
-    task->tss.esp0   = esp;
+    task->tss.esp0   = kernel_stack + MEM_PAGE_SIZE;
     task->tss.ss     = data_sel;
     task->tss.ss0    = KERNEL_SELECTOR_DS; 
     task->tss.es     = task->tss.ds  = task->tss.fs = task->tss.gs = data_sel;
@@ -48,13 +54,20 @@ static int tss_init(task_t* task, int flag, uint32_t entry, uint32_t esp) {
     // CR3 页表
     uint32_t uvm_pgtbl = memory_create_uvm();
     if (uvm_pgtbl == 0) {
-        gdt_free_sel(tss_sel);
-        return -1;
+        goto tss_init_failed;
     }
     task->tss.cr3    = uvm_pgtbl;
 
     task->tss_sel    = tss_sel;
     return 0;
+
+// 资源回收
+tss_init_failed:
+    gdt_free_sel(tss_sel);
+    if (kernel_stack != 0) {
+        memory_free_page(kernel_stack);
+    }
+    return -1;    
 }
 
 
@@ -104,15 +117,19 @@ static void idle_task_entry(void) {
 
 
 void task_manager_init(void) {
-    // 初始化用户程序的 code selector
+    //数据段和代码段，使用DPL3，所有应用共用同一个
+    //为调试方便，暂时使用DPL0
     int sel = gdt_alloc_desc();
-    segment_desc_set(sel, 0x00000000, 0xffffffff, SEG_P_PRESENT | SEG_DPL3 | SEG_S_NORMAL | SEG_TYPE_CODE | SEG_TYPE_RW | SEG_D);
-    task_manager.app_code_sel = sel;
-
-    // 初始化用户程序的 data selector
-    sel = gdt_alloc_desc();
-    segment_desc_set(sel, 0x00000000, 0xffffffff, SEG_P_PRESENT | SEG_DPL3 | SEG_S_NORMAL | SEG_TYPE_DATA | SEG_TYPE_RW | SEG_D);
+    segment_desc_set(sel, 0x00000000, 0xFFFFFFFF,
+                     SEG_P_PRESENT | SEG_DPL3 | SEG_S_NORMAL |
+                     SEG_TYPE_DATA | SEG_TYPE_RW | SEG_D);
     task_manager.app_data_sel = sel;
+
+    sel = gdt_alloc_desc();
+    segment_desc_set(sel, 0x00000000, 0xFFFFFFFF,
+                     SEG_P_PRESENT | SEG_DPL3 | SEG_S_NORMAL |
+                     SEG_TYPE_CODE | SEG_TYPE_RW | SEG_D);
+    task_manager.app_code_sel = sel;
 
     list_init(&task_manager.ready_list);
     list_init(&task_manager.task_list);
@@ -140,7 +157,8 @@ void task_first_init(void) {
 
     uint32_t first_start = (uint32_t)first_task_entry;
 
-    task_init(&task_manager.first_task, "first task", 0, (uint32_t)first_start, 0);
+    /* first_task + alloc_size 是分配的地址的末尾，作为栈底*/
+    task_init(&task_manager.first_task, "first task", 0, (uint32_t)first_start, first_start + alloc_size);
 
     // 初始化第一个任务的TR寄存器，表示当前运行的任务是tss_sel参数中指向的任务
     write_tr(task_manager.first_task.tss_sel);
@@ -148,7 +166,7 @@ void task_first_init(void) {
 
     mmu_set_page_dir(task_manager.first_task.tss.cr3);
 
-    memory_alloc_page_for(first_start, alloc_size, PTE_P | PTE_W);
+    memory_alloc_page_for(first_start, alloc_size, PTE_P | PTE_W | PTE_U);
 
     kmemcpy((void*)first_start, s_first_task, copy_size);
 }

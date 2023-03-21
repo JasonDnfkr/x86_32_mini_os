@@ -24,10 +24,11 @@ static void addr_alloc_init(addr_alloc_t* alloc, uint8_t* bits, uint32_t start, 
     bitmap_init(&alloc->bitmap, bits, alloc->size / page_size, 0);
 }
 
-// 申请内存页
+// 内存分配器：以页为单位，申请物理内存。
 // 根据内存分配器中的信息，（起始页，该内存块可用大小，该块中分配的页大小）
 // 来申请内存
 // int page_count: 页数
+// 返回值：物理内存地址
 static uint32_t addr_alloc_page(addr_alloc_t* alloc, int page_count) {
     uint32_t addr = 0;
 
@@ -47,10 +48,10 @@ static uint32_t addr_alloc_page(addr_alloc_t* alloc, int page_count) {
 }
 
 
-// 释放内存页
-// 内存分配器
+// 内存分配器：以页为单位，释放物理内存。
 // uint32_t addr: 释放的内存页的起始地址
 // int page_count: 需要释放的页数
+// 显然，这里面会操控bitmap，撤销内存标记
 static void addr_free_page(addr_alloc_t* alloc, uint32_t addr, int page_count) {
     mutex_acquire(&alloc->mutex);
 
@@ -288,11 +289,62 @@ int memory_alloc_for_page_dir(uint32_t page_dir, uint32_t vaddr, uint32_t size, 
 }
 
 
-// 给当前进程的页表，建立映射
-// uin32_t page_dir: 页表
+// 给当前进程的页表，建立映射. 通常返回0x80000000以上的地址
 // uin32_t vaddr:    虚拟内存
 // uin32_t size:     内存大小数值，不是页数
 // uin32_t perm:     权限
-int memory_alloc_page_for(uint32_t addr, uint32_t size, uint32_t perm) {
-    return memory_alloc_for_page_dir(task_current()->tss.cr3, addr, size, perm);
+int memory_alloc_page_for(uint32_t vaddr, uint32_t size, uint32_t perm) {
+    return memory_alloc_for_page_dir(task_current()->tss.cr3, vaddr, size, perm);
 }
+
+
+static pde_t* curr_page_dir(void) {
+    return (pde_t*)(task_current()->tss.cr3);
+}
+
+
+// 以页为单位，分配物理内存（也就是说分配一页大小为PGSIZE的物理内存）. 
+// 通常返回0x80000000以下的内核内存
+uint32_t memory_alloc_page(void) {
+    uint32_t addr = addr_alloc_page(&paddr_alloc, 1);
+    return addr;
+}
+
+
+// 以页为单位，销毁大小为PGSIZE的物理内存
+void memory_free_page(uint32_t vaddr) {
+    if (vaddr < MEMORY_TASK_BASE) {  // 这是内核内存，在0x80000000以下。
+        // 已经在内核页表建立好了映射，只需让系统知道这块内存
+        // 将会变为可用 即可。即，把bitmap设置为0
+        addr_free_page(&paddr_alloc, vaddr, 1);
+    }
+    else {  // 说明这是用户空间内存，这里是还没有建立映射的。
+        pte_t* pte = find_pte(curr_page_dir(), vaddr, 0);
+        ASSERT(pte == (pte_t*)0 && pte->present);
+
+        addr_free_page(&paddr_alloc, pte_paddr(pte), 1);
+        pte->v = 0;
+    }
+    
+}
+
+/*-- ------------------------------ --*/
+// 申请物理内存。单位：字节
+static uint32_t kalloc(int size) {
+    if (size <= 0) {
+        return -1;
+    }
+
+    return addr_alloc_page(&paddr_alloc, up2(size, MEM_PAGE_SIZE) / MEM_PAGE_SIZE);
+}
+
+
+// 释放物理内存。单位：字节
+static void kfree(uint32_t addr, int size) {
+    if (size <= 0) {
+        return;
+    }
+
+    addr_free_page(&paddr_alloc, addr, up2(size, MEM_PAGE_SIZE) / MEM_PAGE_SIZE);
+}
+/*-- ------------------------------ --*/

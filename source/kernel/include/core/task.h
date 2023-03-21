@@ -9,7 +9,7 @@
 #define TASK_TIME_SLICE_DEFAULT 10
 #define IDLE_TASK_SIZE          1024
 
-
+#define TASK_FLAGS_USER         (0)
 #define TASK_FLAGS_SYSTEM       (1 << 0)
 
 // 进程控制块

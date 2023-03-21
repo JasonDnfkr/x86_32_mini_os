@@ -44,10 +44,14 @@ void memory_init(boot_info_t* boot_info);
 uint32_t memory_create_uvm(void);
 
 // 给当前进程建立页表映射
-// 从指定的地址addr开始，需要建立的内存大小为size，权限为perm
+// 从指定的地址vaddr开始，需要建立的内存大小为size，权限为perm
 // 该size不是页表数量，是内存数值大小
-int memory_alloc_page_for(uint32_t addr, uint32_t size, uint32_t perm);
+int memory_alloc_page_for(uint32_t vaddr, uint32_t size, uint32_t perm);
 
+// 分配一页内存
+uint32_t memory_alloc_page(void);
 
+// 销毁一页内存
+void memory_free_page(uint32_t vaddr);
 
 #endif
