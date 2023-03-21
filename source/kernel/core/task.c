@@ -14,7 +14,7 @@ static task_manager_t task_manager;
 static uint32_t idle_task_stack[IDLE_TASK_SIZE];
 
 
-static int tss_init(task_t* task, uint32_t entry, uint32_t esp) {
+static int tss_init(task_t* task, int flag, uint32_t entry, uint32_t esp) {
     int tss_sel = gdt_alloc_desc();
     if (tss_sel < 0) {
         log_printf("alloc tss failed\n");
@@ -27,8 +27,14 @@ static int tss_init(task_t* task, uint32_t entry, uint32_t esp) {
 
     int code_sel;
     int data_sel;
-    code_sel = task_manager.app_code_sel | SEG_RPL3;
-    data_sel = task_manager.app_data_sel | SEG_RPL3;
+    if (flag & TASK_FLAGS_SYSTEM) {
+        code_sel = KERNEL_SELECTOR_CS;
+        data_sel = KERNEL_SELECTOR_DS;
+    }
+    else {
+        code_sel = task_manager.app_code_sel | SEG_RPL3;
+        data_sel = task_manager.app_data_sel | SEG_RPL3;
+    }
 
     task->tss.eip    = entry;
     task->tss.esp    = esp;
@@ -52,10 +58,10 @@ static int tss_init(task_t* task, uint32_t entry, uint32_t esp) {
 }
 
 
-int task_init(task_t* task, const char* name, uint32_t entry, uint32_t esp) {
+int task_init(task_t* task, const char* name, int flag, uint32_t entry, uint32_t esp) {
     ASSERT(task != (task_t*)0);
 
-    tss_init(task, entry, esp);
+    tss_init(task, flag, entry, esp);
 
     kstrncpy(task->name, name, TASK_NAME_SIZE);
     task->state = TASK_CREATED;
@@ -92,7 +98,7 @@ void task_switch_from_to(task_t* from, task_t* to) {
 // 空闲进程的执行代码
 static void idle_task_entry(void) {
     while (1) {
-        // hlt();
+        hlt();
     }
 }
 
@@ -114,7 +120,12 @@ void task_manager_init(void) {
     task_manager.curr_task = (task_t*)0;
 
     // 创建一个 idle 进程，当所有进程都在sleep时，调用它
-    task_init(&task_manager.idle_task, "idle_task", (uint32_t)idle_task_entry, (uint32_t)idle_task_stack + IDLE_TASK_SIZE);
+    task_init(&task_manager.idle_task, 
+              "idle_task", 
+              TASK_FLAGS_SYSTEM,
+              (uint32_t)idle_task_entry, 
+              (uint32_t)idle_task_stack + IDLE_TASK_SIZE
+    );
 }
 
 // 初始化程序的第一个进程，是操作系统一直连贯的
@@ -129,7 +140,7 @@ void task_first_init(void) {
 
     uint32_t first_start = (uint32_t)first_task_entry;
 
-    task_init(&task_manager.first_task, "first task", (uint32_t)first_start, 0);
+    task_init(&task_manager.first_task, "first task", 0, (uint32_t)first_start, 0);
 
     // 初始化第一个任务的TR寄存器，表示当前运行的任务是tss_sel参数中指向的任务
     write_tr(task_manager.first_task.tss_sel);
