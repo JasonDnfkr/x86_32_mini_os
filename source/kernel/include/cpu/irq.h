@@ -58,6 +58,13 @@
 #define IRQ_PIC_START               0x20
 
 
+#define ERR_PAGE_P                  (1 << 0)
+#define ERR_PAGE_WR                 (1 << 1)
+#define ERR_PAGE_US                 (1 << 1)
+
+#define ERR_EXT                     (1 << 0)
+#define ERR_IDT                     (1 << 1)
+
 typedef struct _exception_frame_t {
     uint32_t gs;                    
     uint32_t fs;
@@ -79,6 +86,9 @@ typedef struct _exception_frame_t {
     uint32_t eip;
     uint32_t cs;
     uint32_t eflags;
+
+    uint32_t esp3;
+    uint32_t ss3;
 } exception_frame_t;
 
 
