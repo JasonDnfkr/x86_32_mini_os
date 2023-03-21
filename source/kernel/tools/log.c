@@ -12,7 +12,7 @@ static mutex_t mutex;
 
 
 void log_init(void) {
-    mutex_init(&mutex);
+    mutex_init(&mutex, "log");
     outb(COM1_PORT + 1, 0x00);
     outb(COM1_PORT + 3, 0x80);
     outb(COM1_PORT + 0, 0x03);

@@ -1,7 +1,9 @@
 #include "ipc/mutex.h"
 #include "cpu/irq.h"
+#include "tools/klib.h"
 
-void mutex_init(mutex_t* mutex) {
+void mutex_init(mutex_t* mutex, const char* name) {
+    kstrcpy(mutex->name, name);
     mutex->locked_count = 0;
     mutex->owner = (task_t*) 0;
     list_init(&mutex->wait_list);

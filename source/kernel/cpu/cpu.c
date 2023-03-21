@@ -54,7 +54,7 @@ void init_gdt(void) {
 
 
 void cpu_init(void) {
-    mutex_init(&mutex);
+    mutex_init(&mutex, "cpu: gdt");
     init_gdt();
 }
 

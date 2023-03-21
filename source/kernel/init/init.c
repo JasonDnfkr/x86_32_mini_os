@@ -39,24 +39,24 @@ void kernel_init(boot_info_t* boot_info) {
     task_manager_init();
 }
 
-
-static task_t init_task;
-static uint32_t init_task_stack[1024];
 static task_t first_task;
 
-static sem_t sem;
+// static task_t init_task;
+// static uint32_t init_task_stack[1024];
 
-void init_task_entry(void) {
-    int count = 0;
-    while (1) {
-        log_printf("int task: %d", count++);
+// static sem_t sem;
 
-        sem_wait(&sem);
-        // task_switch_from_to(&init_task, task_first_task());
-        // sys_sched_yield();
-        sys_sleep(1000);
-    }
-}
+// void init_task_entry(void) {
+//     int count = 0;
+//     while (1) {
+//         log_printf("int task: %d", count++);
+
+//         sem_wait(&sem);
+//         // task_switch_from_to(&init_task, task_first_task());
+//         // sys_sched_yield();
+//         sys_sleep(1000);
+//     }
+// }
 
 
 void link_test(void) {
@@ -111,7 +111,7 @@ void init_main(void) {
     log_printf("%d %d %x %c", 12345, -123, 0x123456, 'a');
 
     //
-    task_init(&init_task, "init task", (uint32_t)init_task_entry, (uint32_t)&init_task_stack[1024]);
+    // task_init(&init_task, "init task", (uint32_t)init_task_entry, (uint32_t)&init_task_stack[1024]);
     //
 
     task_first_init();
@@ -126,7 +126,7 @@ void init_main(void) {
         log_printf("int main: %d", count++);
         // task_switch_from_to(task_first_task(), &init_task);
         // sys_sched_yield();
-        sem_notify(&sem);
+        // sem_notify(&sem);
         sys_sleep(1000);
     }
 }

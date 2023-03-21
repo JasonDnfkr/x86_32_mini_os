@@ -17,7 +17,7 @@ static pde_t kernel_page_dir[PDE_CNT] __attribute__((aligned(MEM_PAGE_SIZE)));
 // size: 需要分配的内存大小
 // page_size: 分配的页大小 (4096等)
 static void addr_alloc_init(addr_alloc_t* alloc, uint8_t* bits, uint32_t start, uint32_t size, uint32_t page_size) {
-    mutex_init(&alloc->mutex);
+    mutex_init(&alloc->mutex, "addr_alloc_t");
     alloc->start = start;
     alloc->size = size;
     alloc->page_size = page_size;
