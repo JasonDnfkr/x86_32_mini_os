@@ -252,3 +252,38 @@ void memory_init(boot_info_t* boot_info) {
     create_kernel_table();
     mmu_set_page_dir((uint32_t)kernel_page_dir);
 }
+
+
+int memory_alloc_for_page_dir(uint32_t page_dir, uint32_t vaddr, uint32_t size, uint32_t perm) {
+    // 当前分配到哪个地址了？
+    uint32_t curr_vaddr = vaddr;
+
+    int page_count = up2(size, MEM_PAGE_SIZE) / MEM_PAGE_SIZE;
+
+    for (int i = 0; i < page_count; i++) {
+        uint32_t paddr = addr_alloc_page(&paddr_alloc, 1);
+        if (paddr == 0) {
+            log_printf("mem alloc failed. out of memory");
+            return 0;
+        }
+
+        int err = memory_create_map((pde_t* )page_dir, curr_vaddr, paddr, 1, perm);
+        if (err < 0) {
+            log_printf("mem alloc failed in mem_create_map(), out of memory");
+
+            // 需要取消之前建立的映射, 2023-03-21
+            addr_free_page(&paddr_alloc, vaddr, i);
+
+            return 0;
+        }
+
+        curr_vaddr += MEM_PAGE_SIZE;
+    }
+
+    return 0;
+}
+
+
+int memory_alloc_page_for(uint32_t addr, uint32_t size, uint32_t perm) {
+    return memory_alloc_for_page_dir(task_current()->tss.cr3, addr, size, perm);
+}

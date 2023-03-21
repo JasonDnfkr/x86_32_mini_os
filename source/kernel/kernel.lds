@@ -24,7 +24,7 @@ SECTIONS {
 
     e_data = .;
 
-    PROVIDE(.s_first_task = LOADADDR(.first_Task));
+    PROVIDE(s_first_task = LOADADDR(.first_task));
     . = 0x80000000;
     .first_task : AT(e_data) {
         *first_task_entry*(.text .rodata .bss .data)

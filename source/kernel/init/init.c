@@ -27,11 +27,13 @@ void kernel_init(boot_info_t* boot_info) {
     // ASSERT(3 < 2);
     __asm__ __volatile__("nop");
 
+
+    log_init();
+
     memory_init(boot_info);
 
     cpu_init();
 
-    log_init();
 
     irq_init();
     timer_init();
