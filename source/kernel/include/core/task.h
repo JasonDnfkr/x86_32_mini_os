@@ -25,7 +25,9 @@ typedef struct _task_t {
 
     char name[TASK_NAME_SIZE];
 
-    int pid;    
+    int pid;
+
+    struct _task_t* parent;         // 父进程
 
     list_node_t run_node;   // 对应 ready_list
     list_node_t all_node;   // 对应 task_list

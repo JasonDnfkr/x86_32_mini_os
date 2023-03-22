@@ -7,9 +7,15 @@
 #include "cpu/irq.h"
 #include "core/memory.h"
 #include "cpu/mmu.h"
+#include "core/syscall.h"
 
 // 全局的进程队列
 static task_manager_t task_manager;
+
+// 进程数组
+static task_t task_table[TASK_NR];
+
+static mutex_t task_table_mutex;
 
 // 空闲进程的栈, 不是广义上的内核栈
 static uint32_t idle_task_stack[IDLE_TASK_SIZE];
@@ -89,6 +95,8 @@ int task_init(task_t* task, const char* name, int flag, uint32_t entry, uint32_t
     task->time_ticks = TASK_TIME_SLICE_DEFAULT;
     task->slice_ticks = task->time_ticks;
 
+    task->parent = (task_t*)0;
+
     list_node_init(&task->all_node);
     list_node_init(&task->run_node);
     list_node_init(&task->wait_node);
@@ -105,6 +113,24 @@ int task_init(task_t* task, const char* name, int flag, uint32_t entry, uint32_t
     irq_leave_protection(state);
 
     return 0;
+}
+
+
+void task_uninit(task_t* task) {
+    if (task->tss_sel) {
+        gdt_free_sel(task->tss_sel);
+    }
+
+    // 把内核栈释放掉
+    if (task->tss.esp0) {
+        memory_free_page(task->tss.esp0 - MEM_PAGE_SIZE);
+    }
+
+    if (task->tss.cr3) {
+        memory_destroy_uvm(task->tss.cr3);
+    }
+
+    kmemset(task, 0, sizeof(task_t));
 }
 
 
@@ -126,6 +152,9 @@ static void idle_task_entry(void) {
 
 
 void task_manager_init(void) {
+    kmemset(task_table, 0, sizeof(task_table));
+    mutex_init(&task_table_mutex, "task_table");
+
     //数据段和代码段，使用DPL3，所有应用共用同一个
     //为调试方便，暂时使用DPL0
     int sel = gdt_alloc_desc();
@@ -334,7 +363,95 @@ int sys_getpid(void) {
 }
 
 
-int sys_fork(void) {
 
+// 分配 task
+static task_t* alloc_task(void) {
+    task_t* task = (task_t*)0;
+
+    mutex_acquire(&task_table_mutex);
+
+    for (int i = 0; i < TASK_NR; i++) {
+        task_t* curr = task_table + i;
+
+        if (curr->name[0] == '\0') {
+            task = curr;
+            break;
+        }
+    }
+
+    mutex_release(&task_table_mutex);
+
+    return task;
+}
+
+// 释放 task
+static void free_task(task_t* task) {
+    mutex_acquire(&task_table_mutex);
+
+    task->name[0] = '\0';
+
+    mutex_release(&task_table_mutex);
+}
+
+
+
+
+int sys_fork(void) {
+    // 获取父进程
+    task_t* parent_task = task_current();
+
+    task_t* child_task = alloc_task();
+    if (child_task == (task_t*)0) {
+        goto fork_failed;
+    }
+
+    // 获取进程的 寄存器结构的起始地址
+    syscall_frame_t * frame = (syscall_frame_t *)(parent_task->tss.esp0 - sizeof(syscall_frame_t));
+
+    // 子进程会的eip会直接指向ret那一条，而不是lcalll
+    // 这意味着，它的特权级是在3的
+    // 这又意味着，此时它的用户栈空间，有5个syscall的参数
+    // 需要把esp指针调回去
+    int err = task_init(child_task, 
+                        parent_task->name, 
+                        TASK_FLAGS_USER, 
+                        frame->eip, 
+                        frame->esp + sizeof(uint32_t) * SYSCALL_PARAM_COUNT);
+    if (err < 0) {
+        goto fork_failed;
+    }
+
+    // 从父进程的栈中取部分状态，然后写入tss。
+    // 注意检查esp, eip等是否在用户空间范围内，不然会造成page_fault
+    tss_t * tss = &child_task->tss;
+    tss->eax = 0;                       // 子进程返回0
+    tss->ebx = frame->ebx;
+    tss->ecx = frame->ecx;
+    tss->edx = frame->edx;
+    tss->esi = frame->esi;
+    tss->edi = frame->edi;
+    tss->ebp = frame->ebp;
+
+    tss->cs = frame->cs;
+    tss->ds = frame->ds;
+    tss->es = frame->es;
+    tss->fs = frame->fs;
+    tss->gs = frame->gs;
+    tss->eflags = frame->eflags;
+
+    child_task->parent = parent_task;
+
+    // 复制父进程的内存空间到子进程
+    if ((tss->cr3 = memory_copy_uvm(parent_task->tss.cr3)) < 0) {
+        goto fork_failed;
+    }
+
+    return child_task->pid;
+
+fork_failed:
+    if (child_task) {
+        task_uninit(child_task);
+        free_task(child_task);
+    }
     return -1;
 }

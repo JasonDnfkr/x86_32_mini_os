@@ -6,7 +6,9 @@
 
 ![image-20230322134456437](9 syscall_pic/image-20230322134456437.png)
 
-`lcalll`即为syscall调用，和中断类似，会存放SS,ESP,CS,EIP等寄存器（没有EFLAGS），而且会把用户栈的参数拷贝到内核栈里（EFLAGS）的位置。
+`lcalll `**即为syscall调用，和中断类似，会存放SS,ESP,CS,EIP等寄存器（没有EFLAGS），而且会把用户栈的参数拷贝到内核栈里（EFLAGS）的位置**。
+
+`lcalll` **会读取调用门里面的CS，对于系统调用来说，CS里面存放的就是KERNEL_CODE_SEG，这里面特权级的标志位是0。因此会把特权级升为0。然后读取当前进程中TSS的esp0，ss0**。
 
 
 

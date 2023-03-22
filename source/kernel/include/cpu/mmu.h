@@ -87,6 +87,9 @@ static inline void mmu_set_page_dir(uint32_t paddr) {
 }
 
 
+static inline uint32_t get_pte_perm(pte_t* pte) {
+    return (pte->v & 0x3ff);
+}
 
 
 #endif

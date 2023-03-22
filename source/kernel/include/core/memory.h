@@ -13,6 +13,7 @@
 #define MEM_EXT_END             (127 * 1024 * 1024)
 
 #define PDE_CNT                 1024
+#define PTE_CNT                 1024
 
 // 内存分配器
 // mutex: 互斥锁
@@ -53,5 +54,12 @@ uint32_t memory_alloc_page(void);
 
 // 销毁一页内存
 void memory_free_page(uint32_t vaddr);
+
+
+// 拷贝用户页表
+uint32_t memory_copy_uvm(uint32_t page_dir);
+
+// 销毁用户页表
+void memory_destroy_uvm(uint32_t page_dir);
 
 #endif
