@@ -9,9 +9,9 @@ void sem_init(sem_t* sem, int init_count) {
 
 
 void sem_wait(sem_t* sem) {
-    // 进程获得了一个信号，且不为0
     irq_state_t state = irq_enter_protection();
 
+    // 进程获得了一个信号，且不为0
     if (sem->count > 0) {
         sem->count--;
     }
@@ -19,6 +19,7 @@ void sem_wait(sem_t* sem) {
         task_t* curr = task_current();
         task_set_blocked(curr);
         list_insert_back(&sem->wait_list, &curr->wait_node);
+        
         task_dispatch();
     }
 

@@ -18,6 +18,9 @@
         "list.h": "c",
         "sem.h": "c",
         "memory.h": "c",
-        "bitmap.h": "c"
+        "bitmap.h": "c",
+        "syscall.h": "c",
+        "cpu.h": "c",
+        "log.h": "c"
     },
 }

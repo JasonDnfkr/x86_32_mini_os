@@ -22,6 +22,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/core/memory.c" "source/kernel/CMakeFiles/kernel.dir/core/memory.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/core/memory.c.obj.d"
+  "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/core/syscall.c" "source/kernel/CMakeFiles/kernel.dir/core/syscall.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/core/syscall.c.obj.d"
   "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/core/task.c" "source/kernel/CMakeFiles/kernel.dir/core/task.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/core/task.c.obj.d"
   "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/cpu.c" "source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj.d"
   "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/irq.c" "source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj.d"

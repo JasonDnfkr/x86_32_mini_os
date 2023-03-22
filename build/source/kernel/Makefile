@@ -154,6 +154,30 @@ core/memory.c.s:
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/core/memory.c.s
 .PHONY : core/memory.c.s
 
+core/syscall.obj: core/syscall.c.obj
+.PHONY : core/syscall.obj
+
+# target to build an object file
+core/syscall.c.obj:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/core/syscall.c.obj
+.PHONY : core/syscall.c.obj
+
+core/syscall.i: core/syscall.c.i
+.PHONY : core/syscall.i
+
+# target to preprocess a source file
+core/syscall.c.i:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/core/syscall.c.i
+.PHONY : core/syscall.c.i
+
+core/syscall.s: core/syscall.c.s
+.PHONY : core/syscall.s
+
+# target to generate assembly for a file
+core/syscall.c.s:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/core/syscall.c.s
+.PHONY : core/syscall.c.s
+
 core/task.obj: core/task.c.obj
 .PHONY : core/task.obj
 
@@ -470,6 +494,9 @@ help:
 	@echo "... core/memory.obj"
 	@echo "... core/memory.i"
 	@echo "... core/memory.s"
+	@echo "... core/syscall.obj"
+	@echo "... core/syscall.i"
+	@echo "... core/syscall.s"
 	@echo "... core/task.obj"
 	@echo "... core/task.i"
 	@echo "... core/task.s"

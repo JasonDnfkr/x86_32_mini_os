@@ -88,6 +88,9 @@ typedef struct _gate_desc_t {
 #define GATE_TYPE_INT   (0xE << 8)
 
 
+
+#define GATE_TYPE_SYSCALL   (0xC << 8)
+
 // TSS
 typedef struct _tss_t {
     uint32_t pre_link;
@@ -132,7 +135,7 @@ void cpu_init(void);
 void segment_desc_set(int selector, uint32_t base, uint32_t limit, uint16_t attr);
 
 
-// 设置 Interrupt Gate 表项
+// 设置 Interrupt /Call Gate 表项
 void gate_desc_set(gate_desc_t* desc, uint16_t selector, uint32_t offset, uint16_t attr);
 
 // 从GDT表中找一个空闲项，找到后返回该地址

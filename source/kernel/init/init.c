@@ -112,7 +112,7 @@ void move_to_first_task(void) {
         // 不过这里并不直接进入到进程的入口，而是先设置好段寄存器，再跳过去
         "push %[ss]\n\t"			// SS
         "push %[esp]\n\t"			// ESP
-        "push %[eflags]\n\t"           // EFLAGS
+        "push %[eflags]\n\t"        // EFLAGS
         "push %[cs]\n\t"			// CS
         "push %[eip]\n\t"		    // ip
         "iret\n\t"::[ss]"r"(tss->ss),  [esp]"r"(tss->esp), [eflags]"r"(tss->eflags),
@@ -123,9 +123,35 @@ void move_to_first_task(void) {
 }
 
 
+
+static void test_task1(void) {
+    int count = 0;
+    while (1) {
+        log_printf("test_task1: %d", count);
+        count++;
+        sys_sleep(1000);
+    }
+}
+
+
+static void test_task2(void) {
+    int count = 0;
+    while (1) {
+        log_printf("test_task2: %d", count);
+        count++;
+        sys_sleep(1000);
+    }
+}
+
+
+static task_t task1;
+static task_t task2;
+static uint32_t stack1[MEM_PAGE_SIZE];
+static uint32_t stack2[MEM_PAGE_SIZE];
+
 void init_main(void) {
     // int a = 3 / 0;
-    // irq_enable_global();
+    // irq_enable_global();    
     log_printf("Kernel is running ...");
     log_printf("Version: %s %s", OS_VERSION, "test");
     log_printf("%d %d %x %c", 12345, -123, 0x123456, 'a');
@@ -133,6 +159,17 @@ void init_main(void) {
     //
     // task_init(&init_task, "init task", (uint32_t)init_task_entry, (uint32_t)&init_task_stack[1024]);
     //
+
+    // kmemset(stack1, 0, MEM_PAGE_SIZE);
+    // kmemset(stack2, 0, MEM_PAGE_SIZE);
+    
+    // task_init(&task1, "test_task1", TASK_FLAGS_SYSTEM, (uint32_t)test_task1, (uint32_t)&stack1[MEM_PAGE_SIZE]);
+    // task_init(&task2, "test_task2", TASK_FLAGS_SYSTEM, (uint32_t)test_task2, (uint32_t)&stack2[MEM_PAGE_SIZE]);
+
+
+    sys_sched_yield();
+
+    // while (1);
 
     task_first_init();
     move_to_first_task();

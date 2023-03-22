@@ -30,12 +30,13 @@ gdt_reload:
 	mov %ax, %fs
 	mov %ax, %gs
 
-    mov $(stack + KERNEL_STACK_SIZE), %esp
+    # 这里改了栈指针的位置，不再是7c00了
+    # mov $(stack + KERNEL_STACK_SIZE), %esp
     jmp init_main
 
     .bss # 定义一个 bss 区域
     # 定义一个内核初始化过程中使用的栈
-    # 而不是去使用 loader 定义的栈（使用 loader 的栈也行）
+    # 而不是去使用 loader 定义的栈（使用 loader 的栈0x7c00也行）
     .comm stack, KERNEL_STACK_SIZE 
 
 
@@ -61,8 +62,8 @@ exception_handler_\name:
     push %gs
 
     push %esp # 这里就是 struct exception_frame 的地址
-    call do_handler_\name
-    add $(1 * 4), %esp
+    call do_handler_\name # 这里调用了中断处理函数(trap_handler)，把上面压栈的内容正好当做参数
+    add $(1 * 4), %esp  # 把上面那个 struct frame 跳过去
 
     pop %gs
     pop %fs
@@ -70,7 +71,7 @@ exception_handler_\name:
     pop %ds
     popa
 
-    add $(2 * 4), %esp
+    add $(2 * 4), %esp # 跳过压入的异常号和错误码
 
     iret
 .endm
@@ -123,3 +124,31 @@ simple_switch:  # simple_switch(&from->stack, to->stack)
     pop %ebp
 
     ret
+
+    .global exception_handler_syscall
+    .extern do_handler_syscall
+exception_handler_syscall:
+    pusha # 该指令会保存一系列指定的寄存器
+
+    push %ds
+    push %es
+    push %fs
+    push %gs
+
+    pushf # push %eflags
+
+    mov %esp, %eax  # 将这里作为结构体入口地址参数
+    push %eax
+
+    call do_handler_syscall
+
+    add $4, %esp    # esp 向上调整，跳过结构体地址参数
+
+    popf  # pop %eflags
+    pop %gs
+    pop %fs
+    pop %es
+    pop %ds
+    popa
+
+    retf $(5 * 4)

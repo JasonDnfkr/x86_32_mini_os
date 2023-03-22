@@ -25,6 +25,8 @@ typedef struct _task_t {
 
     char name[TASK_NAME_SIZE];
 
+    int pid;    
+
     list_node_t run_node;   // 对应 ready_list
     list_node_t all_node;   // 对应 task_list
     list_node_t wait_node;  // 对应 wait_list
@@ -87,5 +89,7 @@ void task_set_sleep(task_t* task, uint32_t ticks);
 void task_set_wakeup(task_t* task);
 
 void sys_sleep(uint32_t ms);
+
+int sys_getpid(void);
 
 #endif

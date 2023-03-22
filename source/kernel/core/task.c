@@ -26,7 +26,7 @@ static int tss_init(task_t* task, int flag, uint32_t entry, uint32_t esp) {
 
     kmemset(&task->tss, 0, sizeof(tss_t));
 
-    // 分配一个内核栈空间
+    // 分配一个内核栈空间，大小为PGSIZE
     uint32_t kernel_stack = memory_alloc_page();
     if (kernel_stack == 0) {
         goto tss_init_failed;
@@ -95,6 +95,9 @@ int task_init(task_t* task, const char* name, int flag, uint32_t entry, uint32_t
 
     irq_state_t state = irq_enter_protection();
 
+
+    task->pid = (uint32_t)task;
+
     task_set_ready(task);
 
     list_insert_back(&task_manager.task_list, &task->all_node);
@@ -149,6 +152,8 @@ void task_manager_init(void) {
               (uint32_t)idle_task_entry, 
               (uint32_t)idle_task_stack + IDLE_TASK_SIZE
     );
+
+    task_manager.curr_task = &task_manager.idle_task;
 }
 
 // 初始化程序的第一个进程，是操作系统一直连贯的
@@ -164,7 +169,7 @@ void task_first_init(void) {
     uint32_t first_start = (uint32_t)first_task_entry;
 
     /* first_task + alloc_size 是分配的地址的末尾，作为栈底*/
-    task_init(&task_manager.first_task, "first task", 0, (uint32_t)first_start, first_start + alloc_size);
+    task_init(&task_manager.first_task, "first task", TASK_FLAGS_USER, (uint32_t)first_start, first_start + alloc_size);
 
     // 初始化第一个任务的TR寄存器，表示当前运行的任务是tss_sel参数中指向的任务
     write_tr(task_manager.first_task.tss_sel);
@@ -223,7 +228,7 @@ task_t* task_current(void) {
     return task_manager.curr_task;
 }
 
-
+// 当前进程主动放弃CPU
 int sys_sched_yield(void) {
     irq_state_t state = irq_enter_protection();
 
@@ -320,4 +325,10 @@ void sys_sleep(uint32_t ms) {
     task_dispatch();
 
     irq_leave_protection(state);
+}
+
+
+int sys_getpid(void) {
+    task_t* task = task_current();
+    return task->pid;
 }

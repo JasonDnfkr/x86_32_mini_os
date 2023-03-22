@@ -67,7 +67,7 @@
 			"sourceIndexes" : 
 			[
 				0,
-				20
+				22
 			]
 		},
 		{
@@ -96,14 +96,15 @@
 				3,
 				4,
 				5,
-				19,
+				6,
 				21,
 				23,
-				24,
 				25,
 				26,
 				27,
-				28
+				28,
+				29,
+				30
 			]
 		}
 	],
@@ -141,7 +142,7 @@
 			"sourceIndexes" : 
 			[
 				0,
-				20
+				22
 			]
 		},
 		{
@@ -153,21 +154,21 @@
 				3,
 				4,
 				5,
-				19,
+				6,
 				21,
 				23,
-				24,
 				25,
 				26,
 				27,
-				28
+				28,
+				29,
+				30
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				6,
 				7,
 				8,
 				9,
@@ -180,7 +181,9 @@
 				16,
 				17,
 				18,
-				22
+				19,
+				20,
+				24
 			]
 		}
 	],
@@ -196,6 +199,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "source/kernel/core/memory.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "source/kernel/core/syscall.c",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -225,6 +234,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "source/kernel/include/core/memory.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "source/kernel/include/core/syscall.h",
 			"sourceGroupIndex" : 2
 		},
 		{
