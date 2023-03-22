@@ -5,6 +5,7 @@
 
 #define SYS_sleep           0
 #define SYS_getpid          1
+#define SYS_print_msg       2
 
 // 系统调用的栈信息
 typedef struct _syscall_frame_t {

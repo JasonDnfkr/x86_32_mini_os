@@ -6,7 +6,7 @@
 
 ![image-20230322134456437](9 syscall_pic/image-20230322134456437.png)
 
-syscall调用，和中断类似，会存放SS,ESP,CS,EIP等寄存器（没有EFLAGS），而且会把用户栈的参数拷贝到内核栈里（EFLAGS）的位置。
+`lcalll`即为syscall调用，和中断类似，会存放SS,ESP,CS,EIP等寄存器（没有EFLAGS），而且会把用户栈的参数拷贝到内核栈里（EFLAGS）的位置。
 
 
 

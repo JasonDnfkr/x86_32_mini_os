@@ -8,8 +8,6 @@
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/os_cfg.h
 
-E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/first_task_entry.S
-
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/start_kernel.S
 cpu/os_cfg.h
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/cpu/os_cfg.h

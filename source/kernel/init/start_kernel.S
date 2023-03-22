@@ -136,6 +136,13 @@ exception_handler_syscall:
     push %gs
 
     pushf # push %eflags
+    
+	# 使用内核段寄存器，避免使用应用层的
+	mov $(KERNEL_SELECTOR_DS), %eax
+	mov %eax, %ds
+	mov %eax, %es
+	mov %eax, %fs
+	mov %eax, %gs    
 
     mov %esp, %eax  # 将这里作为结构体入口地址参数
     push %eax

@@ -4,9 +4,14 @@
 
 int first_task_main(void) {
     int pid = getpid();
+
     while (1) {
         // log_printf("first task.");
+
+        print_msg("pid = %d", pid);
         msleep(1000);
     }
+    
+
     return 0;
 }
