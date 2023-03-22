@@ -13,6 +13,7 @@ static const syscall_handler_t sys_table[] = {
     [SYS_sleep]      = (syscall_handler_t)sys_sleep,
     [SYS_getpid]     = (syscall_handler_t)sys_getpid,
     [SYS_print_msg]  = (syscall_handler_t)sys_print_msg,
+    [SYS_fork]       = (syscall_handler_t)sys_fork,
 };
 
 void do_handler_syscall(syscall_frame_t* frame) {

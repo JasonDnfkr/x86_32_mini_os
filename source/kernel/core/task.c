@@ -162,7 +162,7 @@ void task_first_init(void) {
     void first_task_entry(void);
     extern uint8_t s_first_task[], e_first_task[];
 
-    uint8_t copy_size = (uint32_t)(e_first_task - s_first_task);
+    uint32_t copy_size = (uint32_t)(e_first_task - s_first_task);
     uint32_t alloc_size = 10 * MEM_PAGE_SIZE;
     ASSERT(copy_size < alloc_size);
 
@@ -331,4 +331,10 @@ void sys_sleep(uint32_t ms) {
 int sys_getpid(void) {
     task_t* task = task_current();
     return task->pid;
+}
+
+
+int sys_fork(void) {
+
+    return -1;
 }

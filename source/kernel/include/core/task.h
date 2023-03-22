@@ -92,4 +92,6 @@ void sys_sleep(uint32_t ms);
 
 int sys_getpid(void);
 
+int sys_fork(void);
+
 #endif
