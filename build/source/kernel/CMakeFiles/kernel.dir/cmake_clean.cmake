@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/kernel.dir/cpu/irq.c.obj.d"
   "CMakeFiles/kernel.dir/dev/timer.c.obj"
   "CMakeFiles/kernel.dir/dev/timer.c.obj.d"
+  "CMakeFiles/kernel.dir/fs/fs.c.obj"
+  "CMakeFiles/kernel.dir/fs/fs.c.obj.d"
   "CMakeFiles/kernel.dir/init/first_task.c.obj"
   "CMakeFiles/kernel.dir/init/first_task.c.obj.d"
   "CMakeFiles/kernel.dir/init/first_task_entry.S.obj"

@@ -6,12 +6,12 @@
 #include <stdarg.h>
 
 // 向上对齐到页边界
-static inline uint32_t up2 (uint32_t size, uint32_t bound) {
+static inline uint32_t up2(uint32_t size, uint32_t bound) {
     return (size + bound - 1) & ~(bound - 1);
 }
 
 // 向下对齐到界边界
-static inline uint32_t down2 (uint32_t size, uint32_t bound) {
+static inline uint32_t down2(uint32_t size, uint32_t bound) {
     return size & ~(bound - 1);
 }
 
@@ -47,5 +47,12 @@ void pannic(const char* file, int line, const char* func, const char* cond);
 #define ASSERT(expr)     ((void)0)
 
 #endif
+
+// 计算 char** argv中有多少个字符串
+int strings_count(char** start);
+
+
+// 获取路径中文件名
+char* get_file_name(const char* name);
 
 #endif

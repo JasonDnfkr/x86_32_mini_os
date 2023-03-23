@@ -61,6 +61,11 @@
 },
 {
   "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
+  "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/fs/fs.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/fs/fs.c",
+  "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/fs/fs.c"
+},
+{
+  "directory": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/build/source/kernel",
   "command": "E:/Environment/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/init/first_task.c.obj -c E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/first_task.c",
   "file": "E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/first_task.c"
 },

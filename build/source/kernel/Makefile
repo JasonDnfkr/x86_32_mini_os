@@ -31,9 +31,6 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -277,6 +274,30 @@ dev/timer.c.s:
 	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/dev/timer.c.s
 .PHONY : dev/timer.c.s
 
+fs/fs.obj: fs/fs.c.obj
+.PHONY : fs/fs.obj
+
+# target to build an object file
+fs/fs.c.obj:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/fs/fs.c.obj
+.PHONY : fs/fs.c.obj
+
+fs/fs.i: fs/fs.c.i
+.PHONY : fs/fs.i
+
+# target to preprocess a source file
+fs/fs.c.i:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/fs/fs.c.i
+.PHONY : fs/fs.c.i
+
+fs/fs.s: fs/fs.c.s
+.PHONY : fs/fs.s
+
+# target to generate assembly for a file
+fs/fs.c.s:
+	cd E:/Data/Work/Job/Cpp/diy-x86os/start/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/fs/fs.c.s
+.PHONY : fs/fs.c.s
+
 init/first_task.obj: init/first_task.c.obj
 .PHONY : init/first_task.obj
 
@@ -512,6 +533,9 @@ help:
 	@echo "... dev/timer.obj"
 	@echo "... dev/timer.i"
 	@echo "... dev/timer.s"
+	@echo "... fs/fs.obj"
+	@echo "... fs/fs.i"
+	@echo "... fs/fs.s"
 	@echo "... init/first_task.obj"
 	@echo "... init/first_task.i"
 	@echo "... init/first_task.s"

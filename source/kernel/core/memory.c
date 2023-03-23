@@ -102,16 +102,16 @@ static void test_alloc(void) {
     }
 }
 
-// 建立PDE到PTE的映射关系，如果 alloc 为1，则创建这个PTE
+// 建立/查找 PDE到PTE的映射关系，如果 alloc 为1，则创建这个PTE
 // 并返回这个PTE表项
 // pde_t* page_dir: 需要建立的页表，PDE
 // uint32_t vaddr： 需要建立映射的虚拟地址
 // int alloc:       如果为1，则创建这个PTE
 pte_t* find_pte(pde_t* page_dir, uint32_t vaddr, int alloc) {
     // 这个是二级页表的地址
-    pte_t * page_table;
+    pte_t* page_table;
 
-    pde_t *pde = &page_dir[pde_index(vaddr)];
+    pde_t* pde = &page_dir[pde_index(vaddr)];
 
     // 如果这个一级页表对应的二级页表，
     // 它已经存在了
@@ -257,7 +257,44 @@ void memory_init(boot_info_t* boot_info) {
     mmu_set_page_dir((uint32_t)kernel_page_dir);
 }
 
-// 给指定的页表，建立内存映射
+
+
+
+// 在不同的进程空间中拷贝字符串
+// page_dir为目标页表，当前仍为老页表
+// 和xv6的函数很像，物理页不连续要逐页拷贝
+int memory_copy_uvm_data(uint32_t to, uint32_t page_dir, uint32_t from, uint32_t size) {
+    char *buf, *pa0;
+
+    while (size > 0) {
+        // 获取目标的物理地址, 也即其另一个虚拟地址
+        uint32_t to_paddr = memory_get_paddr(page_dir, to);
+        if (to_paddr == 0) {
+            return -1;
+        }
+
+        // 计算当前可拷贝的大小
+        uint32_t offset_in_page = to_paddr & (MEM_PAGE_SIZE - 1);
+        uint32_t curr_size = MEM_PAGE_SIZE - offset_in_page;
+        if (curr_size > size) {
+            curr_size = size;       // 如果比较大，超过页边界，则只拷贝此页内的
+        }
+
+        kmemcpy((void *)to_paddr, (void *)from, curr_size);
+
+        size -= curr_size;
+        to += curr_size;
+        from += curr_size;
+    }
+
+    return 0;
+}
+
+
+
+
+// 给指定的虚拟内存，在指定的一级页表中，
+// 构造可用空间
 // uin32_t page_dir: 页表
 // uin32_t vaddr:    虚拟内存
 // uin32_t size:     内存大小数值，不是页数
@@ -480,4 +517,14 @@ copy_uvm_failed:
     }
 
     return -1;
+}
+
+
+uint32_t memory_get_paddr(uint32_t page_dir, uint32_t vaddr) {
+    pte_t* pte = find_pte((pde_t*)page_dir, vaddr, 0);
+    if (!pte) {
+        return 0;
+    }
+
+    return pte_paddr(pte) + (vaddr & (MEM_PAGE_SIZE - 1));
 }

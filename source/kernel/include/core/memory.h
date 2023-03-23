@@ -12,6 +12,10 @@
 #define MEMORY_TASK_BASE        (0x80000000)
 #define MEM_EXT_END             (127 * 1024 * 1024)
 
+#define MEM_TASK_STACK_TOP      0xE0000000
+#define MEM_TASK_STACK_SIZE     (MEM_PAGE_SIZE * 500)
+#define MEM_TASK_ARG_SIZE       (MEM_PAGE_SIZE * 16)
+
 #define PDE_CNT                 1024
 #define PTE_CNT                 1024
 
@@ -67,4 +71,20 @@ uint32_t memory_copy_uvm2(uint32_t from, uint32_t to);
 // 销毁用户页表
 void memory_destroy_uvm(uint32_t page_dir);
 
+
+// 给指定的虚拟内存，在指定的一级页表中，
+// 构造可用空间
+// uin32_t page_dir: 页表
+// uin32_t vaddr:    虚拟内存
+// uin32_t size:     内存大小数值，不是页数
+// uin32_t perm:     权限
+int memory_alloc_for_page_dir(uint32_t page_dir, uint32_t vaddr, uint32_t size, uint32_t perm);
+
+// 从选择的页表中读取虚拟地址对应的物理地址
+uint32_t memory_get_paddr(uint32_t page_dir, uint32_t vaddr);
+
+// 在不同的进程空间中拷贝字符串
+// page_dir为目标页表，当前仍为老页表
+// 和xv6的函数很像，物理页不连续要逐页拷贝
+int memory_copy_uvm_data(uint32_t to, uint32_t page_dir, uint32_t from, uint32_t size);
 #endif

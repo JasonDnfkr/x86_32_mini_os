@@ -42,7 +42,9 @@ source/kernel/CMakeFiles/kernel.dir/core/task.c.obj: E:/Data/Work/Job/Cpp/diy-x8
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/boot_info.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/mmu.h \
-  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/syscall.h
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/syscall.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/elf.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/fs/fs.h
 
 source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/cpu.c \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/cpu.h \
@@ -75,6 +77,15 @@ source/kernel/CMakeFiles/kernel.dir/dev/timer.c.obj: E:/Data/Work/Job/Cpp/diy-x8
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/task.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/cpu.h \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/list.h
+
+source/kernel/CMakeFiles/kernel.dir/fs/fs.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/fs/fs.c \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/fs/fs.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/types.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/klib.h \
+  E:/Environment/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/cpu_instr.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/types.h \
+  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/boot_info.h
 
 source/kernel/CMakeFiles/kernel.dir/init/first_task.c.obj: E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/first_task.c \
   E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/tools/log.h \
@@ -159,6 +170,8 @@ E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/irq.c:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/core/memory.c:
 
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/fs/fs.h:
+
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/core/task.c:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/cpu.h:
@@ -199,11 +212,15 @@ E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/irq.h:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/syscall.h:
 
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/dev/timer.c:
+
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/elf.h:
+
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/dev/timer.h:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/cpu/cpu.c:
 
-E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/dev/timer.c:
+E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/fs/fs.c:
 
 E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/init/first_task.c:
 

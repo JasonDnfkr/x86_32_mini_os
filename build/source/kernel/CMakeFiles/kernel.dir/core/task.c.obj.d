@@ -16,4 +16,6 @@ source/kernel/CMakeFiles/kernel.dir/core/task.c.obj: \
  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/ipc/mutex.h \
  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/boot_info.h \
  E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/cpu/mmu.h \
- E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/syscall.h
+ E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/core/syscall.h \
+ E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/comm/elf.h \
+ E:/Data/Work/Job/Cpp/diy-x86os/start/start/source/kernel/include/fs/fs.h

@@ -63,6 +63,14 @@ typedef struct _task_manager_t {
     int app_data_sel;       // 用户程序数据段选择子
 } task_manager_t;
 
+
+typedef struct _task_args_t {
+    uint32_t ret_addr;
+    uint32_t argc;
+    char** argv;
+} task_args_t;
+
+
 // 初始化进程队列
 void task_manager_init(void);
 
