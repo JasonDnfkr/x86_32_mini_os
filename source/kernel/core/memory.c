@@ -376,7 +376,8 @@ void memory_destroy_uvm(uint32_t page_dir) {
 }
 
 
-// 拷贝用户页表
+// 新建立一个页表，并把参数中的页表内容拷贝过去
+// 0x80000000以下的部分不管
 uint32_t memory_copy_uvm(uint32_t page_dir) {
     // 复制基础页表
     uint32_t to_page_dir = memory_create_uvm();
@@ -423,6 +424,59 @@ uint32_t memory_copy_uvm(uint32_t page_dir) {
 copy_uvm_failed:
     if (to_page_dir) {
         memory_destroy_uvm(to_page_dir);
+    }
+
+    return -1;
+}
+
+
+// 把from的页表内容拷贝至to
+// 0x80000000以下的部分不管
+uint32_t memory_copy_uvm2(uint32_t from, uint32_t to) {
+    // 复制基础页表
+    if (to == 0) {
+        goto copy_uvm_failed;
+    }
+
+    // 再复制用户空间的各项,0x80000000以上的
+    uint32_t user_pde_start = pde_index(MEMORY_TASK_BASE);
+    pde_t* pde = (pde_t*)from + user_pde_start;
+
+    // 遍历用户空间页目录项
+    for (int i = user_pde_start; i < PDE_CNT; i++, pde++) {
+        if (!pde->present) {
+            continue;
+        }
+
+        // 遍历页表
+        pte_t* pte = (pte_t*)pde_paddr(pde);
+        for (int j = 0; j < PTE_CNT; j++, pte++) {
+            if (!pte->present) {
+                continue;
+            }
+
+            // 分配物理内存
+            uint32_t page = addr_alloc_page(&paddr_alloc, 1);
+            if (page == 0) {
+                goto copy_uvm_failed;
+            }
+
+            // 建立映射关系
+            uint32_t vaddr = (i << 22) | (j << 12);
+            int err = memory_create_map((pde_t*)to, vaddr, page, 1, get_pte_perm(pte));
+            if (err < 0) {
+                goto copy_uvm_failed;
+            }
+
+            // 复制内容。
+            kmemcpy((void*)page, (void*)vaddr, MEM_PAGE_SIZE);
+        }
+    }
+    return to;
+
+copy_uvm_failed:
+    if (to) {
+        memory_destroy_uvm(to);
     }
 
     return -1;

@@ -442,7 +442,7 @@ int sys_fork(void) {
     child_task->parent = parent_task;
 
     // 复制父进程的内存空间到子进程
-    if ((tss->cr3 = memory_copy_uvm(parent_task->tss.cr3)) < 0) {
+    if ((tss->cr3 = memory_copy_uvm2(parent_task->tss.cr3, tss->cr3)) < 0) {
         goto fork_failed;
     }
 
@@ -453,5 +453,9 @@ fork_failed:
         task_uninit(child_task);
         free_task(child_task);
     }
+    return -1;
+}
+
+int sys_execve(char* name, char** argv, char** env) {
     return -1;
 }

@@ -7,6 +7,7 @@
 #define SYS_getpid          1
 #define SYS_print_msg       2
 #define SYS_fork		    3
+#define SYS_execve		    4
 
 // 系统调用的栈信息
 typedef struct _syscall_frame_t {

@@ -59,6 +59,11 @@ void memory_free_page(uint32_t vaddr);
 // 拷贝用户页表
 uint32_t memory_copy_uvm(uint32_t page_dir);
 
+
+// 拷贝用户页表
+uint32_t memory_copy_uvm2(uint32_t from, uint32_t to);
+
+
 // 销毁用户页表
 void memory_destroy_uvm(uint32_t page_dir);
 

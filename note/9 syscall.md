@@ -53,3 +53,19 @@ Segment Selector设置为`KERNEL_SELECTOR_CS`
 #### ====== 自我总结 ======
 
 要写一下调用的流程
+
+1. 用户态程序调用封装好的msleep(int)函数
+
+2. 项目中设定了系统调用最多支持五个参数(id, arg0~arg3)，msleep(int)会把参数封装进一个小结构体中。
+
+3. 调用`syscall(struct syscall_args*)`，这个函数调用了lcalll。
+
+   `lcalll`指令会保存SS、ESP、args、CS、EIP到内核栈。其中，SS、ESP、CS、EIP是CPU自动保存的，args会把当前栈的几个内容搬运到内核栈里。内核栈是从当前任务的TR寄存器里保存的TSS结构的地址找出的esp0。
+
+4. `lcalll`的操作数是gate选择子。让它指向GDT表中SYSCALL有关的表项。这个表项里面设定了被调函数所在的代码段为KERNEL_CODE_SEG，这个代码段的权限位是0。因此跳转过去后，CPU特权级也会变成0。
+
+5. gate选择子里设定了offset为syscall_handler的函数入口地址，从这个函数来处理系统调用。
+
+6. 由于需要用到许多寄存器的信息，在syscall_handler汇编函数里继续保存了一堆寄存器，然后用结构体当做参数，在栈上直接传递到C语言代码里做真正的syscall分发。
+
+7. 原路返回即可。
