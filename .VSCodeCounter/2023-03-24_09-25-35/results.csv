@@ -1,0 +1,131 @@
+"filename", "language", "C", "RISC-V Assembly", "LinkerScript", "C++", "Batch", "Shell Script", "Markdown", "Makefile", "JSON", "CMake", "CMake Cache", "Log", "TypeScript", "comment", "blank", "total"
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\README.md", "Markdown", 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\query\client-vscode\query.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\cache-v2-1dd8454d5ff05e8918af.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 1503, 0, 0, 0, 0, 0, 1, 1504
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\cmakeFiles-v1-676bf60df083fcb5b558.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 529, 0, 0, 0, 0, 0, 1, 530
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\codemodel-v2-194de607b0091123203d.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 231, 0, 0, 0, 0, 0, 1, 232
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\directory-.-Debug-d0094a50bb2071803777.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 1, 15
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\directory-source.applib-Debug-5e5d462fbfa8010f6a72.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 1, 15
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\directory-source.boot-Debug-e32ed8e172d18c41a714.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 1, 15
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\directory-source.kernel-Debug-4384d93899d7b295e598.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 1, 15
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\directory-source.loader-Debug-c085dfc97c955badf5e0.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 1, 15
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\directory-source.shell-Debug-9bcd9f15bf3fe254031f.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 1, 15
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\index-2023-03-23T09-30-08-0445.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 132, 0, 0, 0, 0, 0, 1, 133
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\target-app-Debug-691fded50ddfebdf68c8.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 148, 0, 0, 0, 0, 0, 1, 149
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\target-boot-Debug-ceeddecd1372b2246203.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 169, 0, 0, 0, 0, 0, 1, 170
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\target-kernel-Debug-537ccb521ad474e36563.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 379, 0, 0, 0, 0, 0, 1, 380
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\target-loader-Debug-404bb4b92ad01dc609f2.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 177, 0, 0, 0, 0, 0, 1, 178
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\target-shell-Debug-fc184df4f978628abcfb.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 144, 0, 0, 0, 0, 0, 1, 145
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\.cmake\api\v1\reply\toolchains-v1-ab835e02a05a3257afc4.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 61, 0, 0, 0, 0, 0, 1, 62
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeCache.txt", "CMake Cache", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 361, 0, 0, 0, 89, 450
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeFiles\3.25.0-rc3\CMakeASMCompiler.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 7, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeFiles\3.25.0-rc3\CMakeCCompiler.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 55, 0, 0, 0, 0, 18, 73
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeFiles\3.25.0-rc3\CMakeRCCompiler.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 1, 7
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeFiles\3.25.0-rc3\CMakeSystem.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 6, 16
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeFiles\3.25.0-rc3\CompilerIdC\CMakeCCompilerId.c", "C", 661, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 147, 869
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeFiles\CMakeDirectoryInformation.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeFiles\CMakeError.log", "Log", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 58, 0, 0, 60, 118
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeFiles\CMakeOutput.log", "Log", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 0, 21, 47
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\CMakeFiles\Makefile.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 6, 134
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 97, 0, 0, 0, 0, 0, 61, 53, 211
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\cmake_install.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 10, 60
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\compile_commands.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 127, 0, 0, 0, 0, 0, 0, 127
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\applib\CMakeFiles\CMakeDirectoryInformation.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\applib\CMakeFiles\app.dir\DependInfo.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 7, 32
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\applib\CMakeFiles\app.dir\cmake_clean.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 2, 13
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\applib\CMakeFiles\app.dir\cmake_clean_target.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 4
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\applib\CMakeFiles\app.dir\compiler_depend.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\applib\Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 95, 0, 0, 0, 0, 0, 48, 49, 192
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\applib\cmake_install.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 7, 40
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\boot\CMakeFiles\CMakeDirectoryInformation.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\boot\CMakeFiles\boot.dir\DependInfo.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 7, 32
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\boot\CMakeFiles\boot.dir\cmake_clean.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 2, 15
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\boot\CMakeFiles\boot.dir\compiler_depend.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\boot\Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 95, 0, 0, 0, 0, 0, 48, 49, 192
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\boot\cmake_install.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 7, 40
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\kernel\CMakeFiles\CMakeDirectoryInformation.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\kernel\CMakeFiles\kernel.dir\DependInfo.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 7, 47
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\kernel\CMakeFiles\kernel.dir\cmake_clean.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 42, 0, 0, 0, 0, 2, 44
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\kernel\CMakeFiles\kernel.dir\compiler_depend.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\kernel\Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 353, 0, 0, 0, 0, 0, 91, 135, 579
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\kernel\cmake_install.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 7, 40
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\loader\CMakeFiles\CMakeDirectoryInformation.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\loader\CMakeFiles\loader.dir\DependInfo.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 7, 33
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\loader\CMakeFiles\loader.dir\cmake_clean.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 2, 17
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\loader\CMakeFiles\loader.dir\compiler_depend.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\loader\Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 113, 0, 0, 0, 0, 0, 51, 55, 219
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\loader\cmake_install.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 7, 40
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\shell\CMakeFiles\CMakeDirectoryInformation.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\shell\CMakeFiles\shell.dir\DependInfo.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 6, 20
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\shell\CMakeFiles\shell.dir\cmake_clean.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 2, 14
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\shell\CMakeFiles\shell.dir\compiler_depend.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\shell\Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 89, 0, 0, 0, 0, 0, 47, 47, 183
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\build\source\shell\cmake_install.cmake", "CMake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 7, 40
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\10 fork.md", "Markdown", 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 8, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\11 exec.md", "Markdown", 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 15, 30
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\1_bios.md", "Markdown", 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 0, 43, 92
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\2_loader.md", "Markdown", 0, 0, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 0, 0, 116, 266
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\3_interrupt.md", "Markdown", 0, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 0, 0, 66, 122
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\4_printf.md", "Markdown", 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\5_task_sche.md", "Markdown", 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 70, 133
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\6_mutex.md", "Markdown", 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 19, 35
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\7 memory.md", "Markdown", 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 0, 77, 149
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\8 process.md", "Markdown", 0, 0, 0, 0, 0, 0, 46, 0, 0, 0, 0, 0, 0, 0, 59, 105
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\9 syscall.md", "Markdown", 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 43, 72
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\img-write-linux.sh", "Shell Script", 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 16, 10, 44
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\img-write-osx.sh", "Shell Script", 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 15, 11, 44
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\img-write-win.bat", "Batch", 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 24, 10, 49
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\qemu-debug-linux.sh", "Shell Script", 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\qemu-debug-osx.sh", "Shell Script", 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\qemu-debug-win.bat", "Batch", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\applib\crt0.S", "RISC-V Assembly", 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 13
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\applib\cstart.c", "C", 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\applib\lib_syscall.h", "C", 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 26, 99
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\boot\boot.c", "C", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 6, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\boot\boot.h", "C", 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 2, 10
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\boot\start.S", "RISC-V Assembly", 0, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 9, 58
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\boot_info.h", "C", 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\cpu_instr.h", "C", 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 40, 146
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\elf.h", "C", 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 47
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\types.h", "C", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\core\memory.c", "C", 297, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 120, 530
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\core\syscall.c", "C", 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8, 37
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\core\task.c", "C", 438, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 89, 185, 712
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\cpu\cpu.c", "C", 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 25, 99
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\cpu\irq.c", "C", 234, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 78, 352
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\dev\timer.c", "C", 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 10, 41
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\fs\fs.c", "C", 56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 22, 85
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\core\memory.h", "C", 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 24, 90
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\core\syscall.h", "C", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 28
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\core\task.h", "C", 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 38, 109
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\cpu.h", "C", 75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 46, 150
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\irq.h", "C++", 0, 0, 0, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 35, 143
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\mmu.h", "C++", 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 18, 89
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\os_cfg.h", "C", 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 9, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\dev\timer.h", "C++", 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 16
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\fs\fs.h", "C++", 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 14
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\ipc\mutex.h", "C++", 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 23
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\ipc\sem.h", "C", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 20
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\bitmap.h", "C", 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 9, 28
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\klib.h", "C++", 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 24, 58
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\list.h", "C", 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 68
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\log.h", "C", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 9
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\first_task.c", "C", 56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 66
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\first_task_entry.S", "RISC-V Assembly", 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 14
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\init.c", "C", 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 49, 192
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\init.h", "C++", 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\start_kernel.S", "RISC-V Assembly", 0, 109, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 34, 162
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\ipc\mutex.c", "C", 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 54
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\ipc\sem.c", "C", 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 15, 56
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\kernel.lds", "LinkerScript", 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 36
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\bitmap.c", "C", 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 17, 85
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\klib.c", "C", 192, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 43, 244
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\list.c", "C", 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 87
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\log.c", "C", 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 12, 48
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\loader.h", "C", 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 23
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\loader_16.c", "C", 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 27, 99
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\loader_32.c", "C", 71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 31, 121
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\start_loader.S", "RISC-V Assembly", 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5, 24
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\shell\link.lds", "LinkerScript", 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\shell\main.c", "C", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 13
+"Total", "-", 3053, 191, 45, 232, 16, 38, 515, 842, 3685, 726, 361, 84, 10, 992, 2554, 13344

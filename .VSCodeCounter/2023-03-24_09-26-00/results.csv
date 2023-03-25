@@ -1,0 +1,70 @@
+"filename", "language", "Shell Script", "Batch", "Markdown", "LinkerScript", "C", "RISC-V Assembly", "C++", "comment", "blank", "total"
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\README.md", "Markdown", 0, 0, 3, 0, 0, 0, 0, 0, 0, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\10 fork.md", "Markdown", 0, 0, 13, 0, 0, 0, 0, 0, 8, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\11 exec.md", "Markdown", 0, 0, 15, 0, 0, 0, 0, 0, 15, 30
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\1_bios.md", "Markdown", 0, 0, 49, 0, 0, 0, 0, 0, 43, 92
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\2_loader.md", "Markdown", 0, 0, 150, 0, 0, 0, 0, 0, 116, 266
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\3_interrupt.md", "Markdown", 0, 0, 56, 0, 0, 0, 0, 0, 66, 122
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\4_printf.md", "Markdown", 0, 0, 3, 0, 0, 0, 0, 0, 2, 5
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\5_task_sche.md", "Markdown", 0, 0, 63, 0, 0, 0, 0, 0, 70, 133
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\6_mutex.md", "Markdown", 0, 0, 16, 0, 0, 0, 0, 0, 19, 35
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\7 memory.md", "Markdown", 0, 0, 72, 0, 0, 0, 0, 0, 77, 149
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\8 process.md", "Markdown", 0, 0, 46, 0, 0, 0, 0, 0, 59, 105
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\9 syscall.md", "Markdown", 0, 0, 29, 0, 0, 0, 0, 0, 43, 72
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\img-write-linux.sh", "Shell Script", 18, 0, 0, 0, 0, 0, 0, 16, 10, 44
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\img-write-osx.sh", "Shell Script", 18, 0, 0, 0, 0, 0, 0, 15, 11, 44
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\img-write-win.bat", "Batch", 0, 15, 0, 0, 0, 0, 0, 24, 10, 49
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\qemu-debug-linux.sh", "Shell Script", 1, 0, 0, 0, 0, 0, 0, 1, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\qemu-debug-osx.sh", "Shell Script", 1, 0, 0, 0, 0, 0, 0, 1, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\qemu-debug-win.bat", "Batch", 0, 1, 0, 0, 0, 0, 0, 1, 1, 3
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\applib\crt0.S", "RISC-V Assembly", 0, 0, 0, 0, 0, 10, 0, 1, 2, 13
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\applib\cstart.c", "C", 0, 0, 0, 0, 8, 0, 0, 0, 2, 10
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\applib\lib_syscall.h", "C", 0, 0, 0, 0, 69, 0, 0, 4, 26, 99
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\boot\boot.c", "C", 0, 0, 0, 0, 6, 0, 0, 9, 6, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\boot\boot.h", "C", 0, 0, 0, 0, 3, 0, 0, 5, 2, 10
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\boot\start.S", "RISC-V Assembly", 0, 0, 0, 0, 0, 44, 0, 5, 9, 58
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\boot_info.h", "C", 0, 0, 0, 0, 14, 0, 0, 0, 7, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\cpu_instr.h", "C", 0, 0, 0, 0, 92, 0, 0, 14, 40, 146
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\elf.h", "C", 0, 0, 0, 0, 39, 0, 0, 0, 8, 47
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\types.h", "C", 0, 0, 0, 0, 6, 0, 0, 0, 2, 8
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\core\memory.c", "C", 0, 0, 0, 0, 297, 0, 0, 113, 120, 530
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\core\syscall.c", "C", 0, 0, 0, 0, 28, 0, 0, 1, 8, 37
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\core\task.c", "C", 0, 0, 0, 0, 438, 0, 0, 89, 185, 712
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\cpu\cpu.c", "C", 0, 0, 0, 0, 60, 0, 0, 14, 25, 99
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\cpu\irq.c", "C", 0, 0, 0, 0, 234, 0, 0, 40, 78, 352
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\dev\timer.c", "C", 0, 0, 0, 0, 24, 0, 0, 7, 10, 41
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\fs\fs.c", "C", 0, 0, 0, 0, 56, 0, 0, 7, 22, 85
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\core\memory.h", "C", 0, 0, 0, 0, 41, 0, 0, 25, 24, 90
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\core\syscall.h", "C", 0, 0, 0, 0, 20, 0, 0, 1, 7, 28
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\core\task.h", "C", 0, 0, 0, 0, 63, 0, 0, 8, 38, 109
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\cpu.h", "C", 0, 0, 0, 0, 75, 0, 0, 29, 46, 150
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\irq.h", "C++", 0, 0, 0, 0, 0, 0, 102, 6, 35, 143
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\mmu.h", "C++", 0, 0, 0, 0, 0, 0, 63, 8, 18, 89
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\os_cfg.h", "C", 0, 0, 0, 0, 11, 0, 0, 1, 9, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\dev\timer.h", "C++", 0, 0, 0, 0, 0, 0, 11, 0, 5, 16
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\fs\fs.h", "C++", 0, 0, 0, 0, 0, 0, 8, 0, 6, 14
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\ipc\mutex.h", "C++", 0, 0, 0, 0, 0, 0, 15, 0, 8, 23
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\ipc\sem.h", "C", 0, 0, 0, 0, 12, 0, 0, 0, 8, 20
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\bitmap.h", "C", 0, 0, 0, 0, 14, 0, 0, 5, 9, 28
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\klib.h", "C++", 0, 0, 0, 0, 0, 0, 30, 4, 24, 58
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\list.h", "C", 0, 0, 0, 0, 45, 0, 0, 0, 23, 68
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\log.h", "C", 0, 0, 0, 0, 5, 0, 0, 0, 4, 9
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\first_task.c", "C", 0, 0, 0, 0, 56, 0, 0, 2, 8, 66
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\first_task_entry.S", "RISC-V Assembly", 0, 0, 0, 0, 0, 10, 0, 2, 2, 14
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\init.c", "C", 0, 0, 0, 0, 96, 0, 0, 47, 49, 192
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\init.h", "C++", 0, 0, 0, 0, 0, 0, 3, 0, 2, 5
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\start_kernel.S", "RISC-V Assembly", 0, 0, 0, 0, 0, 109, 0, 19, 34, 162
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\ipc\mutex.c", "C", 0, 0, 0, 0, 44, 0, 0, 0, 10, 54
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\ipc\sem.c", "C", 0, 0, 0, 0, 39, 0, 0, 2, 15, 56
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\kernel.lds", "LinkerScript", 0, 0, 0, 29, 0, 0, 0, 0, 7, 36
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\bitmap.c", "C", 0, 0, 0, 0, 50, 0, 0, 18, 17, 85
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\klib.c", "C", 0, 0, 0, 0, 192, 0, 0, 9, 43, 244
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\list.c", "C", 0, 0, 0, 0, 63, 0, 0, 0, 24, 87
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\log.c", "C", 0, 0, 0, 0, 35, 0, 0, 1, 12, 48
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\loader.h", "C", 0, 0, 0, 0, 16, 0, 0, 0, 7, 23
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\loader_16.c", "C", 0, 0, 0, 0, 63, 0, 0, 9, 27, 99
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\loader_32.c", "C", 0, 0, 0, 0, 71, 0, 0, 19, 31, 121
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\start_loader.S", "RISC-V Assembly", 0, 0, 0, 0, 0, 18, 0, 1, 5, 24
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\shell\link.lds", "LinkerScript", 0, 0, 0, 16, 0, 0, 0, 0, 5, 21
+"e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\shell\main.c", "C", 0, 0, 0, 0, 7, 0, 0, 2, 4, 13
+"Total", "-", 38, 16, 515, 45, 2392, 191, 232, 585, 1670, 5684

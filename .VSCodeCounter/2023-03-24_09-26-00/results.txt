@@ -1,0 +1,123 @@
+Date : 2023-03-24 09:26:00
+Directory : e:\Data\Work\Job\Cpp\diy-x86os\start\start
+Total : 68 files,  3429 codes, 585 comments, 1670 blanks, all 5684 lines
+
+Languages
++-----------------+------------+------------+------------+------------+------------+
+| language        | files      | code       | comment    | blank      | total      |
++-----------------+------------+------------+------------+------------+------------+
+| C               |         36 |      2,392 |        481 |        956 |      3,829 |
+| Markdown        |         12 |        515 |          0 |        518 |      1,033 |
+| C++             |          7 |        232 |         18 |         98 |        348 |
+| RISC-V Assembly |          5 |        191 |         28 |         52 |        271 |
+| LinkerScript    |          2 |         45 |          0 |         12 |         57 |
+| Shell Script    |          4 |         38 |         33 |         23 |         94 |
+| Batch           |          2 |         16 |         25 |         11 |         52 |
++-----------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                             | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                |         68 |      3,429 |        585 |      1,670 |      5,684 |
+| . (Files)                                                                        |          1 |          3 |          0 |          0 |          3 |
+| note                                                                             |         11 |        512 |          0 |        518 |      1,030 |
+| script                                                                           |          6 |         54 |         58 |         34 |        146 |
+| source                                                                           |         50 |      2,860 |        527 |      1,118 |      4,505 |
+| source\applib                                                                    |          3 |         87 |          5 |         30 |        122 |
+| source\boot                                                                      |          3 |         53 |         19 |         17 |         89 |
+| source\comm                                                                      |          4 |        151 |         14 |         57 |        222 |
+| source\kernel                                                                    |         34 |      2,378 |        458 |        935 |      3,771 |
+| source\kernel (Files)                                                            |          1 |         29 |          0 |          7 |         36 |
+| source\kernel\core                                                               |          3 |        763 |        203 |        313 |      1,279 |
+| source\kernel\cpu                                                                |          2 |        294 |         54 |        103 |        451 |
+| source\kernel\dev                                                                |          1 |         24 |          7 |         10 |         41 |
+| source\kernel\fs                                                                 |          1 |         56 |          7 |         22 |         85 |
+| source\kernel\include                                                            |         15 |        515 |         87 |        264 |        866 |
+| source\kernel\include\core                                                       |          3 |        124 |         34 |         69 |        227 |
+| source\kernel\include\cpu                                                        |          4 |        251 |         44 |        108 |        403 |
+| source\kernel\include\dev                                                        |          1 |         11 |          0 |          5 |         16 |
+| source\kernel\include\fs                                                         |          1 |          8 |          0 |          6 |         14 |
+| source\kernel\include\ipc                                                        |          2 |         27 |          0 |         16 |         43 |
+| source\kernel\include\tools                                                      |          4 |         94 |          9 |         60 |        163 |
+| source\kernel\init                                                               |          5 |        274 |         70 |         95 |        439 |
+| source\kernel\ipc                                                                |          2 |         83 |          2 |         25 |        110 |
+| source\kernel\tools                                                              |          4 |        340 |         28 |         96 |        464 |
+| source\loader                                                                    |          4 |        168 |         29 |         70 |        267 |
+| source\shell                                                                     |          2 |         23 |          2 |          9 |         34 |
++----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| filename                                                                         | language        | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\README.md                             | Markdown        |          3 |          0 |          0 |          3 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\10 fork.md                       | Markdown        |         13 |          0 |          8 |         21 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\11 exec.md                       | Markdown        |         15 |          0 |         15 |         30 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\1_bios.md                        | Markdown        |         49 |          0 |         43 |         92 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\2_loader.md                      | Markdown        |        150 |          0 |        116 |        266 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\3_interrupt.md                   | Markdown        |         56 |          0 |         66 |        122 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\4_printf.md                      | Markdown        |          3 |          0 |          2 |          5 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\5_task_sche.md                   | Markdown        |         63 |          0 |         70 |        133 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\6_mutex.md                       | Markdown        |         16 |          0 |         19 |         35 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\7 memory.md                      | Markdown        |         72 |          0 |         77 |        149 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\8 process.md                     | Markdown        |         46 |          0 |         59 |        105 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\note\9 syscall.md                     | Markdown        |         29 |          0 |         43 |         72 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\img-write-linux.sh             | Shell Script    |         18 |         16 |         10 |         44 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\img-write-osx.sh               | Shell Script    |         18 |         15 |         11 |         44 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\img-write-win.bat              | Batch           |         15 |         24 |         10 |         49 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\qemu-debug-linux.sh            | Shell Script    |          1 |          1 |          1 |          3 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\qemu-debug-osx.sh              | Shell Script    |          1 |          1 |          1 |          3 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\script\qemu-debug-win.bat             | Batch           |          1 |          1 |          1 |          3 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\applib\crt0.S                  | RISC-V Assembly |         10 |          1 |          2 |         13 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\applib\cstart.c                | C               |          8 |          0 |          2 |         10 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\applib\lib_syscall.h           | C               |         69 |          4 |         26 |         99 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\boot\boot.c                    | C               |          6 |          9 |          6 |         21 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\boot\boot.h                    | C               |          3 |          5 |          2 |         10 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\boot\start.S                   | RISC-V Assembly |         44 |          5 |          9 |         58 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\boot_info.h               | C               |         14 |          0 |          7 |         21 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\cpu_instr.h               | C               |         92 |         14 |         40 |        146 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\elf.h                     | C               |         39 |          0 |          8 |         47 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\comm\types.h                   | C               |          6 |          0 |          2 |          8 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\core\memory.c           | C               |        297 |        113 |        120 |        530 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\core\syscall.c          | C               |         28 |          1 |          8 |         37 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\core\task.c             | C               |        438 |         89 |        185 |        712 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\cpu\cpu.c               | C               |         60 |         14 |         25 |         99 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\cpu\irq.c               | C               |        234 |         40 |         78 |        352 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\dev\timer.c             | C               |         24 |          7 |         10 |         41 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\fs\fs.c                 | C               |         56 |          7 |         22 |         85 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\core\memory.h   | C               |         41 |         25 |         24 |         90 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\core\syscall.h  | C               |         20 |          1 |          7 |         28 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\core\task.h     | C               |         63 |          8 |         38 |        109 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\cpu.h       | C               |         75 |         29 |         46 |        150 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\irq.h       | C++             |        102 |          6 |         35 |        143 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\mmu.h       | C++             |         63 |          8 |         18 |         89 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\cpu\os_cfg.h    | C               |         11 |          1 |          9 |         21 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\dev\timer.h     | C++             |         11 |          0 |          5 |         16 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\fs\fs.h         | C++             |          8 |          0 |          6 |         14 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\ipc\mutex.h     | C++             |         15 |          0 |          8 |         23 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\ipc\sem.h       | C               |         12 |          0 |          8 |         20 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\bitmap.h  | C               |         14 |          5 |          9 |         28 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\klib.h    | C++             |         30 |          4 |         24 |         58 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\list.h    | C               |         45 |          0 |         23 |         68 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\include\tools\log.h     | C               |          5 |          0 |          4 |          9 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\first_task.c       | C               |         56 |          2 |          8 |         66 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\first_task_entry.S | RISC-V Assembly |         10 |          2 |          2 |         14 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\init.c             | C               |         96 |         47 |         49 |        192 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\init.h             | C++             |          3 |          0 |          2 |          5 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\init\start_kernel.S     | RISC-V Assembly |        109 |         19 |         34 |        162 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\ipc\mutex.c             | C               |         44 |          0 |         10 |         54 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\ipc\sem.c               | C               |         39 |          2 |         15 |         56 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\kernel.lds              | LinkerScript    |         29 |          0 |          7 |         36 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\bitmap.c          | C               |         50 |         18 |         17 |         85 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\klib.c            | C               |        192 |          9 |         43 |        244 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\list.c            | C               |         63 |          0 |         24 |         87 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\kernel\tools\log.c             | C               |         35 |          1 |         12 |         48 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\loader.h                | C               |         16 |          0 |          7 |         23 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\loader_16.c             | C               |         63 |          9 |         27 |         99 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\loader_32.c             | C               |         71 |         19 |         31 |        121 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\loader\start_loader.S          | RISC-V Assembly |         18 |          1 |          5 |         24 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\shell\link.lds                 | LinkerScript    |         16 |          0 |          5 |         21 |
+| e:\Data\Work\Job\Cpp\diy-x86os\start\start\source\shell\main.c                   | C               |          7 |          2 |          4 |         13 |
+| Total                                                                            |                 |      3,429 |        585 |      1,670 |      5,684 |
++----------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
