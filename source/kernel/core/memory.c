@@ -111,7 +111,8 @@ pte_t* find_pte(pde_t* page_dir, uint32_t vaddr, int alloc) {
     // 这个是二级页表的地址
     pte_t* page_table;
 
-    pde_t* pde = &page_dir[pde_index(vaddr)];
+    // pde_t* pde = &page_dir[pde_index(vaddr)];
+    pde_t *pde = page_dir + pde_index(vaddr);
 
     // 如果这个一级页表对应的二级页表，
     // 它已经存在了
@@ -141,7 +142,8 @@ pte_t* find_pte(pde_t* page_dir, uint32_t vaddr, int alloc) {
         kmemset(page_table, 0, MEM_PAGE_SIZE);
     }
 
-    return &page_table[pte_index(vaddr)];
+    // return &page_table[pte_index(vaddr)];
+    return page_table + pte_index(vaddr);
 }
 
 // 建立内存映射

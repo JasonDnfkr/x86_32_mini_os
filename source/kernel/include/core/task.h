@@ -21,6 +21,7 @@ typedef struct _task_t {
         TASK_SLEEP,
         TASK_READY,
         TASK_WAITING,
+        TASK_ZOMBIE,
     } state;
 
     char name[TASK_NAME_SIZE];
@@ -105,5 +106,7 @@ int sys_getpid(void);
 int sys_fork(void);
 
 int sys_execve(char* name, char** argv, char** env);
+
+int sys_exit(int status);
 
 #endif

@@ -19,12 +19,12 @@ void kernel_init(boot_info_t* boot_info) {
     // ASSERT(3 < 2);
     __asm__ __volatile__("nop");
 
-
+    cpu_init();
     log_init();
 
     memory_init(boot_info);
 
-    cpu_init();
+
 
 
     irq_init();
@@ -110,10 +110,11 @@ void move_to_first_task(void) {
     __asm__ __volatile__(
         // 模拟中断返回，切换入第1个可运行应用进程
         // 不过这里并不直接进入到进程的入口，而是先设置好段寄存器，再跳过去
-        "push %[ss]\n\t"			// SS
+
+        "push %[ss]\n\t"			// SS (RPL = 3)
         "push %[esp]\n\t"			// ESP
         "push %[eflags]\n\t"        // EFLAGS
-        "push %[cs]\n\t"			// CS
+        "push %[cs]\n\t"			// CS (CPL = 3)
         "push %[eip]\n\t"		    // ip
         "iret\n\t"::[ss]"r"(tss->ss),  [esp]"r"(tss->esp), [eflags]"r"(tss->eflags),
         [cs]"r"(tss->cs), [eip]"r"(tss->eip)

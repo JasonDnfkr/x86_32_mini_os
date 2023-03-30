@@ -86,5 +86,14 @@ static inline int execve(const char* name, char* const* argv, char* const* env) 
     return syscall(&args);
 }
 
+static inline void exit(int status) {
+    syscall_args_t args;
+    args.id = SYS_exit;
+    
+    args.arg0 = status;
+
+    syscall(&args);
+}
+
 
 #endif

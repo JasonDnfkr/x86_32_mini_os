@@ -15,6 +15,8 @@ static const syscall_handler_t sys_table[] = {
     [SYS_print_msg]  = (syscall_handler_t)sys_print_msg,
     [SYS_fork]       = (syscall_handler_t)sys_fork,
     [SYS_execve]     = (syscall_handler_t)sys_execve,
+
+    [SYS_exit]       = (syscall_handler_t)sys_exit,
 };
 
 void do_handler_syscall(syscall_frame_t* frame) {

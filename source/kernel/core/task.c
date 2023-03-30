@@ -108,7 +108,7 @@ int task_init(task_t* task, const char* name, int flag, uint32_t entry, uint32_t
 
     task->pid = (uint32_t)task;
 
-    task_set_ready(task);
+    // task_set_ready(task);
 
     list_insert_back(&task_manager.task_list, &task->all_node);
 
@@ -152,6 +152,14 @@ static void idle_task_entry(void) {
     }
 }
 
+void task_start(task_t* task) {
+    irq_state_t state = irq_enter_protection();
+
+    task_set_ready(task);
+    
+    irq_leave_protection(state);
+}
+
 
 void task_manager_init(void) {
     kmemset(task_table, 0, sizeof(task_table));
@@ -184,7 +192,9 @@ void task_manager_init(void) {
               (uint32_t)idle_task_stack + IDLE_TASK_SIZE
     );
 
-    task_manager.curr_task = &task_manager.idle_task;
+    // task_manager.curr_task = &task_manager.idle_task;
+
+    task_start(&task_manager.idle_task);
 }
 
 // 初始化程序的第一个进程，是操作系统一直连贯的
@@ -215,6 +225,8 @@ void task_first_init(void) {
     // 把这段代码拷贝到上面生成的页表里
     // 相当于就是把内存搬运到 virtual 0x80000000+ 了
     kmemcpy((void*)first_start, s_first_task, copy_size);
+
+    task_start(&task_manager.first_task);
 }
 
 // 获取程序的第一个进程，是操作系统一直连贯的
@@ -418,7 +430,7 @@ int sys_fork(void) {
                         parent_task->name, 
                         TASK_FLAGS_USER, 
                         frame->eip, 
-                        frame->esp + sizeof(uint32_t) * SYSCALL_PARAM_COUNT);
+                        frame->esp + sizeof(uint32_t) * SYSCALL_PARAM_COUNT); // 这里的esp是esp3
     if (err < 0) {
         goto fork_failed;
     }
@@ -447,6 +459,8 @@ int sys_fork(void) {
     if ((tss->cr3 = memory_copy_uvm2(parent_task->tss.cr3, tss->cr3)) < 0) {
         goto fork_failed;
     }
+
+    task_start(child_task);
 
     return child_task->pid;
 
@@ -606,7 +620,7 @@ static int copy_args(char* to, uint32_t page_dir, int argc, char** argv) {
         dest_arg += len;
     }
 
-    memory_copy_uvm_data((uint32_t)to, page_dir, (uint32_t)&task_args, sizeof(task_args));
+    return memory_copy_uvm_data((uint32_t)to, page_dir, (uint32_t)&task_args, sizeof(task_args));
 }
 
 
@@ -662,7 +676,7 @@ int sys_execve(char* name, char** argv, char** env) {
     frame->edi = 0;
     frame->ebp = 0;
     frame->eflags = EFLAGS_DEFAULT | EFLAGS_IF;
-    frame->esp = stack_top - sizeof(uint32_t) * SYSCALL_PARAM_COUNT;
+    frame->esp = stack_top - sizeof(uint32_t) * SYSCALL_PARAM_COUNT; // 要执行retf $(5 * 4)
 
     task->tss.cr3 = new_page_dir;
 
@@ -688,4 +702,21 @@ execve_failed:
 
 
     return -1;
+}
+
+
+int sys_exit(int status) {
+
+
+    irq_state_t state = irq_enter_protection();
+
+    task_t* curr = task_current();
+    curr->state = TASK_ZOMBIE;
+
+    task_set_blocked(curr);
+    task_dispatch();
+
+    irq_leave_protection(state);
+
+    return 0;
 }

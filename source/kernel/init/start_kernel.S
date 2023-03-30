@@ -37,6 +37,7 @@ gdt_reload:
     .bss # 定义一个 bss 区域
     # 定义一个内核初始化过程中使用的栈
     # 而不是去使用 loader 定义的栈（使用 loader 的栈0x7c00也行）
+    # comm 声明未初始化的通用内存区域，以字节计
     .comm stack, KERNEL_STACK_SIZE 
 
 
